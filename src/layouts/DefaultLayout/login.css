@@ -1,0 +1,51 @@
+.container {
+  color: #000001;
+  height: 100%;
+  flex-direction: column;
+  font-size: 16px;
+}
+.container header {
+  width: 100%;
+  height: 20px;
+  text-align: right;
+}
+.container .icon {
+  height: 15px;
+  width: 15px;
+  color: #323232;
+  margin-right: 10px;
+}
+.container .slogan {
+  flex: 2;
+  font-size: 35px;
+  letter-spacing: 5px;
+  z-index: 1000;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  color: rgba(0, 0, 0, 0.85);
+}
+.container .content {
+  flex: 3;
+  text-align: center;
+  width: 100%;
+  background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg");
+}
+.container .content .form {
+  text-align: center;
+  margin: auto;
+}
+.container .content footer {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 20px;
+  right: 0px;
+  left: 0px;
+  font-size: 16px;
+}
+.container .content footer .pic {
+  width: 20px;
+  height: 20px;
+}
+/*# sourceMappingURL=login.css.map */
