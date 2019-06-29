@@ -4,13 +4,13 @@ import {Layout} from 'antd'
 
 const {Header, Content, Footer} = Layout
 
-const header = (
+const Ghead = (
     <Header className='blank-header'>
         <Icon type="global" />
     </Header>
 )
 
-const footer = (
+const Gfoot = (
 
     <Footer className='blank-footer'>
         <div>
@@ -24,14 +24,17 @@ const footer = (
 
 
 class BlankLayout extends Component{
+
     render() {
-        const { children } = this.props;
-        return(
-        <div>
-            <header/>
-            <Content>{children}</Content>
-            <footer/>
-        </div>
+        const {children} = this.props;
+        return (
+            <main>
+                <div>
+                    <Ghead/>
+                    <Content>{children}</Content>
+                    <Gfoot/>
+                </div>
+            </main>
         )
     }
 }

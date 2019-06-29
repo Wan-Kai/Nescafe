@@ -6,6 +6,8 @@ import LoginUser from './layouts/LoginUser/LoginUser';
 import Test from './pages/Test';
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+import LoginForm from './pages/form/LoginForm'
+import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
 
 class App extends Component {
   render() {
@@ -15,8 +17,8 @@ class App extends Component {
               <LayoutRoute
                   exact
                   path="/"
-                  layout={LoginUser}
-                  component={Test}
+                  layout={BlankLayout}
+                  component={LoginForm}
               />
               <Redirect to="/" />
           </Switch>
@@ -25,4 +27,3 @@ class App extends Component {
   }
 }
 
-export default App;
