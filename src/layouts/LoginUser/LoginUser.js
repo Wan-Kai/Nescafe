@@ -10,11 +10,11 @@ export default class LoginUser extends Component{
             <Layout>
                 <Header>This a new Test</Header>
                   <Layout>
-                <Sider>Sider</Sider>
-                <Content>
-                    {children}
-                </Content>
-                      </Layout>
+                    <Sider>Sider</Sider>
+                     <Content>
+                        {children}
+                     </Content>
+                  </Layout>
                 <Footer>Copyright by Wan</Footer>
             </Layout>
 
