@@ -1,0 +1,24 @@
+.blank-header{
+    width: 100%;
+    height: 40px;
+    line-height: 44px;
+    text-align: right;
+}
+
+div.blank-footer{
+    text-align: center;
+    border: 1px;
+    color: rgba(0,0,0,.45);
+    font-size: 14px;
+    width: 20%;
+}
+
+.blank-footer-text{
+    margin-bottom: 20px;
+}
+
+.blank-footer-copyright{
+    margin-bottom: 8px;
+}
+
+

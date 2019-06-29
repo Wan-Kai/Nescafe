@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {HashRouter,Route,Switch} from 'react-router-dom';
-import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
+import BlankLayout from './layouts/DefaultLayout/BlankLayout';
 import LoginUser from './layouts/LoginUser/LoginUser';
 
 export default class RouterWrap extends Component{
@@ -9,7 +9,7 @@ export default class RouterWrap extends Component{
             <div id="router">
                 <HashRouter>
                     <Switch>
-                        <Route path="/" component={DefaultLayout}  exact />
+                        <Route path="/" component={BlankLayout} exact />
                         <Route path="/login" component={LoginUser} />
                     </Switch>
                 </HashRouter>
