@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0955eead-e337-4a20-b116-822d7ad29d33" name="Default Changelist" comment="" />
+    <list default="true" id="0955eead-e337-4a20-b116-822d7ad29d33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/pagesStyle/Test.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Test.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,11 +34,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+            <state relative-caret-position="368">
+              <caret line="184" column="30" selection-start-line="184" selection-start-column="30" selection-end-line="184" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#204#253#0" />
+                <element signature="e#232#631#0" />
+                <element signature="e#1350#4019#0" />
+                <element signature="e#1435#2211#0" />
+                <element signature="e#2310#3086#0" />
+                <element signature="e#3185#3961#0" />
+                <element signature="e#4290#5122#0" />
+                <element signature="e#5282#9102#0" />
+                <element signature="e#5375#6207#0" />
+                <element signature="e#6318#7150#0" />
+                <element signature="e#7261#8093#0" />
+                <element signature="e#6287#7119#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/pagesStyle/Test.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -40,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/LayoutRoute.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
+            <state relative-caret-position="42">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -59,24 +86,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layouts/DefaultLayout/DefaultLayout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/logo.svg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="504">
+              <caret line="24" column="70" lean-forward="true" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -84,9 +102,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.css">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -122,7 +144,11 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/layouts/content.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.css" />
+        <option value="$PROJECT_DIR$/src/pages/pagesStyle/Test.less" />
+        <option value="$PROJECT_DIR$/src/pages/Test.js" />
         <option value="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.js" />
+        <option value="$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.less" />
       </list>
     </option>
   </component>
@@ -157,19 +183,27 @@
               <item name="lee" type="b2602c69:ProjectViewProjectNode" />
               <item name="lee" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="lee" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lee" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lee" type="b2602c69:ProjectViewProjectNode" />
               <item name="lee" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginUser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lee" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="pagesStyle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +274,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12978000" />
+    <option name="totallyTimeSpent" value="15991000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,8 +287,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2513011" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2513011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -265,8 +300,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891247" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32891247" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49962825" visible="true" weight="0.32228118" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50037175" side_tool="true" weight="0.32228118" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49888477" weight="0.32228118" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50111526" side_tool="true" weight="0.32228118" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -285,8 +320,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891247" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32891247" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49962825" visible="true" weight="0.32228118" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50037175" side_tool="true" weight="0.32228118" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49888477" visible="true" weight="0.32228118" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50111526" side_tool="true" weight="0.32228118" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -307,7 +342,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/DefalutLayout/DefalutLayout.js" />
     <entry file="file://$PROJECT_DIR$/src/layouts/BlankLayout.tsx" />
-    <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.less" />
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -361,9 +395,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LayoutRoute.js">
+    <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LayoutRoute.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -371,26 +412,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pagesStyle/Test.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+        <state relative-caret-position="368">
+          <caret line="184" column="30" selection-start-line="184" selection-start-column="30" selection-end-line="184" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#204#253#0" />
+            <element signature="e#232#631#0" />
+            <element signature="e#1350#4019#0" />
+            <element signature="e#1435#2211#0" />
+            <element signature="e#2310#3086#0" />
+            <element signature="e#3185#3961#0" />
+            <element signature="e#4290#5122#0" />
+            <element signature="e#5282#9102#0" />
+            <element signature="e#5375#6207#0" />
+            <element signature="e#6318#7150#0" />
+            <element signature="e#7261#8093#0" />
+            <element signature="e#6287#7119#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="504">
+          <caret line="24" column="70" lean-forward="true" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/LoginUser/LoginUser.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
         </state>
       </provider>
     </entry>
