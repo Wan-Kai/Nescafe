@@ -1,0 +1,29 @@
+.login-form {
+    text-align: center;
+    max-width: 300px;
+}
+.login-form-forgot {
+    float: right;
+}
+.login-form-button {
+    width: 100%;
+}
+
+.slogan{
+    font-size: 35px;
+    letter-spacing: 5px;
+    z-index: 1000;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    color: rgba(0,0,0,.85);
+}
+
+.register-slogan{
+    font-size: 35px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    color: rgba(0,0,0,.85);
+}
