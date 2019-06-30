@@ -25,10 +25,12 @@ const menu = (
     </Menu>
 )
 
-class BlankLayout extends Component{
+const text = null;
 
+class BlankLayout extends Component {
+    // todo 父子通信，传text
     render() {
-        const {children} = this.props;
+        const {children,headerText} = this.props;
         return (
             <layout>
                 <div className="container">
@@ -38,9 +40,7 @@ class BlankLayout extends Component{
                         </Dropdown>
                     </header>
                     <div className='content'>
-                        <div className='slogan'>
-                            欢迎来到登陆页面
-                        </div>
+                        {headerText}
                         <div>
                             <div style={{display: "inline-block", width: "23%"}}></div>
                             <div style={{display: "inline-block"}}>
@@ -50,8 +50,7 @@ class BlankLayout extends Component{
                         </div>
                         <footer>
                             <div>
-                                你比五环多一环
-                                <img alt='logo' className='pic' src={myLogo}/>
+                                <img alt='logo' className='pic' src={myLogo}/><br/>
                                 花旗杯创新项目
                             </div>
                         </footer>
@@ -62,4 +61,4 @@ class BlankLayout extends Component{
     }
 }
 
-    export default BlankLayout;
+export default BlankLayout;

@@ -2,6 +2,15 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import Redirect from "react-router-dom/es/Redirect";
+
+export const headerText = ()=>{
+    return (
+        <div className='slogan'>
+            欢迎来到登陆页面
+        </div>
+    );
+}
 
 class NormalLoginForm extends React.Component {
     handleSubmit = e => {
@@ -12,6 +21,10 @@ class NormalLoginForm extends React.Component {
             }
         });
     };
+
+    handleRegister = ()=>{
+        return (<Redirect to = "/register"/>);
+    }
 
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -49,7 +62,7 @@ class NormalLoginForm extends React.Component {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Log in
                     </Button>
-                    Or <a href="" style={{fontSize:'20px'}}>register now!</a>
+                    Or <a href='/register' style={{fontSize:'20px'}}>register now!</a>
                 </Form.Item>
             </Form>
         );

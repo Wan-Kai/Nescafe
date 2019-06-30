@@ -15,16 +15,6 @@
   color: #323232;
   margin-right: 10px;
 }
-.container .slogan {
-  flex: 2;
-  font-size: 35px;
-  letter-spacing: 5px;
-  z-index: 1000;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 50px;
-  color: rgba(0, 0, 0, 0.85);
-}
 .container .content {
   flex: 3;
   text-align: center;
@@ -37,8 +27,7 @@
 }
 .container .content footer {
   display: block;
-  position: absolute;
-  bottom: 0px;
+  margin-top: 80px;
   margin-bottom: 20px;
   right: 0px;
   left: 0px;
