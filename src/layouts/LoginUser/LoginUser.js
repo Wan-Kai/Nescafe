@@ -1,8 +1,24 @@
 import React, {Component, component} from 'react';
-import {Layout,Menu,Icon,SubMenu} from 'antd';
+import {Layout,Menu,Icon,SubMenu,Dropdown} from 'antd';
 import './LoginUser.less';
 
-const {Header,Footer,Content,Sider} = Layout;
+const {Header,Footer,Content} = Layout;
+
+const menu = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer">
+                中文
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer">
+                English
+            </a>
+        </Menu.Item>
+
+    </Menu>
+);
 
 export default class LoginUser extends Component{
 
@@ -22,7 +38,13 @@ export default class LoginUser extends Component{
                         <Menu.Item key="2">信息</Menu.Item>
                         <Menu.Item key="3">设置</Menu.Item>
 
-                        <Icon type="global" className="global"></Icon>
+                        <Dropdown overlay={menu}>
+                            <a className="global" href="#">
+                                语言 <Icon type="global" />
+                            </a>
+                        </Dropdown>
+
+
                     </Menu>
                 </Header>
                      <Content>
