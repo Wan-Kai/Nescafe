@@ -6,8 +6,12 @@ import LoginUser from './layouts/LoginUser/LoginUser';
 import Test from './pages/Test';
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+import LoginForm,{headerText} from './pages/form/LoginForm'
+import registerForm ,{RHeaderText}from './pages/form/RegisterForm'
+import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
 
 class App extends Component {
+
   render() {
     return (
         <BrowserRouter>
@@ -15,8 +19,16 @@ class App extends Component {
               <LayoutRoute
                   exact
                   path="/"
-                  layout={LoginUser}
-                  component={Test}
+                  layout={BlankLayout}
+                  component={LoginForm}
+                  headerText={headerText()}
+              />
+              <LayoutRoute
+                  exact
+                  path="/register"
+                  layout={BlankLayout}
+                  headerText={RHeaderText()}
+                  component={registerForm}
               />
               <Redirect to="/" />
           </Switch>
@@ -26,3 +38,4 @@ class App extends Component {
 }
 
 export default App;
+
