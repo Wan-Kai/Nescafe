@@ -31,8 +31,6 @@ class AuthPage extends React.Component {
                             <h3>3</h3>
                             <h3>3</h3>
                             <h3>3</h3>
-                            <h3>3</h3>
-
                         </div>
                         <div>
                             <h3>4</h3>
