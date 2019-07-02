@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
 import mlogo from '../../assets/img/mlogo.png'
-import './MainPage.less'
+import './NewsPage.less'
 
 
 const { Meta } = Card;

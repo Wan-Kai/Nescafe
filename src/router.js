@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {HashRouter,Route,Switch} from 'react-router-dom';
-import BlankLayout from './layouts/DefaultLayout/BlankLayout';
-import LoginUser from './layouts/LoginUser/LoginUser';
+import LoginLayout from './layouts/LoginLayout/LoginLayout';
+import NewsLayout from './layouts/NewsLayout/NewsLayout';
 
 export default class RouterWrap extends Component{
     render(){
@@ -9,8 +9,8 @@ export default class RouterWrap extends Component{
             <div id="router">
                 <HashRouter>
                     <Switch>
-                        <Route path="/" component={BlankLayout} exact />
-                        <Route path="/login" component={LoginUser} />
+                        <Route path="/" component={LoginLayout} exact />
+                        <Route path="/login" component={NewsLayout} />
                     </Switch>
                 </HashRouter>
             </div>

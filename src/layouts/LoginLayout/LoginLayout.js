@@ -1,6 +1,6 @@
 import React, {Component, component} from 'react';
 import Icon from "antd/es/icon";
-import './login.less'
+import './LoginLayout.less'
 import myLogo from '../../assets/img/mlogo.png'
 import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
@@ -26,7 +26,7 @@ const menu = (
 )
 
 
-class BlankLayout extends Component {
+class LoginLayout extends Component {
     // todo 父子通信，传text
     render() {
         const {children} = this.props;
@@ -58,4 +58,4 @@ class BlankLayout extends Component {
     }
 }
 
-export default BlankLayout;
+export default LoginLayout;

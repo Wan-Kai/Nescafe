@@ -1,6 +1,6 @@
 import React, {Component, component} from 'react';
 import {Layout,Menu,Icon,SubMenu,Dropdown} from 'antd';
-import './LoginUser.less';
+import './NewsLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 
 const {Header,Footer,Content} = Layout;
@@ -21,7 +21,7 @@ const menu = (
     </Menu>
 );
 
-export default class LoginUser extends Component{
+export default class NewsLayout extends Component{
 
     render() {
         const { children } = this.props;
