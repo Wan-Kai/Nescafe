@@ -34,7 +34,7 @@ export default class NewsLayout extends Component{
                         theme="light"
                         mode="horizontal"
                         defaultSelectedKeys={['1']}
-                        style={{ lineHeight: '60px'}}
+                        style={{ lineHeight: '58px'}}
                     >
 
                         <Menu.Item key="1">企业本页</Menu.Item>

@@ -7,13 +7,13 @@ import { HashRouter, Redirect, Switch } from 'react-router-dom';
 
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
-import UserPage from './pages/userPage/UserPage';
+import UserPage from './pages/UserPage/UserPage';
 
 import UserForm from './pages/LoginPage/LoginPage'
 
 import registerForm from './pages/LoginPage/RegisterForm'
 import LoginLayout from "./layouts/LoginLayout/LoginLayout";
-import StepForm from "./pages/stepForm/StepForm";
+import StepForm from "./pages/StepForm/stepForm";
 
 class App extends Component {
 

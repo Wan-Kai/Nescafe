@@ -3,7 +3,10 @@ import React from 'react';
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
 import mlogo from '../../assets/img/mlogo.png'
 import './NewsPage.less'
-
+import backgrand from '../../assets/img/backgrand.png'
+import beauty from '../../assets/img/beauty.jpg'
+import smail from '../../assets/img/smail.jpg'
+import dragenMom from '../../assets/img/drangenMom.jpg'
 
 const { Meta } = Card;
 
@@ -16,27 +19,28 @@ class AuthPage extends React.Component {
                 <div className="car">
                     <Carousel autoplay>
                         <div>
-                            <h3>1</h3>
+                            <img className="img"
+                                alt="example"
+                                src={backgrand}
+                            />
                         </div>
                         <div>
-                            <h3>2</h3>
+                            <img className="img"
+                                 alt="example"
+                                 src={beauty}
+                            />
                         </div>
                         <div>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
-                            <h3>3</h3>
+                            <img className="img"
+                                 alt="example"
+                                 src={smail}
+                            />
                         </div>
                         <div>
-                            <h3>4</h3>
+                            <img className="img"
+                                 alt="example"
+                                 src={dragenMom}
+                            />
                         </div>
                     </Carousel>
                 </div>
