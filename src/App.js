@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import LoginUser from './layouts/LoginUser/LoginUser';
-import Test from './pages/Test';
+import Test from './pages/mainPage/Test';
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
-import Hello from './pages/hello';
+import Hello from './pages/mainPage/hello';
 
 import LoginForm from './pages/form/LoginForm'
 import registerForm from './pages/form/RegisterForm'
