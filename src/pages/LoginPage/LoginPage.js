@@ -29,16 +29,13 @@ class LoginPage extends Component {
         this.state = {
             isRegister:false,
         }
-
     }
 
     handleChangeForm = (msg) =>{
         this.setState({
             isRegister:msg,
         })
-
     }
-
 
     // todo 父子通信，传text
     render() {

@@ -33,22 +33,12 @@ const MenuUser = (
 const StillNotLogin = (
     <Menu>
         <Menu.Item>
-            <a target="/login/log" rel="noopener noreferrer">
+            <a href="#login" rel="noopener noreferrer">
                 login now!
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="/login/sign" rel="noopener noreferrer">
-                sign in now!
             </a>
         </Menu.Item>
     </Menu>
 )
-
-const userMenu = (isLogin) =>{
-    return (isLogin?<MenuUser/>:<StillNotLogin/>);
-}
-
 
 const menu = (
     <Menu>
@@ -75,6 +65,7 @@ export default class NewsLayout extends Component{
     }
 
     render() {
+        const isLogin = this.state.isLogin;
         const {children} = this.props;
         return (
             <Layout>
@@ -91,11 +82,14 @@ export default class NewsLayout extends Component{
 
                         <img className="logo" src={mlogo}/>
                         <div className='menu-float-right'>
-                        <span style={{marginRight: '1em'}}>
-                            <Badge count={1}>
-                            <Avatar icon="user"/>
-                            </Badge>
-                        </span>
+                            <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
+                                <span style={{marginRight: '1em'}}>
+                                    <Badge count={1}>
+                                        <Avatar icon="user"/>
+                                    </Badge>
+                                </span>
+                            </Dropdown>
+
                             <Dropdown overlay={menu}>
                                 <a href="#">
                                     语言 <Icon type="global"/>

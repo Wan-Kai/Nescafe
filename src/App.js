@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import NewsLayout from './layouts/NewsLayout/NewsLayout';
 import MainPage from './pages/NewsPage/NewsPage';
-import { HashRouter, Redirect, Switch } from 'react-router-dom';
+import { HashRouter, Redirect, Switch} from 'react-router-dom';
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/UserPage/UserPage';
-
 import LoginPage from './pages/LoginPage/LoginPage';
-
 import Route from "react-router-dom/es/Route";
 
 class App extends Component {
@@ -25,7 +23,7 @@ class App extends Component {
               />
 
               <Route
-                  path="/login/:whichForm"
+                  path="/login"
                   component={LoginPage}
               />
               <LayoutRoute

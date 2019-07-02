@@ -202,7 +202,7 @@ class RegistrationForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout} style={{marginLeft:"-6em",marginTop:"-2em"}} >
-                    <Button type="primary" style={{marginRight:'1em'}} onClick={handleLogin}>
+                    <Button type="primary" style={{marginRight:'1em'}} onClick={()=>handleLogin(false)}>
                         <Icon type="left" />
                         Login Now
                     </Button>
