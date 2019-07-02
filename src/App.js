@@ -4,7 +4,8 @@ import LoginUser from './layouts/LoginUser/LoginUser';
 import Test from './pages/Test';
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
-
+import User from './layouts/UserLayout/UserLayout';
+import Hello from './pages/hello';
 
 import LoginForm from './pages/form/LoginForm'
 import registerForm from './pages/form/RegisterForm'
@@ -36,9 +37,10 @@ class App extends Component {
                   component={Test}
               />
               <LayoutRoute
-                path="/info"
-                layout={BlankLayout}
-                component={StepForm}
+                  exact
+                  path="/user"
+                  layout={User}
+                  component={Hello}
               />
               <Redirect to="/" />
           </Switch>
