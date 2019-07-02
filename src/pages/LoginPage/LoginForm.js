@@ -15,7 +15,6 @@ class loginForm extends React.Component {
     };
 
     render() {
-        const {handleRegister} = this.props.handleRegister;
         const {getFieldDecorator} = this.props.form;
         return(<div>
                 <div className='slogan'>
@@ -55,7 +54,7 @@ class loginForm extends React.Component {
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             Log in
                         </Button>
-                        Or <a onClick={()=>handleRegister(true)} style={{fontSize: '20px'}}>register now!</a>
+                        Or <a onClick={()=>this.props.handleRegister(true)} style={{fontSize: '20px'}}>register now!</a>
                     </Form.Item>
                 </Form>
             </div>

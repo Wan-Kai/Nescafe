@@ -66,7 +66,6 @@ class RegistrationForm extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
-        const {handleLogin} = this.props.handleLogin;
 
         const {autoCompleteResult} = this.state;
 
