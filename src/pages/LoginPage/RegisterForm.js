@@ -1,12 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './index.css';
+import './Forms.css';
 import {
     Form,
     Input,
-    Tooltip,
     Icon,
-    Cascader,
     Select,
     Row,
     Col,
@@ -18,15 +16,8 @@ import {
 const {Option} = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
-export const RHeaderText =()=> {
-    return(
-        <div className='register-slogan'>
-        欢迎来到注册界面
-        </div>
-    );
-}
-
 class RegistrationForm extends React.Component {
+
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
@@ -75,6 +66,8 @@ class RegistrationForm extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
+        const {handleLogin} = this.props.handleLogin;
+
         const {autoCompleteResult} = this.state;
 
         const formItemLayout = {
@@ -209,7 +202,7 @@ class RegistrationForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout} style={{marginLeft:"-6em",marginTop:"-2em"}} >
-                    <Button type="primary" style={{marginRight:'1em'}} onClick={this.props.isRegister}>
+                    <Button type="primary" style={{marginRight:'1em'}} onClick={handleLogin}>
                         <Icon type="left" />
                         Login Now
                     </Button>
@@ -223,6 +216,6 @@ class RegistrationForm extends React.Component {
     }
 }
 
-const WrappedRegistrationForm = Form.create({name: 'register'})(RegistrationForm);
+const RegisterForm = Form.create({name: 'register'})(RegistrationForm);
 
-export default WrappedRegistrationForm;
+export default RegisterForm;

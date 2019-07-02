@@ -3,10 +3,10 @@ import React from 'react';
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
 import mlogo from '../../assets/img/mlogo.png'
 import './NewsPage.less'
-import background from '../../assets/img/backgrand.png'
+import background from '../../assets/img/background.png'
 import beauty from '../../assets/img/beauty.jpg'
 import smail from '../../assets/img/smail.jpg'
-import dragonMom from '../../assets/img/drangenMom.jpg'
+import dragonMom from '../../assets/img/drangonMom.jpg'
 
 const { Meta } = Card;
 
@@ -18,28 +18,16 @@ class AuthPage extends React.Component {
                 <div className="car">
                     <Carousel autoplay>
                         <div>
-                            <img className="img"
-                                alt="example"
-                                src={background}
-                            />
+                            <img className="img" alt="example" src={background}/>
                         </div>
                         <div>
-                            <img className="img"
-                                 alt="example"
-                                 src={beauty}
-                            />
+                            <img className="img" alt="example" src={beauty}/>
                         </div>
                         <div>
-                            <img className="img"
-                                 alt="example"
-                                 src={smail}
-                            />
+                            <img className="img" alt="example" src={smail}/>
                         </div>
                         <div>
-                            <img className="img"
-                                 alt="example"
-                                 src={dragonMom}
-                            />
+                            <img className="img" alt="example" src={dragonMom}/>
                         </div>
                     </Carousel>
                 </div>

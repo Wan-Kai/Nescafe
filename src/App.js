@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import NewsLayout from './layouts/NewsLayout/NewsLayout';
-
 import MainPage from './pages/NewsPage/NewsPage';
 import { HashRouter, Redirect, Switch } from 'react-router-dom';
-
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/UserPage/UserPage';
 
-import UserForm from './pages/LoginPage/LoginPage'
+import LoginPage from './pages/LoginPage/LoginPage';
 
-import LoginLayout from "./layouts/LoginLayout/LoginLayout";
+import Route from "react-router-dom/es/Route";
 
 class App extends Component {
 
@@ -26,11 +24,9 @@ class App extends Component {
                   component={MainPage}
               />
 
-              <LayoutRoute
-                  exact
+              <Route
                   path="/login/:whichForm"
-                  layout={LoginLayout}
-                  component={UserForm}
+                  component={LoginPage}
               />
               <LayoutRoute
                   exact

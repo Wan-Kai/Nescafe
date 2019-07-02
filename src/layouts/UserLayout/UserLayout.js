@@ -1,10 +1,8 @@
 import mlogo from '../../assets/img/mlogo.png'
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './UserLayout.less';
 import {Layout, Menu, Icon, Dropdown} from 'antd';
-// import myLogo from '../../assets/img/mlogo.png';
 import {Avatar} from 'antd';
 import Badge from "antd/es/badge";
 

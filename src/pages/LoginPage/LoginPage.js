@@ -1,90 +1,75 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import './index.css';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import RegisterForm from'./RegisterForm'
+import React, {Component} from 'react';
+import Icon from "antd/es/icon";
+import './LoginPage.less'
+import myLogo from '../../assets/img/mlogo.png'
+import {Menu} from "antd";
+import Dropdown from "antd/es/dropdown";
+import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
 
-class NormalLoginForm extends React.Component {
+const menu = (
+    <Menu>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com/">
+                English
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com/">
+                中文
+            </a>
+        </Menu.Item>
+    </Menu>
+)
+
+
+class LoginPage extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             isRegister:false,
-            isLogin:false,
-            loginAfrRegi:false,
         }
+
     }
 
-    handleRegister = ()=>{
+    handleChangeForm = (msg) =>{
         this.setState({
-            isRegister:true
+            isRegister:msg,
         })
+
     }
 
-    handleReLogin = () =>{
-        this.setState({
-            isRegister:false,
-        })
-    }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of LoginPage: ', values);
-            }
-        });
-    };
-
+    // todo 父子通信，传text
     render() {
-        const {getFieldDecorator} = this.props.form;
         return (
-            this.state.isRegister?<RegisterForm isRegister = {()=>this.handleReLogin()}/>:
-        (<div>
-            <div className='slogan'>
-                LOGIN IN <Icon type="key" />
+            <div className='root'>
+                <div className="container">
+                    <div className='flexColumn'>
+                        <div className='head-menu'>
+                            <Dropdown overlay={menu}>
+                                <Icon type="global" className='icon'/>
+                            </Dropdown>
+                        </div>
+                        <div className='content'>
+                            {this.state.isRegister?<RegisterForm handleLogin={this.handleChangeForm}/>:
+                            <LoginForm handleRegister={this.handleChangeForm}/>}
+                        {/*todo*/}
+                        </div>
+                        <div className='footer-logo'>
+                            <div style={{display:"block",height:"80%"}}/>
+                            <p className='footer-p'>
+                                <img alt='logo' className='pic' src={myLogo}
+                                     style={{width: "20px", height: "20px"}}/>
+                                花旗杯创新项目
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <Form onSubmit={this.handleSubmit} className='login-form'>
-                <Form.Item>
-                    {getFieldDecorator('username', {
-                        rules: [{required: true, message: 'Please input your username!'}],
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                            placeholder="Username"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    {getFieldDecorator('password', {
-                        rules: [{required: true, message: 'Please input your Password!'}],
-                    })(
-                        <Input
-                            prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                            type="password"
-                            placeholder="Password"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item>
-                    {/*调整rememberme的大小 todo*/}
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(<Checkbox className='checkbox'>Remember me</Checkbox>)}
-                    <a className="login-form-forgot" href="">
-                        Forgot password
-                    </a>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        Log in
-                    </Button>
-                    Or <a onClick={this.handleRegister} style={{fontSize: '20px'}}>register now!</a>
-                </Form.Item>
-            </Form>
-        </div>)
-        );
+        )
     }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
-
-export default WrappedNormalLoginForm;
+export default LoginPage;

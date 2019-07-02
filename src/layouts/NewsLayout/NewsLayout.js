@@ -33,12 +33,12 @@ const MenuUser = (
 const StillNotLogin = (
     <Menu>
         <Menu.Item>
-            <a target="/login" rel="noopener noreferrer">
+            <a target="/login/log" rel="noopener noreferrer">
                 login now!
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer">
+            <a target="/login/sign" rel="noopener noreferrer">
                 sign in now!
             </a>
         </Menu.Item>
@@ -75,36 +75,36 @@ export default class NewsLayout extends Component{
     }
 
     render() {
-        const { children } = this.props;
+        const {children} = this.props;
         return (
             <Layout>
-                <Header style={{ background: '#FFFFFF', padding: 0}} className="header">
+                <Header style={{background: '#FFFFFF', padding: 0}} className="header">
                     <Menu
                         theme="light"
                         mode="horizontal"
                         defaultSelectedKeys={['1']}
-                        style={{ lineHeight: '58px'}}>
+                        style={{lineHeight: '58px'}}>
 
                         <Menu.Item key="1">企业本页</Menu.Item>
                         <Menu.Item key="2">信息</Menu.Item>
                         <Menu.Item key="3">设置</Menu.Item>
 
-                        <img  className="logo" src={mlogo}/>
+                        <img className="logo" src={mlogo}/>
                         <div className='menu-float-right'>
-                        <span style={{marginRight:'1em'}}>
+                        <span style={{marginRight: '1em'}}>
                             <Badge count={1}>
-                            <Avatar  icon="user" />
+                            <Avatar icon="user"/>
                             </Badge>
                         </span>
-                        <Dropdown overlay={menu}  style={{marginLeft:'20px'}}>
-                            <a  href="#">
-                                语言 <Icon type="global" />
-                            </a>
-                        </Dropdown>
+                            <Dropdown overlay={menu}>
+                                <a href="#">
+                                    语言 <Icon type="global"/>
+                                </a>
+                            </Dropdown>
                         </div>
                     </Menu>
                 </Header>
-                <div >
+                <div>
                     <layout>
                         <Content>
                             {children}
