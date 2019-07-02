@@ -113,9 +113,9 @@ class RegistrationForm extends React.Component {
         ));
 
         return (
-            <div>
+            <div className='register-form'>
                 <p className='p-font'>
-                    <Icon type="usergroup-add" style={{marginRight:"10px"}}/>
+                    <Icon type="usergroup-add" style={{marginRight:"0.5em",marginLeft:"0.5em"}}/>
                     Let's get started!
                 </p>
 
@@ -203,13 +203,17 @@ class RegistrationForm extends React.Component {
                     {getFieldDecorator('agreement', {
                         valuePropName: 'checked',
                     })(
-                        <Checkbox style={{float:"left", marginTop:"-15px"}}>
+                        <Checkbox style={{float:"left", marginTop:"-1em",marginBottom:"-1em",fontSize:"16px", marginLeft:'-1em'}}>
                             I have read the <a href="">agreement</a>
                         </Checkbox>,
                     )}
                 </Form.Item>
-                <Form.Item {...tailFormItemLayout} >
-                    <Button type="primary" htmlType="submit" style={{display: "inline-block"}}>
+                <Form.Item {...tailFormItemLayout} style={{marginLeft:"-6em",marginTop:"-2em"}} >
+                    <Button type="primary" style={{marginRight:'1em'}} onClick={this.props.isRegister}>
+                        <Icon type="left" />
+                        Login Now
+                    </Button>
+                    <Button type="primary" htmlType="submit" className="register-form-button">
                         Register
                     </Button>
                 </Form.Item>

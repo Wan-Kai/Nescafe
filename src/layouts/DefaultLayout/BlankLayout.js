@@ -29,7 +29,7 @@ const menu = (
 class BlankLayout extends Component {
     // todo 父子通信，传text
     render() {
-        const {children, headerText} = this.props;
+        const {children} = this.props;
         return (
             <div className='root'>
                 <div className="container">

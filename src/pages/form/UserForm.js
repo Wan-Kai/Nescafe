@@ -16,10 +16,15 @@ class NormalLoginForm extends React.Component {
         }
     }
 
-    handleRegister = e =>{
-        e.preventDefault();
+    handleRegister = ()=>{
         this.setState({
             isRegister:true
+        })
+    }
+
+    handleReLogin = () =>{
+        this.setState({
+            isRegister:false,
         })
     }
 
@@ -35,7 +40,7 @@ class NormalLoginForm extends React.Component {
     render() {
         const {getFieldDecorator} = this.props.form;
         return (
-            this.state.isRegister?<RegisterForm/>:
+            this.state.isRegister?<RegisterForm isRegister = {()=>this.handleReLogin()}/>:
         (<div>
             <div className='slogan'>
                 LOGIN IN <Icon type="key" />
