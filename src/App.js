@@ -7,7 +7,7 @@ import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/userPage/UserPage';
 
-import LoginForm from './pages/form/LoginForm'
+import UserForm from './pages/form/UserForm'
 import registerForm from './pages/form/RegisterForm'
 import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
 import StepForm from "./pages/stepForm/StepForm";
@@ -26,9 +26,9 @@ class App extends Component {
               />
               <LayoutRoute
                   exact
-                  path="/register"
+                  path="/login"
                   layout={BlankLayout}
-                  component={registerForm}
+                  component={UserForm}
               />
               <LayoutRoute
                   exact
