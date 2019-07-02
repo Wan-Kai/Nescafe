@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import LoginUser from './layouts/LoginUser/LoginUser';
-import Test from './pages/Test';
-import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
+import Test from './pages/mainPage/Test';
+import { BrowserRouter, HashRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 
 
-import LoginForm from './pages/form/LoginForm'
+import LoginForm from './pages/form/UserForm'
 import registerForm from './pages/form/RegisterForm'
 import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
 import StepForm from "./pages/stepForm/StepForm";
@@ -15,11 +15,17 @@ class App extends Component {
 
   render() {
     return (
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
               <LayoutRoute
                   exact
                   path="/"
+                  layout={LoginUser}
+                  component={Test}
+              />
+              <LayoutRoute
+                  exact
+                  path="/login"
                   layout={BlankLayout}
                   component={LoginForm}
               />
@@ -30,19 +36,13 @@ class App extends Component {
                   component={registerForm}
               />
               <LayoutRoute
-                  exact
-                  path="/main"
-                  layout={LoginUser}
-                  component={Test}
-              />
-              <LayoutRoute
                 path="/info"
                 layout={BlankLayout}
                 component={StepForm}
               />
               <Redirect to="/" />
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
     );
   }
 }
