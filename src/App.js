@@ -11,9 +11,7 @@ import UserPage from './pages/UserPage/UserPage';
 
 import UserForm from './pages/LoginPage/LoginPage'
 
-import registerForm from './pages/LoginPage/RegisterForm'
 import LoginLayout from "./layouts/LoginLayout/LoginLayout";
-import StepForm from "./pages/StepForm/stepForm";
 
 class App extends Component {
 
@@ -30,7 +28,7 @@ class App extends Component {
 
               <LayoutRoute
                   exact
-                  path="/login"
+                  path="/login/:whichForm"
                   layout={LoginLayout}
                   component={UserForm}
               />

@@ -3,15 +3,14 @@ import React from 'react';
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
 import mlogo from '../../assets/img/mlogo.png'
 import './NewsPage.less'
-import backgrand from '../../assets/img/backgrand.png'
+import background from '../../assets/img/backgrand.png'
 import beauty from '../../assets/img/beauty.jpg'
 import smail from '../../assets/img/smail.jpg'
-import dragenMom from '../../assets/img/drangenMom.jpg'
+import dragonMom from '../../assets/img/drangenMom.jpg'
 
 const { Meta } = Card;
 
 class AuthPage extends React.Component {
-
 
     render() {
         return (
@@ -21,7 +20,7 @@ class AuthPage extends React.Component {
                         <div>
                             <img className="img"
                                 alt="example"
-                                src={backgrand}
+                                src={background}
                             />
                         </div>
                         <div>
@@ -39,7 +38,7 @@ class AuthPage extends React.Component {
                         <div>
                             <img className="img"
                                  alt="example"
-                                 src={dragenMom}
+                                 src={dragonMom}
                             />
                         </div>
                     </Carousel>
@@ -49,15 +48,8 @@ class AuthPage extends React.Component {
                     <div className="col">
                         <Row gutter={32}>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo} />}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -66,15 +58,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -83,15 +68,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -100,15 +78,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -121,15 +92,8 @@ class AuthPage extends React.Component {
                     <div className="col">
                         <Row gutter={32}>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -138,15 +102,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -155,15 +112,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
@@ -172,15 +122,8 @@ class AuthPage extends React.Component {
                                 </Card>
                             </Col>
                             <Col span={6}>
-                                <Card
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={mlogo}
-                                        />
-                                    }
-                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                                >
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
                                     <Meta
                                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                                         title="Card title"
