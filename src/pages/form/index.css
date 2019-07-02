@@ -1,7 +1,19 @@
+.login-form{
+    margin-top: 20%;
+    width:85%;
+}
+
+.register-form{
+    margin-top: -3em;
+    margin-left: 2em;
+    width: 95%;
+}
+
 
 .login-form-forgot {
     float: right;
 }
+
 .login-form-button {
     width: 100%;
 }
@@ -13,6 +25,14 @@
     margin-top: 10%;
     margin-bottom: 5%;
     color: rgba(0,0,0,.85);
+}
+
+.register-form-back-button{
+
+}
+
+.register-form-button{
+
 }
 
 .register-slogan{

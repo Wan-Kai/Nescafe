@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import LoginUser from './layouts/LoginUser/LoginUser';
+
 import MainPage from './pages/mainPage/MainPage';
 import { HashRouter, Redirect, Switch } from 'react-router-dom';
+
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/userPage/UserPage';
 
 import UserForm from './pages/form/UserForm'
+
 import registerForm from './pages/form/RegisterForm'
 import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
 import StepForm from "./pages/stepForm/StepForm";
@@ -24,6 +27,7 @@ class App extends Component {
                   layout={LoginUser}
                   component={MainPage}
               />
+
               <LayoutRoute
                   exact
                   path="/login"

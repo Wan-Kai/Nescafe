@@ -1,11 +1,11 @@
 
 import React from 'react';
 import 'antd/dist/antd.css';
-import './index.less';
 import { Steps, Button, message } from 'antd';
 import Step1 from './step1'
 import Step2 from './step2'
 import StepConfirm from './StepConfirm'
+import './index.less';
 
 const { Step } = Steps;
 
