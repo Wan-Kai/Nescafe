@@ -94,8 +94,8 @@ class RegistrationForm extends React.Component {
                     offset: 0,
                 },
                 sm: {
-                    span: 16,
-                    offset: 8,
+                    span: 36,
+                    offset: 6,
                 },
             },
         };
@@ -104,7 +104,7 @@ class RegistrationForm extends React.Component {
         })(
             <Select style={{width: 70}}>
                 <Option value="86">+86</Option>
-                <Option value="87">+10</Option>
+                <Option value="10">+10</Option>
             </Select>,
         );
 
@@ -113,8 +113,14 @@ class RegistrationForm extends React.Component {
         ));
 
         return (
-            <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                <Form.Item label="E-mail">
+            <div>
+                <p className='p-font'>
+                    <Icon type="usergroup-add" style={{marginRight:"10px"}}/>
+                    Let's get started!
+                </p>
+
+            <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginBottom:"-15px"}}>
+                <Form.Item style={{width:"125%"}}>
                     {getFieldDecorator('email', {
                         rules: [
                             {
@@ -126,9 +132,11 @@ class RegistrationForm extends React.Component {
                                 message: 'Please input your E-mail!',
                             },
                         ],
-                    })(<Input/>)}
+                    })(<Input prefix={<Icon type="mail" />}
+                              style={{color: 'rgba(0,0,0,.25)'}}
+                              placeholder="Email"/>)}
                 </Form.Item>
-                <Form.Item label="Password" hasFeedback>
+                <Form.Item hasFeedback style={{width:"125%"}}>
                     {getFieldDecorator('password', {
                         rules: [
                             {
@@ -139,9 +147,13 @@ class RegistrationForm extends React.Component {
                                 validator: this.validateToNextPassword,
                             },
                         ],
-                    })(<Input.Password/>)}
+                    })(<Input
+                        prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                        type="password"
+                        placeholder="Password"
+                    />,)}
                 </Form.Item>
-                <Form.Item label="Confirm Password" hasFeedback>
+                <Form.Item hasFeedback style={{width:"125%"}}>
                     {getFieldDecorator('confirm', {
                         rules: [
                             {
@@ -152,64 +164,57 @@ class RegistrationForm extends React.Component {
                                 validator: this.compareToFirstPassword,
                             },
                         ],
-                    })(<Input.Password onBlur={this.handleConfirmBlur}/>)}
+                    })(<Input
+                        prefix={<Icon type="lock" />}
+                        type="password"
+                        placeholder="Confirm"
+                        onBlur={this.handleConfirmBlur}/>)}
                 </Form.Item>
-                <Form.Item
-                    label={
-                        <span>
-              Nickname&nbsp;
-                            <Tooltip title="What do you want others to call you?">
-                <Icon type="question-circle-o"/>
-              </Tooltip>
-            </span>
-                    }
-                >
+                <Form.Item style={{width:"125%"}}>
                     {getFieldDecorator('nickname', {
                         rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
-                    })(<Input/>)}
+                    })(<Input prefix={<Icon type="user" />}
+                                placeholder="your nickname"/>)}
                 </Form.Item>
 
-                <Form.Item label="Phone Number">
+                <Form.Item style={{width:"125%"}}>
                     {getFieldDecorator('phone', {
                         rules: [{required: true, message: 'Please input your phone number!'}],
-                    })(<Input addonBefore={prefixSelector} style={{width: '100%'}}/>)}
+                    })(<Input
+                        prefix={<Icon type="phone"/>}
+                        placeholder="Phone Number"
+                        addonBefore={prefixSelector}
+                        style={{width: '100%'}}/>)}
                 </Form.Item>
 
-                <Form.Item label="Captcha" extra="Input what u got in your cellphone.">
+                <Form.Item style={{width:"125%"}} >
                     <Row gutter={8}>
                         <Col span={12}>
                             {getFieldDecorator('captcha', {
                                 rules: [{required: true, message: 'Please input the captcha you got!'}],
-                            })(<Input/>)}
+                            })(<Input prefix={<Icon type="message" />} style={{float:"left"}}/>)}
                         </Col>
                         <Col span={12}>
-                            <Button>Get captcha</Button>
+                            <Button style={{float:"right"}}>Get captcha</Button>
                         </Col>
                     </Row>
                 </Form.Item>
-                <Form.Item {...tailFormItemLayout}>
-                    <Row gutter={8}>
-                        <Col span={8}>
-                            <Button type="primary" htmlType="submit" style={{display: "inline-block"}}>
-                                Register
-                            </Button>
-                        </Col>
-                        <Col span={16}>
+                <Form.Item {...tailFormItemLayout} style={{width:"120%", float:"right"}} >
                     {getFieldDecorator('agreement', {
                         valuePropName: 'checked',
                     })(
-                        <Checkbox>
+                        <Checkbox style={{float:"left", marginTop:"-15px"}}>
                             I have read the <a href="">agreement</a>
                         </Checkbox>,
-                    )}</Col>
-                    </Row>
+                    )}
                 </Form.Item>
-                <Form.Item {...tailFormItemLayout}>
+                <Form.Item {...tailFormItemLayout} >
                     <Button type="primary" htmlType="submit" style={{display: "inline-block"}}>
                         Register
                     </Button>
                 </Form.Item>
             </Form>
+            </div>
         );
     }
 }

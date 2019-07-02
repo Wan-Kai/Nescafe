@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Button } from 'antd';
 import LayoutRoute from './components/LayoutRoute';
 import LoginUser from './layouts/LoginUser/LoginUser';
 import Test from './pages/Test';
@@ -8,9 +6,10 @@ import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 
 
-import LoginForm,{headerText} from './pages/form/LoginForm'
-import registerForm ,{RHeaderText}from './pages/form/RegisterForm'
+import LoginForm from './pages/form/LoginForm'
+import registerForm from './pages/form/RegisterForm'
 import BlankLayout from "./layouts/DefaultLayout/BlankLayout";
+import StepForm from "./pages/stepForm/StepForm";
 
 class App extends Component {
 
@@ -23,13 +22,11 @@ class App extends Component {
                   path="/"
                   layout={BlankLayout}
                   component={LoginForm}
-                  headerText={headerText()}
               />
               <LayoutRoute
                   exact
                   path="/register"
                   layout={BlankLayout}
-                  headerText={RHeaderText()}
                   component={registerForm}
               />
               <LayoutRoute
@@ -37,6 +34,11 @@ class App extends Component {
                   path="/main"
                   layout={LoginUser}
                   component={Test}
+              />
+              <LayoutRoute
+                path="/info"
+                layout={BlankLayout}
+                component={StepForm}
               />
               <Redirect to="/" />
           </Switch>

@@ -1,7 +1,7 @@
 import React, {Component, component} from 'react';
 import Icon from "antd/es/icon";
 import './login.less'
-import myLogo from '../../assests/mlogo.svg'
+import myLogo from '../../assets/img/mlogo.png'
 import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
 
@@ -25,38 +25,35 @@ const menu = (
     </Menu>
 )
 
-const text = null;
 
 class BlankLayout extends Component {
     // todo 父子通信，传text
     render() {
-        const {children,headerText} = this.props;
+        const {children, headerText} = this.props;
         return (
-            <layout>
+            <div className='root'>
                 <div className="container">
-                    <header>
-                        <Dropdown overlay={menu}>
-                            <Icon type="global" className='icon'/>
-                        </Dropdown>
-                    </header>
-                    <div className='content'>
-                        {headerText}
-                        <div>
-                            <div style={{display: "inline-block", width: "23%"}}></div>
-                            <div style={{display: "inline-block"}}>
-                                {children}
-                            </div>
-                            <div style={{display: "inline-block", width: "23%"}}></div>
+                    <div className='flexColumn'>
+                        <div className='head-menu'>
+                            <Dropdown overlay={menu}>
+                                <Icon type="global" className='icon'/>
+                            </Dropdown>
                         </div>
-                        <footer>
-                            <div>
-                                <img alt='logo' className='pic' src={myLogo}/><br/>
+                        <div className='content'>
+                                {children}
+                        </div>
+                        <div className='footer-logo'>
+                            <div style={{display:"block",height:"80%"}}/>
+                            <p className='footer-p'>
+                                <img alt='logo' className='pic' src={myLogo}
+                                     style={{width: "20px", height: "20px"}}/>
                                 花旗杯创新项目
-                            </div>
-                        </footer>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </layout>
+
+            </div>
         )
     }
 }

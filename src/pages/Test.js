@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd';
-import mlogo from '../asstes/img/mlogo.png'
+import mlogo from '../assets/img/mlogo.png'
 import './pagesStyle/Test.less'
 
 const { Meta } = Card;
