@@ -2,9 +2,30 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './index.css';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import Redirect from "react-router-dom/es/Redirect";
+import RegisterForm from'./RegisterForm'
 
 class NormalLoginForm extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            isRegister:false,
+            isLogin:false,
+            loginAfrRegi:false,
+        }
+    }
+
+    handleRegister = ()=>{
+        this.setState({
+            isRegister:true
+        })
+    }
+
+    handleReLogin = () =>{
+        this.setState({
+            isRegister:false,
+        })
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -14,56 +35,52 @@ class NormalLoginForm extends React.Component {
         });
     };
 
-    handleRegister = ()=>{
-        return (<Redirect to = "/register"/>);
-    }
-
     render() {
         const {getFieldDecorator} = this.props.form;
         return (
-            <div>
-                <div className='slogan'>
-
-                    LOGIN IN <Icon type="key" />
-                </div>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Item>
-                        {getFieldDecorator('username', {
-                            rules: [{required: true, message: 'Please input your username!'}],
-                        })(
-                            <Input
-                                prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                placeholder="Username"
-                            />,
-                        )}
-                    </Form.Item>
-                    <Form.Item>
-                        {getFieldDecorator('password', {
-                            rules: [{required: true, message: 'Please input your Password!'}],
-                        })(
-                            <Input
-                                prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                type="password"
-                                placeholder="Password"
-                            />,
-                        )}
-                    </Form.Item>
-                    <Form.Item>
-                        {/*调整rememberme的大小 todo*/}
-                        {getFieldDecorator('remember', {
-                            valuePropName: 'checked',
-                            initialValue: true,
-                        })(<Checkbox className='checkbox'>Remember me</Checkbox>)}
-                        <a className="login-form-forgot" href="">
-                            Forgot password
-                        </a>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
-                            Log in
-                        </Button>
-                        Or <a href='/register' style={{fontSize: '20px'}}>register now!</a>
-                    </Form.Item>
-                </Form>
+            this.state.isRegister?<RegisterForm isRegister = {()=>this.handleReLogin()}/>:
+        (<div>
+            <div className='slogan'>
+                LOGIN IN <Icon type="key" />
             </div>
+            <Form onSubmit={this.handleSubmit} className='login-form'>
+                <Form.Item>
+                    {getFieldDecorator('username', {
+                        rules: [{required: true, message: 'Please input your username!'}],
+                    })(
+                        <Input
+                            prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                            placeholder="Username"
+                        />,
+                    )}
+                </Form.Item>
+                <Form.Item>
+                    {getFieldDecorator('password', {
+                        rules: [{required: true, message: 'Please input your Password!'}],
+                    })(
+                        <Input
+                            prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                            type="password"
+                            placeholder="Password"
+                        />,
+                    )}
+                </Form.Item>
+                <Form.Item>
+                    {/*调整rememberme的大小 todo*/}
+                    {getFieldDecorator('remember', {
+                        valuePropName: 'checked',
+                        initialValue: true,
+                    })(<Checkbox className='checkbox'>Remember me</Checkbox>)}
+                    <a className="login-form-forgot" href="">
+                        Forgot password
+                    </a>
+                    <Button type="primary" htmlType="submit" className="login-form-button">
+                        Log in
+                    </Button>
+                    Or <a onClick={this.handleRegister} style={{fontSize: '20px'}}>register now!</a>
+                </Form.Item>
+            </Form>
+        </div>)
         );
     }
 }
