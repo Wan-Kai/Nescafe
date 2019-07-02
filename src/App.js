@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import NewsLayout from './layouts/NewsLayout/NewsLayout';
 
-import MainPage from './pages/mainPage/NewsPage';
+import MainPage from './pages/NewsPage/NewsPage';
 import { HashRouter, Redirect, Switch } from 'react-router-dom';
 
 import './App.css';
