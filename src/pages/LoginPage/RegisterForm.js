@@ -179,7 +179,7 @@ class RegistrationForm extends React.Component {
                         style={{width: '100%'}}/>)}
                 </Form.Item>
 
-                <Form.Item style={{width:"125%"}} >
+                <Form.Item style={{width:"126%"}} >
                     <Row gutter={8}>
                         <Col span={12}>
                             {getFieldDecorator('captcha', {

@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './Forms.css';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import ForgetForm from './ForgetForm'
 
 class loginForm extends React.Component {
 
@@ -48,9 +49,9 @@ class loginForm extends React.Component {
                             valuePropName: 'checked',
                             initialValue: true,
                         })(<Checkbox className='checkbox'>Remember me</Checkbox>)}
-                        <a className="login-form-forgot" href="">
-                            Forgot password
-                        </a>
+                        <div className="login-form-forgot">
+                        <ForgetForm/>
+                        </div>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             Log in
                         </Button>

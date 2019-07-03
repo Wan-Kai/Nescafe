@@ -49,8 +49,8 @@ class LoginPage extends Component {
                             </Dropdown>
                         </div>
                         <div className='content'>
-                            {this.state.isRegister?<RegisterForm handleLogin={msg=>this.handleChangeForm(msg)}/>:
-                            <LoginForm handleRegister={msg=>this.handleChangeForm(msg)}/>}
+                            {this.state.isRegister?<RegisterForm handleLogin={this.handleChangeForm.bind(this)}/>:
+                            <LoginForm handleRegister={this.handleChangeForm.bind(this)}/>}
                         {/*todo*/}
                         </div>
                         <div className='footer-logo'>
