@@ -76,10 +76,11 @@ class formOfStepTwo extends React.Component{
             if(!err){
                 //todo 数据库io处理
                 this.props.changeCurrent(2);
+                this.props.doneAndCancel(1000);//异步关闭对话框
                 console.log('Received values of LoginPage: ', values)
             }
         })
-    }
+    };
 
     handleConfirmBlur = e => {
         const {value} = e.target;
@@ -167,7 +168,6 @@ class StepForm extends React.Component {
         };
     };
 
-
     handleNext(msg) {
         this.setState({current:msg});
     };
@@ -192,7 +192,10 @@ class StepForm extends React.Component {
         {
             id:2,
             title: 'Done',
-            content: 'Done',//todo
+            content:    (<div className='step-form-third-content'>
+                            <Icon type="edit" />
+                            Please Remember Your Password!
+                        </div>),//todo
             icon:<Icon type="smile" />
         },
     ];
@@ -228,6 +231,8 @@ class findPasswordModal extends React.Component {
                 maskClosable={false}
                 onCancel={onCancel}
                 footer={null}
+                destroyOnClose={true}
+
             >
                 <StepForm/>
             </Modal>
@@ -246,6 +251,17 @@ class forgetForm extends React.Component {
         this.setState({ visible: true });
     };
 
+
+    handleChangeDone(msg){
+        setTimeout(()=>{
+            this.setCancel();
+        },msg)
+    }
+
+    setCancel(){
+        this.setState({visible:false})
+    }
+
     handleCancel = () => {
         this.setState({ visible: false });
     };
@@ -259,6 +275,7 @@ class forgetForm extends React.Component {
                 <ForgetFormModal
                     visible={this.state.visible}
                     onCancel={this.handleCancel}
+                    doneAndCancel={this.handleChangeDone.bind(this)}
                 />
             </div>
         );
