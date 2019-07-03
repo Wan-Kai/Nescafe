@@ -7,6 +7,7 @@ import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 
 class App extends Component {
@@ -37,6 +38,12 @@ class App extends Component {
                   path="/user"
                   layout={User}
                   component={UserPage}
+              />
+              <LayoutRoute
+                  exact
+                  path="/user/comNews/news"
+                  layout={User}
+                  component={UserNewsPage}
               />
               <Redirect to="/" />
           </Switch>
