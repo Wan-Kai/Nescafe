@@ -195,7 +195,7 @@ class StepForm extends React.Component {
             content:    (<div className='step-form-third-content'>
                             <Icon type="edit" />
                             Please Remember Your Password!
-                        </div>),//todo
+                        </div>),
             icon:<Icon type="smile" />
         },
     ];
