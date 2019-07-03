@@ -19,8 +19,8 @@ class formOfStepOne extends React.Component{
     };
 
 
-    render(){
-        const { getFieldDecorator } = this.props.form;
+    render() {
+        const {getFieldDecorator} = this.props.form;
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',
         })(
@@ -29,33 +29,34 @@ class formOfStepOne extends React.Component{
                 <Select value="10">+10</Select>
             </Select>,
         );
-        return (<Form  layout="vertical" className='forget-forms'>
-            <Form.Item style={{marginBottom:'1em'}}>
-                {getFieldDecorator('phone', {
-                    rules: [{required: true, message: 'Please input your phone number!'}],
-                })(<Input
-                    prefix={<Icon type="phone"/>}
-                    placeholder="Phone Number"
-                    addonBefore={prefixSelector}
-                />)}
-            </Form.Item>
+        return (
+            <Form layout="vertical" className='forget-forms'>
+                <Form.Item style={{marginBottom: '1em',width:255}}>
+                    {getFieldDecorator('phone', {
+                        rules: [{required: true, message: 'Please input your phone number!'}],
+                    })(<Input
+                        prefix={<Icon type="phone"/>}
+                        placeholder="Phone Number"
+                        addonBefore={prefixSelector}
+                    />)}
+                </Form.Item>
 
-            <Form.Item style={{width:'108%'}}>
-                <Row gutter={8}>
-                    <Col span={12}>
-                        {getFieldDecorator('captcha', {
-                            rules: [{required: true, message: 'Please input the captcha you got!'}],
-                        })(<Input prefix={<Icon type="message" style={{float:'right'}}/>}/>)}
-                    </Col>
-                    <Col span={12}>
-                        <Button style={{float:'left'}}>Get captcha</Button>
-                    </Col>
-                </Row>
-            </Form.Item>
-            <Button onClick={this.handleSubmitStepOne}>
-                Next
-            </Button>
-        </Form>);
+                <Form.Item>
+                    <Row gutter={8}>
+                        <Col span={12}>
+                            {getFieldDecorator('captcha', {
+                                rules: [{required: true, message: 'Please input the captcha you got!'}],
+                            })(<Input prefix={<Icon type="message" style={{float: 'right'}}/>}/>)}
+                        </Col>
+                        <Col span={12}>
+                            <Button style={{float: 'left'}}>Get captcha</Button>
+                        </Col>
+                    </Row>
+                </Form.Item>
+                <Button onClick={this.handleSubmitStepOne}>
+                    Next
+                </Button>
+            </Form>);
     }
 }
 
@@ -76,7 +77,7 @@ class formOfStepTwo extends React.Component{
             if(!err){
                 //todo 数据库io处理
                 this.props.changeCurrent(2);
-                this.props.doneAndCancel(1000);//异步关闭对话框
+                this.props.doneAndCancel();//异步关闭对话框
                 console.log('Received values of LoginPage: ', values)
             }
         })
@@ -113,7 +114,7 @@ class formOfStepTwo extends React.Component{
         const {getFieldDecorator} = this.props.form;
         return (
             <Form >
-                <Form.Item hasFeedback style={{width: "125%"}}>
+                <Form.Item hasFeedback >
                     {getFieldDecorator('password', {
                         rules: [
                             {
@@ -130,7 +131,7 @@ class formOfStepTwo extends React.Component{
                         placeholder="Password"
                     />,)}
                 </Form.Item>
-                <Form.Item hasFeedback style={{width: "125%"}}>
+                <Form.Item hasFeedback>
                     {getFieldDecorator('confirm', {
                         rules: [
                             {
@@ -186,7 +187,7 @@ class StepForm extends React.Component {
         {
             id:1,
             title: 'Reset',
-            content: <FormOfStepTwo changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
+            content: <FormOfStepTwo doneAndCancel={this.props.doneAndCancel} changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
             icon:<Icon type="schedule" />
         },
         {
@@ -232,9 +233,8 @@ class findPasswordModal extends React.Component {
                 onCancel={onCancel}
                 footer={null}
                 destroyOnClose={true}
-
             >
-                <StepForm/>
+                <StepForm {...this.props} doneAndCancel={this.props.doneAndCancel}/>
             </Modal>
         );
     }
@@ -251,15 +251,10 @@ class forgetForm extends React.Component {
         this.setState({ visible: true });
     };
 
-
-    handleChangeDone(msg){
-        setTimeout(()=>{
-            this.setCancel();
-        },msg)
-    }
-
-    setCancel(){
-        this.setState({visible:false})
+    handleChangeDone(){
+        setTimeout(() => {this.setState({
+            visible:false,
+        })},2000)
     }
 
     handleCancel = () => {
@@ -281,8 +276,6 @@ class forgetForm extends React.Component {
         );
     }
 }
-
-
 
 export default forgetForm;
 
