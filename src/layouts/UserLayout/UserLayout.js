@@ -114,7 +114,7 @@ export default class SiderDemo extends React.Component {
                                     title={
                                         <span>
                                            <Icon type="mail" />
-                                           <span>企业信息</span>
+                                           <span>企业</span>
                                         </span>
                                     }
                                 >

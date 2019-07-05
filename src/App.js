@@ -9,6 +9,7 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
+import PersonForm from './components/PersonalPage/personForm';
 
 class App extends Component {
 
@@ -43,7 +44,7 @@ class App extends Component {
                   exact
                   path="/user/comNews/news"
                   layout={User}
-                  component={UserNewsPage}
+                  component={PersonForm}
               />
               <Redirect to="/" />
           </Switch>
