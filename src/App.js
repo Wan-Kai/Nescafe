@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
-import NewsLayout from './layouts/NewsLayout/NewsLayout';
-import MainPage from './pages/NewsPage/NewsPage';
+import HomeLayout from './layouts/HomeLayout/HomeLayout';
+import HomePage from './pages/HomePage/HomePage';
 import { HashRouter, Redirect, Switch} from 'react-router-dom';
 import './App.css';
 import User from './layouts/UserLayout/UserLayout';
@@ -9,6 +9,8 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
+import PersonForm from './components/PersonalPage/personForm';
+import NewsCenter from './pages/NewsCenter/NewsCenter';
 
 class App extends Component {
 
@@ -19,20 +21,15 @@ class App extends Component {
               <LayoutRoute
                   exact
                   path="/"
-                  layout={NewsLayout}
-                  component={MainPage}
+                  layout={HomeLayout}
+                  component={HomePage}
               />
 
               <Route
                   path="/login"
                   component={LoginPage}
               />
-              <LayoutRoute
-                  exact
-                  path="/main"
-                  layout={NewsLayout}
-                  component={MainPage}
-              />
+
               <LayoutRoute
                   exact
                   path="/user"
@@ -41,10 +38,17 @@ class App extends Component {
               />
               <LayoutRoute
                   exact
-                  path="/user/comNews/news"
+                  path="/user/company/center"
                   layout={User}
-                  component={UserNewsPage}
+                  component={PersonForm}
               />
+              <LayoutRoute
+                  exact
+                  path="/user/company/news"
+                  layout={User}
+                  component={NewsCenter}
+              />
+
               <Redirect to="/" />
           </Switch>
         </HashRouter>
