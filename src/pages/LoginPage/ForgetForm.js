@@ -234,7 +234,7 @@ class findPasswordModal extends React.Component {
                 footer={null}
                 destroyOnClose={true}
             >
-                <StepForm {...this.props} doneAndCancel={this.props.doneAndCancel}/>
+                <StepForm doneAndCancel={this.props.doneAndCancel} />
             </Modal>
         );
     }
@@ -254,7 +254,7 @@ class forgetForm extends React.Component {
     handleChangeDone(){
         setTimeout(() => {this.setState({
             visible:false,
-        })},2000)
+        })},1000)
     }
 
     handleCancel = () => {

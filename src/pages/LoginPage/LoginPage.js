@@ -6,6 +6,7 @@ import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
+import QueueAnim from 'rc-queue-anim';
 
 const menu = (
     <Menu>
@@ -26,9 +27,10 @@ const menu = (
 class LoginPage extends Component {
     constructor(props, context) {
         super(props, context);
+
         this.state = {
             isRegister:false,
-        }
+        };
     }
 
     handleChangeForm(msg){
@@ -49,18 +51,17 @@ class LoginPage extends Component {
                             </Dropdown>
                         </div>
                         <div className='content'>
-                            {this.state.isRegister?<RegisterForm handleLogin={this.handleChangeForm.bind(this)}/>:
-                            <LoginForm handleRegister={this.handleChangeForm.bind(this)}/>}
-                        {/*todo*/}
+                            {this.state.isRegister ?
+                                <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
+                                <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
                         </div>
-                        <div className='footer-logo'>
-                            <div style={{display:"block",height:"80%"}}/>
-                            <p className='footer-p'>
-                                <img alt='logo' className='pic' src={myLogo}
+                        <QueueAnim delay={200} component="div" className='footer-logo' type="bottom">
+                            <p key="0" className='footer-p'>
+                                <img key="0" alt='logo' className='pic' src={myLogo}
                                      style={{width: "20px", height: "20px"}}/>
                                 花旗杯创新项目
                             </p>
-                        </div>
+                        </QueueAnim>
                     </div>
                 </div>
 

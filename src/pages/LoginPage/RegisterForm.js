@@ -12,6 +12,7 @@ import {
     Button,
     AutoComplete,
 } from 'antd';
+import QueueAnim from "rc-queue-anim";
 
 const {Option} = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -105,7 +106,8 @@ class RegistrationForm extends React.Component {
         ));
 
         return (
-            <div className='register-form'>
+            <QueueAnim delay={100} component="div" type="left" >
+            <div className='register-form' key='0'>
                 <p className='p-font'>
                     <Icon type="usergroup-add" style={{marginRight:"0.5em",marginLeft:"0.5em"}}/>
                     Let's get started!
@@ -211,10 +213,11 @@ class RegistrationForm extends React.Component {
                 </Form.Item>
             </Form>
             </div>
+            </QueueAnim>
         );
     }
 }
 
-const RegisterForm = Form.create({name: 'register'})(RegistrationForm);
+const RegisterForm = Form.create({name: 'Register'})(RegistrationForm);
 
 export default RegisterForm;
