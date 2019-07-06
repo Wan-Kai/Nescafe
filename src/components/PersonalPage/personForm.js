@@ -9,11 +9,11 @@ class PersonForm extends React.Component{
         return(
             <layout>
                 <Row gutter={24} className="row">
-                    <Col lg={7} md={24} >
+                    <Col lg={6} md={24} >
                         <PersonalData/>
                     </Col>
 
-                    <Col lg={17} md={24}>
+                    <Col lg={18} md={24}>
                         <CompanyData/>
                     </Col>
                 </Row>

@@ -1,10 +1,15 @@
-import React from 'react'
-import {Layout,Icon,Avatar,Menu,Card} from 'antd'
+import React, { PureComponent } from 'react';
+import {Layout,Icon,Avatar,Menu,Card} from 'antd';
+import Echart from '../Echarts/LineMarkerEchart';
 import './companyData.less'
 
 const {Header} = Layout;
 
-class CompanyForm extends React.Component{
+
+class CompanyForm extends React.Component
+{
+
+
     render(){
         return(
             <layout>
@@ -13,18 +18,18 @@ class CompanyForm extends React.Component{
                         <div className="menu">
                             <Menu
                                 theme="light" mode="horizontal"
-                                defaultSelectedKeys={['1']}
+                                defaultSelectedKeys={['pageOne']}
 
                             >
-                                <Menu.Item key="1">文章</Menu.Item>
-                                <Menu.Item key="2">应用</Menu.Item>
-                                <Menu.Item key="3">项目</Menu.Item>
+                                <Menu.Item key="pageOne">文章</Menu.Item>
+                                <Menu.Item key="pageTwo">应用</Menu.Item>
+                                <Menu.Item key="pageThree">项目</Menu.Item>
                             </Menu>
                         </div>
                     </Header>
                     <layout>
                         <div className="content">
-                            <p>Hellow</p>
+                            <Echart/>
                         </div>
                     </layout>
 
@@ -33,6 +38,7 @@ class CompanyForm extends React.Component{
         )
 
     }
+
 }
 
 export default CompanyForm;

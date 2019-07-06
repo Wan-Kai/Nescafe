@@ -118,9 +118,13 @@ export default class SiderDemo extends React.Component {
                                         </span>
                                     }
                                 >
-                                    <Menu.Item key="news">企业日报</Menu.Item>
+                                    <Menu.Item key="news">
+                                        <a href="#/user/company/news">
+                                            新闻中心
+                                        </a>
+                                    </Menu.Item>
                                     <Menu.Item key="stract">
-                                        <a href="#user/comNews/news">
+                                        <a href="#/user/company/center">
                                             今日安排
                                         </a>
                                     </Menu.Item>
