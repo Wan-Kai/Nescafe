@@ -6,6 +6,7 @@ import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps} from '
 const { Step } = Steps;
 //todo 完成后跳转login，即销毁
 
+
 class formOfStepOne extends React.Component{
     handleSubmitStepOne = e =>{
         e.preventDefault();

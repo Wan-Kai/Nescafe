@@ -48,7 +48,7 @@ class loginForm extends React.Component {
         return (
             <QueueAnim delay={100} component="div" type="left">
                 <div key='0'>
-                    <div className='slogan'>
+                    <div className='login-slogan'>
                         LOG IN <Icon type="key"/>
                     </div>
                     <Spin spinning={loggingIn}>

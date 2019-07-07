@@ -11,6 +11,7 @@ import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
+import InvestForm from './components/PersonalPage/InvestForrm/InverstForm'
 
 class App extends Component {
 
@@ -47,6 +48,12 @@ class App extends Component {
                   path="/user/company/news"
                   layout={User}
                   component={NewsCenter}
+              />
+              <LayoutRoute
+                  exact
+                  path="/user/invest"
+                  layout={User}
+                  component={InvestForm}
               />
 
               <Redirect to="/" />

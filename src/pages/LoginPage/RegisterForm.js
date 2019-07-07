@@ -207,7 +207,7 @@ class RegistrationForm extends React.Component {
                         <Icon type="left" />
                         Login Now
                     </Button>
-                    <Button type="primary" htmlType="submit" className="register-form-button">
+                    <Button type="primary" htmlType="submit" >
                         Register
                     </Button>
                 </Form.Item>
