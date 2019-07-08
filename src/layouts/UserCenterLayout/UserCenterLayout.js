@@ -56,7 +56,7 @@ const menu = (
     </Menu>
 );
 
-export default class UserCenterLayout extends Component{
+class UserCenterLayout extends Component{
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -110,3 +110,10 @@ export default class UserCenterLayout extends Component{
     }
 }
 
+function mapSateToProps(state) {
+    const {loggedIn} = state.authentication
+
+}
+
+
+export default UserCenterLayout;
