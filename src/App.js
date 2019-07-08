@@ -13,6 +13,7 @@ import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
+import mapStateToProps from "react-redux/es/connect/mapStateToProps";
 
 
 class App extends Component {
@@ -36,13 +37,6 @@ class App extends Component {
               <Route
                   path="/login"
                   component={LoginPage}
-              />
-
-              <LayoutRoute
-                  exact
-                  path="/user"
-                  layout={User}
-                  component={UserPage}
               />
               <LayoutRoute
                   exact
