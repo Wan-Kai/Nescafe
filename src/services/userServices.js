@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {baseConfigs} from './configs'
 export const userService = {
     login,
     logout,
@@ -7,41 +7,6 @@ export const userService = {
     updateInfo
 }
 
-let baseConfigs = {
-    baseURL : 'https://scf.intellizhi.cn',
-
-    url : '/',
-
-    method:'post',
-
-    params: {
-
-    },
-
-    header:{
-        'Content-Type': 'application/json',
-    },
-
-    data: {
-
-    },
-
-    // `timeout` specifies the number of milliseconds before the request times out.
-    // If the request takes longer than `timeout`, the request will be aborted.
-    timeout: '',
-
-    // `withCredentials` indicates whether or not cross-site Access-Control requests
-    // should be made using credentials
-    // withCredentials: true, // default
-
-    responseType:'json',
-
-    maxContentLength: 2000,
-
-    validateStatus(status) {
-        return status >= 200 && status < 300 // default
-    },
-}
 
 function login(username, password, callback_success,callback_failure) {
     axios({...baseConfigs,
@@ -50,11 +15,14 @@ function login(username, password, callback_success,callback_failure) {
             console.log('in login_then',response.data)
             localStorage.setItem('token',response.data.data['X-Auth-Token'])
             callback_success();
+            // return true
         })//todo .then add more action
         .catch((e)=>{
             console.log('exception in login_service ',e.toString())
-            callback_failure()
+            callback_failure(e)
+            // return false
         })
+
 }
 
 

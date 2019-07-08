@@ -16,7 +16,7 @@ function login(username,password){
 
     return dispatch=>{
         dispatch(request({username}));
-        userService.login(username,password,()=>dispatch(success(username)),()=>dispatch(failure(username)))
+        userService.login(username,password,()=>dispatch(success(username)),(e)=>dispatch(failure(e)))
     };
 }
 
