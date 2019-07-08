@@ -47,57 +47,60 @@ class investForm extends React.Component{
                         </div>
                         <Spin spinning={searching === undefined ? false : searching}>
                             <Anchor className='finance-left-search-anchor'>
-                            <div className='finance-left-search-form'>
-                                <Form onSubmit={this.handleSubmit}>
-                                    <Form.Item label="融资金额">
-                                        {getFieldDecorator('amountOfMoney', {
-                                            rules: [{required: true, message: '请输入融资金额：'},
-                                                {validator: this.handleNumber}],
-                                        })(
-                                            <Input
-                                                prefix={<Icon type="dollar" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                                                placeholder="金额"
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item label="时间范围" style={{marginTop: "-10%"}}>
-                                        {getFieldDecorator('monthRange', {
-                                            rules: [{required: true, message: '请选择时间范围：'}],
-                                        })(<MonthRangePicker/>)}
-                                    </Form.Item>
-                                    <Form.Item label="融资模式" style={{marginTop: '-10%'}}>
-                                        {getFieldDecorator('checkbox-group', {})(
-                                            <Checkbox.Group style={{width: '100%', lineHeight: '2.5'}}>
-                                                <Row className='finance-form-row'>
-                                                    <Col span={12}>
-                                                        <Checkbox value="privateCredit">民间信贷</Checkbox>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <Checkbox value="p2pFinancing">P2P融资</Checkbox>
-                                                    </Col>
-                                                </Row>
-                                                <Row className='finance-form-row'>
-                                                    <Col span={12}>
-                                                        <Checkbox value="Financing Rent">融资租贷</Checkbox>
-                                                    </Col>
-                                                    <Col span={12}>
-                                                        <Checkbox value="crowdFunding">众筹</Checkbox>
-                                                    </Col>
-                                                </Row>
-                                            </Checkbox.Group>,
-                                        )}
-                                    </Form.Item>
-                                    <div style={{textAlign: "center"}}>
-                                        <Button type="primary" shape="round" htmlType="submit" icon="search"
-                                                style={{margin: "auto"}}>
-                                            match now!
-                                        </Button>
-                                    </div>
-                                </Form>
-                            </div>
+                                <div className='finance-left-search-form'>
+                                    <Form onSubmit={this.handleSubmit}>
+                                        <Form.Item label="融资金额">
+                                            {getFieldDecorator('amountOfMoney', {
+                                                rules: [{required: true, message: '请输入融资金额：'},
+                                                    {validator: this.handleNumber}],
+                                            })(
+                                                <Input
+                                                    prefix={<Icon type="dollar" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                                    placeholder="金额"
+                                                />,
+                                            )}
+                                        </Form.Item>
+                                        <Form.Item label="时间范围" style={{marginTop: "-10%"}}>
+                                            {getFieldDecorator('monthRange', {
+                                                rules: [{required: true, message: '请选择时间范围：'}],
+                                            })(<MonthRangePicker/>)}
+                                        </Form.Item>
+                                        <Form.Item label="融资模式" style={{marginTop: '-10%'}}>
+                                            {getFieldDecorator('checkbox-group', {})(
+                                                <Checkbox.Group style={{width: '100%', lineHeight: '2.5'}}>
+                                                    <Row className='finance-form-row'>
+                                                        <Col span={12}>
+                                                            <Checkbox value="privateCredit">民间信贷</Checkbox>
+                                                        </Col>
+                                                        <Col span={12}>
+                                                            <Checkbox value="p2pFinancing">P2P融资</Checkbox>
+                                                        </Col>
+                                                    </Row>
+                                                    <Row className='finance-form-row'>
+                                                        <Col span={12}>
+                                                            <Checkbox value="Financing Rent">融资租贷</Checkbox>
+                                                        </Col>
+                                                        <Col span={12}>
+                                                            <Checkbox value="crowdFunding">众筹</Checkbox>
+                                                        </Col>
+                                                    </Row>
+                                                </Checkbox.Group>,
+                                            )}
+                                        </Form.Item>
+                                        <div style={{textAlign: "center"}}>
+                                            <Button type="primary" shape="round" htmlType="submit" icon="search"
+                                                    style={{margin: "auto"}}>
+                                                match now!
+                                            </Button>
+                                        </div>
+                                    </Form>
+                                </div>
                             </Anchor>
                         </Spin>
-                    </div>
+                        <div className='finance-divider'>
+                        <Divider orientation="center" type="horizontal" style={{height:'100%'}}/>
+                        </div>
+                        </div>
                 </QueueAnim>
                 <Divider type="vertical"/>
                 <div className='finance-right-outcome'>
@@ -105,8 +108,6 @@ class investForm extends React.Component{
                         <Icon type="search"/>符合请求的机构如下：
                     </div>
                     <div className='finance-right-outcome-container'>
-
-
                     </div>
                 </div>
             </div>

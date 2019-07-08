@@ -69,12 +69,12 @@ export default class UserCenterLayout extends Component{
         const {children} = this.props;
         return (
             <Layout>
-                <Header style={{background: '#FFF',height:58}} className="user-header">
+                <Header style={{background: '#FFF',height:60}} className="user-header">
                     <Menu
                         theme="light"
                         mode="horizontal"
                         defaultSelectedKeys={['1']}
-                        style={{lineHeight: '58px'}}>
+                        style={{lineHeight: '58px',height:60}}>
 
                         <Menu.Item key="1">企业本页</Menu.Item>
                         <Menu.Item key="2">信息</Menu.Item>
