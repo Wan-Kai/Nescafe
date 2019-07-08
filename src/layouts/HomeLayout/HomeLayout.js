@@ -11,24 +11,24 @@ class HomeLayout extends React.Component{
         const { children } = this.props;
         return (
             <Layout>
-                <Header style={{ background: '#96cfc9', padding: 0}}>
+                <Header style={{ background: '#96cfc9', padding: 0,height:60}}>
                     <div className="headerInLeft">
                         <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
-                        <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:100,lineHeight:2,marginTop:12}}>
+                        <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:100,lineHeight:2.4,marginTop:10}}>
                             <Menu.Item><a href="#/" style={{color:'#FFF',fontSize:20,fontWeight:700}}>HomePage</a></Menu.Item>
                             <Menu.Item><a href="#/explore" style={{color:'#FFF',fontSize:20,fontWeight:700}}>Explore</a></Menu.Item>
                         </Menu>
                     </div>
                     <div className="headerInRight">
                         <Button type="primary" shape="round" size="middle" style={{backgroundColor:'#ff6c37',border:'transparent'}}>
-                            <b>SIGN IN</b>
+                            <b><a href="#/login" style={{color:'#FFF'}}>SIGN IN</a></b>
                         </Button>
                     </div>
                 </Header>
                 <Content>
                     {children}
                 </Content>
-                <Footer style={{background:'#96cfc9'}}>
+                <Footer style={{background:'#000000'}}>
                     <div className="home-footer" >
                         <p>Copyright by Wan</p>
                     </div>

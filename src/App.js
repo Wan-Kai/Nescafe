@@ -9,7 +9,6 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
 import Route from "react-router-dom/es/Route";
-import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
@@ -44,12 +43,7 @@ class App extends Component {
                   layout={User}
                   component={UserPage}
               />
-              <LayoutRoute
-                  exact
-                  path="/user/company/center"
-                  layout={User}
-                  component={PersonForm}
-              />
+
               <LayoutRoute
                   exact
                   path="/user/company/news"

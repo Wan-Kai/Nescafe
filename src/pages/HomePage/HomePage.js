@@ -1,13 +1,14 @@
 import React from 'react';
-import {Layout, Icon, Col, Row, Button,Card,Avatar} from "antd";
+import {Layout, Icon, Col, Row, Button,Card,Avatar,Anchor} from "antd";
 import Logo from '../../assets/img/mlogo.png'
+import Layer
+import Layer from '../../assets/img/Layer.png';
 import New from '../../assets/img/new.svg'
 import BackGround from '../../assets/img/back.jpg'
 import './HomePage.less'
 import PersonalData from "../../components/PersonalPage/personalData";
 import CompanyData from "../../components/PersonalPage/companyData";
-const {Header,Footer} = Layout;
-
+const {Link} = Anchor;
 const backgroundStyle = {
     width: '100%',
     backgroundImage: `url(${BackGround})`
@@ -29,8 +30,8 @@ class HomePage extends React.Component{
                                                 backgroundColor:'#ff6c37',
                                                 border:'transparent',
                                                 fontSize:30,
-                                                width:180,height:60}}>
-                                                <b>Get Start</b>
+                                                width:180,height:60,}}>
+                                                <b><a href="#choice" style={{color:'#FFF'}}>Get Start</a></b>
                                             </Button>
                                             <h1 className="smallText">Manage all of your organizations</h1>
                                         </layout>
@@ -49,7 +50,7 @@ class HomePage extends React.Component{
                                             <Card className="card">
                                                 <div className="card-center">
                                                     <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">FINANCING</h1>
+                                                    <h1 className="cardText">ENTER</h1>
                                                 </div>
                                             </Card>
                                         </Col>
@@ -57,7 +58,7 @@ class HomePage extends React.Component{
                                             <Card   className="card">
                                                 <div className="card-center">
                                                     <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">INVESTING</h1>
+                                                    <h1 className="cardText">ENTER</h1>
                                                 </div>
                                             </Card>
                                         </Col>
@@ -65,7 +66,7 @@ class HomePage extends React.Component{
                                             <Card   className="card">
                                                 <div className="card-center">
                                                     <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">INVESTING</h1>
+                                                    <h1 className="cardText">ENTER</h1>
                                                 </div>
                                             </Card>
                                         </Col>
@@ -73,6 +74,16 @@ class HomePage extends React.Component{
                                 </Row>
                             </div>
 
+                        <div className="center" id="choice">
+                            <Row gutter={24}>
+                                <Col lg={12}>
+                                    <img src={Layer}/>
+                                </Col>
+                                <Col lg={12}>
+                                    <img src={Layer}/>
+                                </Col>
+                            </Row>
+                        </div>
                         </div>
                 </div>
 
