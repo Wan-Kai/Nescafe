@@ -7,6 +7,7 @@ import './App.css';
 import User from './layouts/UserLayout/UserLayout';
 import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import Explore from './pages/HomePage/Explore';
 import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 import PersonForm from './components/PersonalPage/personForm';
@@ -25,7 +26,12 @@ class App extends Component {
                   layout={HomeLayout}
                   component={HomePage}
               />
-
+              <LayoutRoute
+                  exact
+                  path="/explore"
+                  layout={HomeLayout}
+                  component={Explore}
+              />
               <Route
                   path="/login"
                   component={LoginPage}
