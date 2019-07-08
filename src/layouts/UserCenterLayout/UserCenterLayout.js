@@ -1,6 +1,6 @@
 import React, {Component, component} from 'react';
 import {Layout, Menu, Icon, SubMenu, Dropdown, Avatar} from 'antd';
-import './NewsLayout.less';
+import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 
@@ -56,7 +56,7 @@ const menu = (
     </Menu>
 );
 
-export default class NewsLayout extends Component{
+export default class UserCenterLayout extends Component{
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -69,7 +69,7 @@ export default class NewsLayout extends Component{
         const {children} = this.props;
         return (
             <Layout>
-                <Header style={{background: '#FFFFFF', padding: 0}} className="header">
+                <Header style={{background: '#FFF',height:58}} className="user-header">
                     <Menu
                         theme="light"
                         mode="horizontal"
@@ -80,7 +80,7 @@ export default class NewsLayout extends Component{
                         <Menu.Item key="2">信息</Menu.Item>
                         <Menu.Item key="3">设置</Menu.Item>
 
-                        <img className="logo" src={mlogo}/>
+                        <img className="user-logo" src={mlogo}/>
                         <div className='menu-float-right'>
                             <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>
@@ -98,15 +98,10 @@ export default class NewsLayout extends Component{
                         </div>
                     </Menu>
                 </Header>
-                <div>
-                    <layout>
-                        <Content>
-                            {children}
-                            <Footer className="footer">Copyright by Wan</Footer>
-                        </Content>
-                    </layout>
-                </div>
-
+                <Content>
+                    {children}
+                </Content>
+                <Footer style={{background:'#FFF'}} className="user-footer">Copyright by Wan</Footer>
             </Layout>
 
         )

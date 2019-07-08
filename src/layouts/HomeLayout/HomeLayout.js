@@ -1,6 +1,7 @@
 import React from 'react';
 import {Layout,Icon,Button,Menu} from "antd";
 import Logo from '../../assets/img/mlogo.png'
+import '../UserCenterLayout/UserCenterLayout.less'
 import './HomeLayout.less'
 
 const {Header,Footer,Content} = Layout;
@@ -12,7 +13,7 @@ class HomeLayout extends React.Component{
             <Layout>
                 <Header style={{ background: '#96cfc9', padding: 0}}>
                     <div className="headerInLeft">
-                        <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="logo"/>Pixel Cube</h2>
+                        <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
                         <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:100,lineHeight:2,marginTop:12}}>
                             <Menu.Item><a href="#/" style={{color:'#FFF',fontSize:20,fontWeight:700}}>HomePage</a></Menu.Item>
                             <Menu.Item><a href="#/explore" style={{color:'#FFF',fontSize:20,fontWeight:700}}>Explore</a></Menu.Item>
@@ -28,7 +29,7 @@ class HomeLayout extends React.Component{
                     {children}
                 </Content>
                 <Footer style={{background:'#96cfc9'}}>
-                    <div className="footer" >
+                    <div className="home-footer" >
                         <p>Copyright by Wan</p>
                     </div>
                 </Footer>

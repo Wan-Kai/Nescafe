@@ -4,7 +4,7 @@ import HomeLayout from './layouts/HomeLayout/HomeLayout';
 import HomePage from './pages/HomePage/HomePage';
 import { HashRouter, Redirect, Switch} from 'react-router-dom';
 import './App.css';
-import User from './layouts/UserLayout/UserLayout';
+import User from './layouts/UserCenterLayout/UserCenterLayout';
 import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
