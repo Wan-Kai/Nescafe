@@ -11,7 +11,7 @@ import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
-import InvestForm from './components/PersonalPage/InvestForrm/InverstForm'
+import InvestForm from './components/PersonalPage/FinanceForm/FinanceForm'
 
 class App extends Component {
 

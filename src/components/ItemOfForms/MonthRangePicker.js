@@ -15,7 +15,7 @@ class MonthRangePicker extends React.Component {
 
     disabledStartDate = (current)=> {
         // Can not select days before today and today
-        const { startValue,endValue } = this.state;
+        const { endValue } = this.state;
         if (!current || !endValue) {
             return current.endOf('month') <= moment().endOf('month');
         }

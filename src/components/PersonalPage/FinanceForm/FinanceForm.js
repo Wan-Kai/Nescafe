@@ -4,7 +4,7 @@ import './index.css'
 import {Form, Icon, Input, Button, Checkbox, DatePicker, Col, Row, Divider} from 'antd';
 import Spin from "antd/es/spin";
 import QueueAnim from "rc-queue-anim";
-import MonthRangePicker from "./MonthRangePicker"
+import MonthRangePicker from "../../ItemOfForms/MonthRangePicker"
 import './index.less'
 class investForm extends React.Component{
 
@@ -38,7 +38,6 @@ class investForm extends React.Component{
         const {value} = this.state;
 
         return (
-
             //todo 字体大小  基本状态redux
             <div className='invest-container'>
                 <QueueAnim delay={100} component="div" type="left">
