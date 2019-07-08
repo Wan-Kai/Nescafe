@@ -8,7 +8,6 @@ import User from './layouts/UserCenterLayout/UserCenterLayout';
 import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
-import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
