@@ -1,7 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './index.css'
-import {Form, Icon, Input, Button, Checkbox, DatePicker, Col, Row, Divider} from 'antd';
+import {Form, Icon, Input, Button, InputNumber, Divider, Anchor} from 'antd';
 import Spin from "antd/es/spin";
 import QueueAnim from "rc-queue-anim";
 import MonthRangePicker from "../../ItemOfForms/MonthRangePicker"
@@ -42,13 +41,14 @@ class investForm extends React.Component{
             //todo 字体大小  基本状态redux
             <div className='invest-container'>
                 <QueueAnim delay={100} component="div" type="left">
-                    <div key='0' className="left-search">
-                        <div className='left-search-slogan'>
+                    <div key='0' className="invest-left-search">
+                        <div className='invest-left-search-slogan'>
                             我要投资<Icon type="money-collect"/>
                         </div>
                         <Spin spinning={searching === undefined ? false : searching}>
-                            <div className='left-search-form'>
-                                <Form onSubmit={this.handleSubmit}>
+                            <div className='invest-left-search-form'>
+                                <Anchor className='invest-left-search-anchor'>
+                                <Form onSubmit={this.handleSubmit} className='invest-left-search-form'>
                                     <Form.Item label="投资金额">
                                         {getFieldDecorator('amountOfMoney', {
                                             rules: [{required: true, message: '请输入投资金额：'},
@@ -60,15 +60,15 @@ class investForm extends React.Component{
                                             />,
                                         )}
                                     </Form.Item>
-                                    <Form.Item label="时间范围" style={{marginTop: "-2%"}}>
+                                    <Form.Item label="时间范围" style={{marginTop: "-10%"}}>
                                         {getFieldDecorator('monthRange', {
                                             rules: [{required: true, message: '请选择时间范围：'}],
                                         })(<MonthRangePicker/>)}
                                     </Form.Item>
-                                    <Form.Item label="融资模式" style={{marginTop: '-2%'}}>
+                                    <Form.Item label="最低信誉分" style={{marginTop: '-10%'}}>
                                         {getFieldDecorator('creditScore',{
                                             rules:[{required:true,message:'请选择最低信誉分'}]
-                                        })(<Input/>)}
+                                        })(<InputNumber min={30} max={100} defaultValue={60}/>)}
                                     </Form.Item>
                                     <div style={{textAlign: "center"}}>
                                         <Button type="primary" shape="round" htmlType="submit" icon="search"
@@ -77,16 +77,17 @@ class investForm extends React.Component{
                                         </Button>
                                     </div>
                                 </Form>
+                                </Anchor>
                             </div>
                         </Spin>
                     </div>
                 </QueueAnim>
                 <Divider type="vertical"/>
-                <div className='right-outcome'>
-                    <div className='right-outcome-slogan'>
+                <div className='invest-right-outcome'>
+                    <div className='invest-right-outcome-slogan'>
                         <Icon type="search"/>符合请求的企业如下：
                     </div>
-                    <div className='right-outcome-container'>
+                    <div className='invest-right-outcome-container'>
 
 
                     </div>

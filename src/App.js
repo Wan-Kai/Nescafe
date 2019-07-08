@@ -12,7 +12,9 @@ import UserNewsPage from './pages/UserPage/UserNewsPage';
 import Route from "react-router-dom/es/Route";
 import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
-import InvestForm from './components/PersonalPage/FinanceForm/FinanceForm'
+import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
+import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
+
 
 class App extends Component {
 
@@ -57,9 +59,15 @@ class App extends Component {
               />
               <LayoutRoute
                   exact
-                  path="/user/invest"
+                  path="/user/finance"
                   layout={User}
-                  component={InvestForm}
+                  component={FinanceForm}
+              />
+              <LayoutRoute
+              exact
+              path="/user/invest"
+              layout={User}
+              component={InvestForm}
               />
 
               <Redirect to="/" />

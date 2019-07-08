@@ -1,38 +1,47 @@
 
-.invest-container{
+.finance-container{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   height: 90%;
-  .left-search{
+  .finance-left-search{
     font-size: 20px;
     width: 250px;
-    margin:5% 5% 5% 5%;
+    margin:5% 5% 25% 5%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content:center;
     order:0;
-    .left-search-slogan{
-    align-self: center;
+    .finance-left-search-slogan{
+      align-self: center;
     }
-    .left-search-form{
+    .finance-left-search-anchor {
+      background: rgb(240,242,245);
 
+      .finance-left-search-form {
+        margin-left: 1em;
+        .finance-form-row{
+          margin-left: 8%;
+          font-size: 10px;
+        }
+      }
     }
+
   }
-  .right-outcome{
+  .finance-right-outcome{
     width: 100%;
     margin-left: 5%;
     order:1;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    .right-outcome-slogan{
+    .finance-right-outcome-slogan{
       margin-top: 2%;
       align-self: center;
       font-size: 20px;
     }
-    .right-outcome-container{
+    .finance-right-outcome-container{
 
     }
   }
