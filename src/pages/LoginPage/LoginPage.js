@@ -42,21 +42,21 @@ class LoginPage extends Component {
     // todo 父子通信，传text
     render() {
         return (
-            <div className='root'>
-                <div className="container">
-                    <div className='flexColumn'>
-                        <div className='head-menu'>
+            <div className='login-page-root'>
+                <div className="login-page-container">
+                    <div className='login-page-flexColumn'>
+                        <div className='login-page-head-menu'>
                             <Dropdown overlay={menu}>
-                                <Icon type="global" className='icon'/>
+                                <Icon type="global" className='login-page-icon'/>
                             </Dropdown>
                         </div>
-                        <div className='content'>
+                        <div className='login-page-content'>
                             {this.state.isRegister ?
                                 <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
                                 <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
                         </div>
-                        <QueueAnim delay={200} component="div" className='footer-logo' type="bottom">
-                            <p key="0" className='footer-p'>
+                        <QueueAnim delay={200} component="div" className='login-page-footer-logo' type="bottom">
+                            <p key="0" className='login-page-footer-p'>
                                 <img key="0" alt='logo' className='pic' src={myLogo}
                                      style={{width: "20px", height: "20px"}}/>
                                 花旗杯创新项目
