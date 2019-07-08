@@ -39,13 +39,14 @@ class MonthRangePicker extends React.Component {
     };
 
     onStartChange = value => {
-        this.onChange('startValue', value);
+        this.onChange('startValue',value);
         this.handleStartOpenChange(false)
     };
 
     onEndChange = value => {
         this.onChange('endValue', value);
-        this.handleEndOpenChange(false)
+        console.log(value)
+        this.handleEndOpenChange(false,value)
     };
 
     handleStartOpenChange = open => {
@@ -56,9 +57,13 @@ class MonthRangePicker extends React.Component {
         }
     };
 
-    handleEndOpenChange = open => {
+    handleEndOpenChange = (open,value) => {
         this.setState({ endOpen: open });
-        console.log(this.state.endValue)
+        if(!open){
+            const { handleMonthRange } = this.props
+            const {startValue} = this.state
+            handleMonthRange([startValue,value])
+        }
     };
 
     render() {
@@ -86,7 +91,6 @@ class MonthRangePicker extends React.Component {
                     onOpenChange={this.handleEndOpenChange}
                     open={endOpen}
                     style={{width:'100%'}}
-
                 />
             </div>
         );

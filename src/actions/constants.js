@@ -34,3 +34,7 @@ export const IAFConstants = {
     MATCH_SUCCESS:'FINANCE_MATCH_SUCCESS',
     MATCH_FAILURE:'FINANCE_MATCH_FAILURE',
 }
+
+export const getMonthRange = {
+    GET_MONTH_RANGE:'GET_MONTH_RANGE',
+}

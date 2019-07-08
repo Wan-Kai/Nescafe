@@ -68,7 +68,6 @@ class App extends Component {
               layout={User}
               component={InvestForm}
               />
-
               <Redirect to="/" />
           </Switch>
         </HashRouter>
