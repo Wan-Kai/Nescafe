@@ -73,8 +73,10 @@ export default class UserCenterLayout extends Component{
                     <Menu
                         theme="light"
                         mode="horizontal"
+                        className="user-menu"
                         defaultSelectedKeys={['1']}
-                        style={{lineHeight: '58px',height:60}}>
+
+                        style={{lineHeight: '60px',height:60}}>
 
                         <Menu.Item key="1">企业本页</Menu.Item>
                         <Menu.Item key="2">信息</Menu.Item>
