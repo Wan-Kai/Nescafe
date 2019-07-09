@@ -8,7 +8,8 @@ import BackGround from '../../assets/img/back.jpg'
 import './HomePage.less'
 import PersonalData from "../../components/PersonalPage/personalData";
 import CompanyData from "../../components/PersonalPage/companyData";
-const {Link} = Anchor;
+import NewsCard from '../NewsCenter/NewsCard';
+
 const backgroundStyle = {
     width: '100%',
     backgroundImage: `url(${BackGround})`
@@ -36,9 +37,9 @@ class HomePage extends React.Component{
                                             <h1 className="smallText">Manage all of your organizations</h1>
                                         </layout>
                                     </Col>
-                                    <Col lg={12} md={24} style={{marginTop:70}}>
-                                        <div >
-                                            <img src={Logo}/>
+                                    <Col lg={12} md={24} style={{marginTop:50}}>
+                                        <div style={{marginLeft:100}}>
+                                            <img src={Layer1}/>
                                         </div>
                                     </Col>
                                 </Row>
@@ -47,12 +48,7 @@ class HomePage extends React.Component{
                                 <Row gutter={24} >
                                     <div className="cards">
                                         <Col span={8}  className="ColInCenter">
-                                            <Card className="card">
-                                                <div className="card-center">
-                                                    <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">ENTER</h1>
-                                                </div>
-                                            </Card>
+                                            <NewsCard/>
                                         </Col>
                                         <Col span={8} className="ColInCenter">
                                             <Card   className="card">

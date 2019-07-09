@@ -1,7 +1,8 @@
 import React from 'react';
 import {Layout} from 'antd';
 import RadarEchart from '../../Echarts/RadarEchart';
-import ScatteredEchart from '../../Echarts/ScatteredEchart';
+
+import BarEchart from '../../Echarts/BarEchart';
 
 class PageTwo extends React.Component{
     render(){
@@ -9,7 +10,8 @@ class PageTwo extends React.Component{
             <Layout>
                 <div style={{backgroundColor:'#FFF',width:'100%'}}>
                     <RadarEchart/>
-                    {/*<ScatteredEchart/>*/}
+                    <BarEchart/>
+
                 </div>
             </Layout>
         )
