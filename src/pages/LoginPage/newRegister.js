@@ -50,7 +50,7 @@ class formOfStepOne extends React.Component{
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        const { received } = this.state;
+        const { receivedAndNext } = this.state;
         const prefixSelector = getFieldDecorator('type', {
             initialValue: '统一社会信用代码',
         })(
@@ -74,7 +74,7 @@ class formOfStepOne extends React.Component{
                 </Form.Item>
                 <div className="register-page-information">
                 </div>
-                {received?this.handleReceiveInfo:null}
+                {receivedAndNext?this.handleReceiveInfo:null}
                 <Button onClick={this.handleSubmitStepOne} style={{textAlign:"center"}}>
                     Next
                 </Button>
