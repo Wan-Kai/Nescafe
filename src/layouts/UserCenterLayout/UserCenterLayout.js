@@ -5,6 +5,7 @@ import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 import {connect} from "react-redux";
 import {Redirect, Route} from "react-router-dom";
+import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
 
 const {Header,Footer,Content} = Layout;
 

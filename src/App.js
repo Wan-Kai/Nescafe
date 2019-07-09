@@ -38,12 +38,12 @@ class App extends Component {
                   path="/login"
                   component={LoginPage}
               />
-              <LayoutRoute
-                  exact
-                  path="/user/company/center"
-                  layout={User}
-                  component={PersonForm}
-              />
+              {/*<LayoutRoute*/}
+              {/*    exact*/}
+              {/*    path="/user/company/center"*/}
+              {/*    layout={User}*/}
+              {/*    component={PersonForm}*/}
+              {/*/>*/}
               <LayoutRoute
                   exact
                   path="/user/company/news"
