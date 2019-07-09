@@ -7,36 +7,39 @@ import QueueAnim from 'rc-queue-anim';
 import Spin from "antd/es/spin";
 import {userActions} from "../../actions/userAction";
 import {connect} from 'react-redux';
+import {Redirect, withRouter} from "react-router";
+
 
 class loginForm extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        //reset login state:
-        // this.props.dispatch(userActions.logout());
-
         this.state = {
             submitted:false,
+            isLoggedIn: false,
         }
     }
 
-
     handleSubmit = e => {
         e.preventDefault();
+
         this.props.form.validateFields((err, values) => {
             if (!err) {
-
                 this.setState({
                     submitted:true,
                 });
 
                 const username = values.username;
                 const password = values.password;
-
                 const{ dispatch } = this.props;
+                const _  = this;
 
                 if(username&&password){
-                    dispatch(userActions.login(username,password));
+                    dispatch(userActions.login(username,password, () => {
+                        _.setState({
+                            isLoggedIn: true
+                        })
+                    }));
                 }
             }
         });
@@ -91,21 +94,24 @@ class loginForm extends React.Component {
                             </Form.Item>
                         </Form>
                     </Spin>
+                    { this.state.isLoggedIn ? (<Redirect to={'/user'}/>) : null}
                 </div>
             </QueueAnim>
         );
     }
 }
 
+const routerLoginForm = withRouter(loginForm)
+
 const ReduxLoginForm = Form.create({
     name:'Login',
 //todo onfieldchange可以把值转存到redux store中
 //todo onvaluechange 可以映射到state中的username和password吗 任一表单域的值发生改变时的回调
-})(loginForm);
+})(routerLoginForm);
 
 function mapStateToProps(state){
-    const { loggingIn } = state.authentication;
-    return {loggingIn};//todo logging in 用来判断是否waiting
+    const { loggingIn,loggedIn } = state.authentication;
+    return {loggingIn,loggedIn};//todo logging in 用来判断是否waiting
 }
 
 const LoginForm = connect(mapStateToProps)(ReduxLoginForm);

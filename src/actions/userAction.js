@@ -9,14 +9,20 @@ export const userActions = {
 };
 
 //todo  改成之间返回对象的action
-function login(username,password){
+function login(username,password,callback){
     function request(user) { return{type:userConstants.LOGIN_REQUEST,user} }
     function success(user) { return{type:userConstants.LOGIN_SUCCESS,user} }
     function failure(error) { return{type:userConstants.LOGIN_FAILURE,error} }
 
     return dispatch=>{
         dispatch(request({username}));
-        userService.login(username,password,()=>dispatch(success(username)),(e)=>dispatch(failure(e)))
+        userService.login(username,password,()=>{
+            if (typeof callback==='function') {
+                console.log("Function here");
+                callback();
+            }
+            dispatch(success(username))
+        },(e)=>dispatch(failure(e)))
     };
 }
 

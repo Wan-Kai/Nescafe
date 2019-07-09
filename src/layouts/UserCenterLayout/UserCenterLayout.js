@@ -59,61 +59,48 @@ const menu = (
     </Menu>
 );
 
-class userCenterLayout extends Component{
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-            isLogin:false,
-        }
-    }
+class userCenterLayout extends Component {
 
     render() {
-        const {children,loggedIn} = this.props;
-        const {isLogin} = this.state
+        const {children, loggedIn} = this.props;
         return (
-            loggedIn?(<Layout>
-                    <Header style={{background: '#FFF',height:60}} className="user-header">
-                        <Menu
-                            theme="light"
-                            mode="horizontal"
-                            className="user-menu"
-                            defaultSelectedKeys={['1']}
+            <Layout>
+                <Header style={{background: '#FFF', height: 60}} className="user-header">
+                    <Menu
+                        theme="light"
+                        mode="horizontal"
+                        className="user-menu"
+                        defaultSelectedKeys={['1']}
 
-                            style={{lineHeight: '60px',height:60}}>
+                        style={{lineHeight: '60px', height: 60}}>
 
-                            <Menu.Item key="1">企业本页</Menu.Item>
-                            <Menu.Item key="2">信息</Menu.Item>
-                            <Menu.Item key="3">设置</Menu.Item>
+                        <Menu.Item key="1">企业本页</Menu.Item>
+                        <Menu.Item key="2">信息</Menu.Item>
+                        <Menu.Item key="3">设置</Menu.Item>
 
-                            <img className="user-logo" src={mlogo}/>
-                            <div className='menu-float-right'>
-                                <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
+                        <img className="user-logo" src={mlogo}/>
+                        <div className='menu-float-right'>
+                            <Dropdown overlay={loggedIn ? MenuUser : StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>
                                     <Badge count={1}>
                                         <Avatar icon="user"/>
                                     </Badge>
                                 </span>
-                                </Dropdown>
+                            </Dropdown>
 
-                                <Dropdown overlay={menu}>
-                                    <a href="#">
-                                        语言 <Icon type="global"/>
-                                    </a>
-                                </Dropdown>
-                            </div>
-                        </Menu>
-                    </Header>
-                    <Content>
-                        {children}
-                    </Content>
-                    <Footer style={{background:'#FFF'}} className="user-footer">Copyright by Wan</Footer>
-                </Layout>
-            ):(
-                <Redirect
-                    to="/login"
-                />
-            )
-
+                            <Dropdown overlay={menu}>
+                                <a href="#">
+                                    语言 <Icon type="global"/>
+                                </a>
+                            </Dropdown>
+                        </div>
+                    </Menu>
+                </Header>
+                <Content>
+                    {loggedIn?children:<ExceptionsPage status="403"/>}
+                </Content>
+                <Footer style={{background: '#FFF'}} className="user-footer">Copyright by Wan</Footer>
+            </Layout>
         )
     }
 }

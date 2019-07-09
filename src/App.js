@@ -29,6 +29,12 @@ class App extends Component {
                   component={HomePage}
               />
               <LayoutRoute
+                exact
+                path="/user"
+                layout={User}
+                component={UserPage}
+              />
+              <LayoutRoute
                   exact
                   path="/explore"
                   layout={HomeLayout}

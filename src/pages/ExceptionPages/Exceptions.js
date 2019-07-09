@@ -1,18 +1,11 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import './index.css';
 import { Result, Button } from 'antd';
-import {Redirect} from "react-router-dom";
-
-const toLogin =()=>{
-    return <Redirect to path="/login"/>
-}
 
 const StatusMap = {
     '403': {
         title: '403',
         subTitle: 'Sorry, you are not authorized to access this page.',
-        extra: <Button type="primary" onClick={toLogin}>Back Home</Button>,
+        extra: <Button type="primary" href="#/login">Back Log In</Button>,
     },
     '404': {
         title: '404',
@@ -26,9 +19,6 @@ const StatusMap = {
     },
 };
 
-
-
-const StatusArray = Object.keys(StatusMap);
 
 class ExceptionsPage extends React.Component {
     render() {
