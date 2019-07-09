@@ -10,7 +10,7 @@ export const baseConfigs = {
     },
 
     header:{
-        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
     },
 
     data: {

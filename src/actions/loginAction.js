@@ -2,11 +2,10 @@ import {userConstants} from "./constants";
 import { userService } from "../services/userServices";
 import { alertActions } from "./alertAction";
 
-export const userActions = {
+export const loginActions = {
     login,
     checkLogin,
     logout,
-    register,
 };
 
 //todo  改成之间返回对象的action
@@ -28,18 +27,17 @@ function login(username,password,callback){
 
 function checkLogin(token){
     return dispatch=>{
-        console.log("before service function")
+        console.log("before service function",token)
 
         dispatch({type:userConstants.CHECK_LOGIN_REQUEST})
-        console.log("before service function")
+        console.log("before service function",token)
         userService.checkLogin(token,(token)=>{
             dispatch({type: userConstants.LOGIN_SUCCESS})
             console.log("in check login in the token", token)
             localStorage.setItem('token', token)
         },(e)=>{
-            localStorage.removeItem("token")
             console.log("in check login in failure", e)
-            dispatch({type: userConstants.LOGIN_FAILURE, error: e.toString()})
+            dispatch({type: userConstants.CHECK_LOGIN_FAILURE, error: e.toString()})
         })
     }
 }

@@ -13,7 +13,7 @@ import NewsCenter from './pages/NewsCenter/NewsCenter';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
-import {userActions} from "./actions/userAction";
+import RegisterPage from "./pages/LoginPage/registerPage"
 
 class app extends Component {
 
@@ -67,6 +67,10 @@ class app extends Component {
               path="/user/invest"
               layout={User}
               component={InvestForm}
+              />
+              <Route
+                  path='/register'
+                  component={RegisterPage}
               />
               <Redirect to="/" />
           </Switch>

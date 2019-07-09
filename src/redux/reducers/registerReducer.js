@@ -1,13 +1,25 @@
 import {userConstants} from "../../actions/constants";
 
+const initialState = {isReceiving: false,isReceived:false,failure:false}
+
 export function registration(state = {}, action) {
     switch (action.type) {
         case userConstants.REGISTER_REQUEST:
-            return {registering:true}
+            return {
+                ...state,
+                isReceiving:true,
+                failure: false,
+            }
         case userConstants.REGISTER_SUCCESS:
-            return {};
+            return {
+                ...state,
+                isReceived: true,
+            };
         case userConstants.REGISTER_FAILURE:
-            return {};
+            return {
+                ...state,
+                failure:true,
+            };
         default:
             return state
     }

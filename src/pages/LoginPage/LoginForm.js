@@ -5,7 +5,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import ForgetForm from './ForgetForm'
 import QueueAnim from 'rc-queue-anim';
 import Spin from "antd/es/spin";
-import {userActions} from "../../actions/userAction";
+import {loginActions} from "../../actions/loginAction";
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from "react-router";
 
@@ -35,7 +35,7 @@ class loginForm extends React.Component {
                 const _  = this;
 
                 if(username&&password){
-                    dispatch(userActions.login(username,password, () => {
+                    dispatch(loginActions.login(username,password, () => {
                         _.setState({
                             isLoggedIn: true
                         })

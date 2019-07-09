@@ -5,6 +5,7 @@ import '../UserCenterLayout/UserCenterLayout.less'
 import './HomeLayout.less'
 import {connect} from "react-redux";
 import Badge from "antd/es/badge";
+import {loginActions} from "../../actions/loginAction";
 
 
 const {Header,Footer,Content} = Layout;
@@ -13,13 +14,15 @@ const rightTopMenu = (  <Button type="primary" shape="round" size="middle" style
                             <b><a href="#/login" style={{color:'#FFF'}}>SIGN IN</a></b>
                         </Button>);
 
-const MenuUser = (
+const MenuUser=(handleLogOut)=> (
     <Menu>
         <Menu.Item>
             <a target="/user" rel="noopener noreferrer">
                 个人中心
             </a>
-            <a target="_blank" rel="noopener noreferrer">
+        </Menu.Item>
+        <Menu.Item>
+        <a target="user" rel="noopener noreferrer">
                 未读消息
             </a>
         </Menu.Item>
@@ -29,8 +32,8 @@ const MenuUser = (
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer">
-                设置
+            <a target="_blank" rel="noopener noreferrer" onClick={handleLogOut}>
+                注销
             </a>
         </Menu.Item>
 
@@ -39,6 +42,9 @@ const MenuUser = (
 
 class homeLayout extends React.Component{
 
+    handleLogOut = () => {
+        this.props.dispatch(loginActions.logout())
+    }
 
     render(){
         const { children,loggedIn } = this.props;
@@ -54,7 +60,7 @@ class homeLayout extends React.Component{
                     </div>
                     <div className="headerInRight">
                         {console.log(loggedIn)}
-                        {loggedIn?(<Dropdown overlay= {MenuUser}>
+                        {loggedIn?(<Dropdown overlay= {MenuUser(this.handleLogOut)}>
                                         <span style={{marginRight: '1em'}}>
                                             <Badge count={1}>
                                                 <Avatar icon="user"/>
