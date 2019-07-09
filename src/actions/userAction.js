@@ -28,6 +28,8 @@ function login(username,password,callback){
 
 function checkLogin(token){
     return dispatch=>{
+        console.log("before service function")
+
         dispatch({type:userConstants.CHECK_LOGIN_REQUEST})
         console.log("before service function")
         userService.checkLogin(token,(token)=>{

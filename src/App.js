@@ -17,23 +17,6 @@ import {userActions} from "./actions/userAction";
 
 class app extends Component {
 
-
-    componentWillMount(): void {
-        //todo  会不会很占资源？？
-        const{loggedIn} = this.props
-        if(!loggedIn){
-            let token = localStorage.getItem("token")
-            console.log("in if",token)
-            if(token){
-                console.log("in token if ")
-                userActions.checkLogin(token)
-                console.log("in after action ")
-
-            }
-        }
-    }
-
-
     render() {
     return (
         <HashRouter>

@@ -8,10 +8,12 @@ export function authentication(state = initialState, action) {
             return state;
         case userConstants.LOGIN_REQUEST:
             return{
+                ...state,
                 loggingIn:true,
             };
         case userConstants.LOGIN_SUCCESS:
             return {
+                ...state,
                 loggingIn:false,
                 loggedIn:true,
             };
@@ -23,6 +25,7 @@ export function authentication(state = initialState, action) {
             };
         case userConstants.LOGOUT:
             return {
+                ...state,
                 loggingIn:false,
                 loggedIn:false,
             };

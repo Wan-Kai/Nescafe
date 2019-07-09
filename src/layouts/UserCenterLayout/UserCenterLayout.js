@@ -6,6 +6,7 @@ import Badge from "antd/es/badge";
 import {connect} from "react-redux";
 import {Redirect, Route} from "react-router-dom";
 import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
+import {userActions} from "../../actions/userAction";
 
 const {Header,Footer,Content} = Layout;
 
@@ -61,7 +62,24 @@ const menu = (
 
 class userCenterLayout extends Component {
 
+
+
+    handleValidator(){
+        //todo  会不会很占资源？？
+        const{loggedIn} = this.props
+        if(!loggedIn){
+            let token = localStorage.getItem("token")
+            console.log("in if",loggedIn)
+            if(token){
+                console.log("in token if ",loggedIn)
+                userActions.checkLogin(token)
+                console.log("in after action ",loggedIn)
+            }
+        }
+    }
+
     render() {
+        console.log("in render")
         const {children, loggedIn} = this.props;
         return (
             <Layout>
@@ -97,6 +115,7 @@ class userCenterLayout extends Component {
                     </Menu>
                 </Header>
                 <Content>
+                    {loggedIn?console.log("true"):this.handleValidator()}
                     {loggedIn?children:<ExceptionsPage status="403"/>}
                 </Content>
                 <Footer style={{background: '#FFF'}} className="user-footer">Copyright by Wan</Footer>

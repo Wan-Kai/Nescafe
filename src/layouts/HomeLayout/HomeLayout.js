@@ -1,14 +1,47 @@
 import React from 'react';
-import {Layout,Icon,Button,Menu} from "antd";
+import {Layout, Icon, Button, Menu, Avatar, Dropdown} from "antd";
 import Logo from '../../assets/img/mlogo.png'
 import '../UserCenterLayout/UserCenterLayout.less'
 import './HomeLayout.less'
+import {connect} from "react-redux";
+import Badge from "antd/es/badge";
+
 
 const {Header,Footer,Content} = Layout;
 
-class HomeLayout extends React.Component{
+const rightTopMenu = (  <Button type="primary" shape="round" size="middle" style={{backgroundColor:'#ff6c37',border:'transparent'}}>
+                            <b><a href="#/login" style={{color:'#FFF'}}>SIGN IN</a></b>
+                        </Button>);
+
+const MenuUser = (
+    <Menu>
+        <Menu.Item>
+            <a target="/user" rel="noopener noreferrer">
+                个人中心
+            </a>
+            <a target="_blank" rel="noopener noreferrer">
+                未读消息
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer">
+                个人信息
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer">
+                设置
+            </a>
+        </Menu.Item>
+
+    </Menu>
+);
+
+class homeLayout extends React.Component{
+
+
     render(){
-        const { children } = this.props;
+        const { children,loggedIn } = this.props;
         return (
             <Layout>
                 <Header style={{ background: '#96cfc9', padding: 0,height:60}}>
@@ -20,9 +53,15 @@ class HomeLayout extends React.Component{
                         </Menu>
                     </div>
                     <div className="headerInRight">
-                        <Button type="primary" shape="round" size="middle" style={{backgroundColor:'#ff6c37',border:'transparent'}}>
-                            <b><a href="#/login" style={{color:'#FFF'}}>SIGN IN</a></b>
-                        </Button>
+                        {console.log(loggedIn)}
+                        {loggedIn?(<Dropdown overlay= {MenuUser}>
+                                        <span style={{marginRight: '1em'}}>
+                                            <Badge count={1}>
+                                                <Avatar icon="user"/>
+                                            </Badge>
+                                        </span>
+                                    </Dropdown>
+                        ):rightTopMenu}
                     </div>
                 </Header>
                 <Content>
@@ -38,5 +77,12 @@ class HomeLayout extends React.Component{
     }
 
 }
+
+function mapStateToProps(state){
+    const {loggedIn} = state.authentication
+    return {loggedIn}
+}
+
+const HomeLayout = connect(mapStateToProps)(homeLayout)
 
 export default HomeLayout;
