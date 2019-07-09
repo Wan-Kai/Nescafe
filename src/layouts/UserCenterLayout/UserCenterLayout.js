@@ -3,6 +3,8 @@ import {Layout, Menu, Icon, SubMenu, Dropdown, Avatar} from 'antd';
 import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
+import {connect} from "react-redux";
+import {Redirect, Route} from "react-router-dom";
 
 const {Header,Footer,Content} = Layout;
 
@@ -56,7 +58,7 @@ const menu = (
     </Menu>
 );
 
-export default class UserCenterLayout extends Component{
+class userCenterLayout extends Component{
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -65,48 +67,62 @@ export default class UserCenterLayout extends Component{
     }
 
     render() {
-        const isLogin = this.state.isLogin;
-        const {children} = this.props;
+        const {children,loggedIn} = this.props;
+        const {isLogin} = this.state
         return (
-            <Layout>
-                <Header style={{background: '#FFF',height:60}} className="user-header">
-                    <Menu
-                        theme="light"
-                        mode="horizontal"
-                        className="user-menu"
-                        defaultSelectedKeys={['1']}
+            loggedIn?(<Layout>
+                    <Header style={{background: '#FFF',height:60}} className="user-header">
+                        <Menu
+                            theme="light"
+                            mode="horizontal"
+                            className="user-menu"
+                            defaultSelectedKeys={['1']}
 
-                        style={{lineHeight: '60px',height:60}}>
+                            style={{lineHeight: '60px',height:60}}>
 
-                        <Menu.Item key="1">企业本页</Menu.Item>
-                        <Menu.Item key="2">信息</Menu.Item>
-                        <Menu.Item key="3">设置</Menu.Item>
+                            <Menu.Item key="1">企业本页</Menu.Item>
+                            <Menu.Item key="2">信息</Menu.Item>
+                            <Menu.Item key="3">设置</Menu.Item>
 
-                        <img className="user-logo" src={mlogo}/>
-                        <div className='menu-float-right'>
-                            <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
+                            <img className="user-logo" src={mlogo}/>
+                            <div className='menu-float-right'>
+                                <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>
                                     <Badge count={1}>
                                         <Avatar icon="user"/>
                                     </Badge>
                                 </span>
-                            </Dropdown>
+                                </Dropdown>
 
-                            <Dropdown overlay={menu}>
-                                <a href="#">
-                                    语言 <Icon type="global"/>
-                                </a>
-                            </Dropdown>
-                        </div>
-                    </Menu>
-                </Header>
-                <Content>
-                    {children}
-                </Content>
-                <Footer style={{background:'#FFF'}} className="user-footer">Copyright by Wan</Footer>
-            </Layout>
+                                <Dropdown overlay={menu}>
+                                    <a href="#">
+                                        语言 <Icon type="global"/>
+                                    </a>
+                                </Dropdown>
+                            </div>
+                        </Menu>
+                    </Header>
+                    <Content>
+                        {children}
+                    </Content>
+                    <Footer style={{background:'#FFF'}} className="user-footer">Copyright by Wan</Footer>
+                </Layout>
+            ):(
+                <Redirect
+                    to="/login"
+                />
+            )
 
         )
     }
 }
 
+function mapSateToProps(state) {
+    const {loggedIn} = state.authentication
+    return {loggedIn}
+
+}
+
+const UserCenterLayout = connect(mapSateToProps)(userCenterLayout)
+
+export default UserCenterLayout;

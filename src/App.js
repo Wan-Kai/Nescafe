@@ -12,6 +12,7 @@ import Route from "react-router-dom/es/Route";
 import NewsCenter from './pages/NewsCenter/NewsCenter';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
+import mapStateToProps from "react-redux/es/connect/mapStateToProps";
 
 
 class App extends Component {
