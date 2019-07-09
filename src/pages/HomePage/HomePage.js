@@ -1,7 +1,7 @@
 import React from 'react';
 import {Layout, Icon, Col, Row, Button,Card,Avatar,Anchor} from "antd";
 import Logo from '../../assets/img/mlogo.png'
-import Layer
+import Layer1 from '../../assets/img/Layer1.png';
 import Layer from '../../assets/img/Layer.png';
 import New from '../../assets/img/new.svg'
 import BackGround from '../../assets/img/back.jpg'
