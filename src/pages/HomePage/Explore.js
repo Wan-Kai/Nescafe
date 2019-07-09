@@ -1,24 +1,130 @@
 import React from 'react';
-import {Layout} from 'antd';
-import BackGround from '../../assets/img/back.jpg'
+import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
+import mlogo from '../../assets/img/mlogo.png'
+import './Explore.less'
+import background from '../../assets/img/background.png'
+import beauty from '../../assets/img/beauty.jpg'
+import smile from '../../assets/img/smile.jpg'
+import dragonMom from '../../assets/img/drangonMom.jpg'
 
-const backgroundStyle = {
-    width: '100%',
-    backgroundImage: `url(${BackGround})`
-};
+const { Meta } = Card;
 
-class Explore extends React.Component{
-    render(){
+class AuthPage extends React.Component {
+
+    render() {
         return (
-            <Layout>
-                <div style={backgroundStyle}>
-                    <div className="container">
+            <div className="layout">
+                <div className="car">
+                    <Carousel autoplay>
+                        <div>
+                            <img className="img" alt="example" src={background}/>
+                        </div>
+                        <div>
+                            <img className="img" alt="example" src={beauty}/>
+                        </div>
+                        <div>
+                            <img className="img" alt="example" src={smile}/>
+                        </div>
+                        <div>
+                            <img className="img" alt="example" src={dragonMom}/>
+                        </div>
+                    </Carousel>
+                </div>
 
+                <div className="row">
+                    <div className="col">
+                        <Row gutter={32}>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo} />}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                        </Row>
+                    </div>
+                    <div className="col">
+                        <Row gutter={32}>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                            <Col span={6}>
+                                <Card cover={<img alt="example" src={mlogo}/>}
+                                      actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}>
+                                    <Meta
+                                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                                        title="Card title"
+                                        description="This is the description"
+                                    />
+                                </Card>
+                            </Col>
+                        </Row>
                     </div>
                 </div>
-            </Layout>
-        )
+
+            </div>
+        );
     }
 }
 
-export default Explore;
+export default AuthPage;

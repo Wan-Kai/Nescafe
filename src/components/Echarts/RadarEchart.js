@@ -55,7 +55,7 @@ class RadarEchart extends Component{
         return (
             <ReactEcharts
                 option={this.getOption()}
-                style={{height: '500px', width: '100%'}}
+                style={{height: '500px', width: '100%',background:'#FFF'}}
                 className='react_for_echarts' />
         );
     }

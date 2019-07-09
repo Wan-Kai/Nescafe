@@ -9,16 +9,32 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
 import Route from "react-router-dom/es/Route";
-import PersonForm from './components/PersonalPage/personForm';
 import NewsCenter from './pages/NewsCenter/NewsCenter';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
-import mapStateToProps from "react-redux/es/connect/mapStateToProps";
+import {connect} from "react-redux";
+import {userActions} from "./actions/userAction";
+
+class app extends Component {
 
 
-class App extends Component {
+    componentWillMount(): void {
+        //todo  会不会很占资源？？
+        const{loggedIn} = this.props
+        if(!loggedIn){
+            let token = localStorage.getItem("token")
+            console.log("in if",token)
+            if(token){
+                console.log("in token if ")
+                userActions.checkLogin(token)
+                console.log("in after action ")
 
-  render() {
+            }
+        }
+    }
+
+
+    render() {
     return (
         <HashRouter>
           <Switch>
@@ -44,12 +60,13 @@ class App extends Component {
                   path="/login"
                   component={LoginPage}
               />
-              {/*<LayoutRoute*/}
-              {/*    exact*/}
-              {/*    path="/user/company/center"*/}
-              {/*    layout={User}*/}
-              {/*    component={PersonForm}*/}
-              {/*/>*/}
+
+              <LayoutRoute
+                  exact
+                  path="/user"
+                  layout={User}
+                  component={UserPage}
+              />
               <LayoutRoute
                   exact
                   path="/user/company/news"
@@ -74,6 +91,13 @@ class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state){
+    const {loggedIn} = state.authentication
+    return {loggedIn}
+}
+
+const App = connect(mapStateToProps)(app)
 
 export default App;
 
