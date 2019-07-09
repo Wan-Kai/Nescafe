@@ -9,6 +9,7 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
 import Route from "react-router-dom/es/Route";
+import ExploreLayout from './layouts/HomeLayout/ExploreLayout';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import mapStateToProps from "react-redux/es/connect/mapStateToProps";
@@ -29,7 +30,7 @@ class App extends Component {
               <LayoutRoute
                   exact
                   path="/explore"
-                  layout={HomeLayout}
+                  layout={ExploreLayout}
                   component={Explore}
               />
               <Route
