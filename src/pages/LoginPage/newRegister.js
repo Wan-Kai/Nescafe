@@ -15,25 +15,35 @@ class formOfStepOne extends React.Component{
         }
     }
 
+    values = null
+
     handleSubmitStepOne = e =>{
         const{receivedAndNext} = this.state
         const {dispatch,changeCurrent} = this.props
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err,values) => {
-            if(!err){
-                if(receivedAndNext){
+            if(!err) {
+                if (receivedAndNext) {
                     changeCurrent(1);
-                }else {
-                    dispatch(receiveInfo(values['type'],values['id'],
-                        this.setState({
-                            receivedAndNext:true
-                    })))// do with DB;
-
+                } else {
+                    dispatch(receiveInfo(values['type'], values['id'],
+                        () => {
+                            this.setState({
+                                receivedAndNext: true
+                            })//todo  isReceived can replaced?   必须要一个放values
+                            //todo response  try setsession
+                        }
+                    ))// do with DB;
+                    //todo 当
                 }
                 console.log('Received values of LoginPage: ', values);
             }
         })
     };
+
+    handleGetValue = (response)=>{
+        this.values = response
+    }
 
     handleReceiveInfo = (values)=>{
         return (
