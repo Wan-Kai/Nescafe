@@ -12,12 +12,12 @@ import Route from "react-router-dom/es/Route";
 import ExploreLayout from './layouts/HomeLayout/ExploreLayout';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
-import mapStateToProps from "react-redux/es/connect/mapStateToProps";
+import {connect} from "react-redux";
+import RegisterPage from "./pages/LoginPage/registerPage"
 
+class app extends Component {
 
-class App extends Component {
-
-  render() {
+    render() {
     return (
         <HashRouter>
           <Switch>
@@ -26,6 +26,12 @@ class App extends Component {
                   path="/"
                   layout={HomeLayout}
                   component={HomePage}
+              />
+              <LayoutRoute
+                exact
+                path="/user"
+                layout={User}
+                component={UserPage}
               />
               <LayoutRoute
                   exact
@@ -44,6 +50,7 @@ class App extends Component {
                   layout={User}
                   component={UserPage}
               />
+
               <LayoutRoute
                   exact
                   path="/user/finance"
@@ -56,12 +63,23 @@ class App extends Component {
               layout={User}
               component={InvestForm}
               />
+              <Route
+                  path='/register'
+                  component={RegisterPage}
+              />
               <Redirect to="/" />
           </Switch>
         </HashRouter>
     );
   }
 }
+
+function mapStateToProps(state){
+    const {loggedIn} = state.authentication
+    return {loggedIn}
+}
+
+const App = connect(mapStateToProps)(app)
 
 export default App;
 

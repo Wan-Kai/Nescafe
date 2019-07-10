@@ -5,6 +5,9 @@ import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 import {connect} from "react-redux";
 import {Redirect, Route} from "react-router-dom";
+import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
+import {loginActions} from "../../actions/loginAction";
+import Spin from "antd/es/spin";
 
 const {Header,Footer,Content} = Layout;
 
@@ -58,68 +61,75 @@ const menu = (
     </Menu>
 );
 
-class userCenterLayout extends Component{
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-            isLogin:false,
+class userCenterLayout extends Component {
+
+
+    handleCheckLogin=()=>{
+    //todo  会不会很占资源？？
+        const{loggedIn,dispatch,initLogin} = this.props
+        if(!loggedIn&&!initLogin){
+            let token = localStorage.getItem("token")
+            console.log(token)
+            if(token&&token!==undefined){
+                console.log("in token if ",token)
+                dispatch(loginActions.checkLogin(token))
+                console.log("in after action ",token)
+            }
         }
-    }
+    };
 
     render() {
-        const {children,loggedIn} = this.props;
-        const {isLogin} = this.state
+        const {children,loggedIn,initLogin,loggingIn} = this.props;
+        if(!initLogin){
+            this.handleCheckLogin()
+        }
         return (
-            loggedIn?(<Layout>
-                    <Header style={{background: '#FFF',height:60}} className="user-header">
-                        <Menu
-                            theme="light"
-                            mode="horizontal"
-                            className="user-menu"
-                            defaultSelectedKeys={['1']}
+            <Spin spinning={loggingIn}>
+            <Layout>
+                <Header style={{background: '#FFF', height: 60}} className="user-header">
+                    <Menu
+                        theme="light"
+                        mode="horizontal"
+                        className="user-menu"
+                        defaultSelectedKeys={['1']}
 
-                            style={{lineHeight: '60px',height:60}}>
+                        style={{lineHeight: '60px', height: 60}}>
 
-                            <Menu.Item key="1">企业本页</Menu.Item>
-                            <Menu.Item key="2">信息</Menu.Item>
-                            <Menu.Item key="3">设置</Menu.Item>
+                        <Menu.Item key="1">企业本页</Menu.Item>
+                        <Menu.Item key="2">信息</Menu.Item>
+                        <Menu.Item key="3">设置</Menu.Item>
 
-                            <img className="user-logo" src={mlogo}/>
-                            <div className='menu-float-right'>
-                                <Dropdown overlay={isLogin?MenuUser:StillNotLogin}>
+                        <img className="user-logo" src={mlogo}/>
+                        <div className='menu-float-right'>
+                            <Dropdown overlay={loggedIn ? MenuUser : StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>
                                     <Badge count={1}>
                                         <Avatar icon="user"/>
                                     </Badge>
                                 </span>
-                                </Dropdown>
+                            </Dropdown>
 
-                                <Dropdown overlay={menu}>
-                                    <a href="#">
-                                        语言 <Icon type="global"/>
-                                    </a>
-                                </Dropdown>
-                            </div>
-                        </Menu>
-                    </Header>
-                    <Content>
-                        {children}
-                    </Content>
-                    <Footer style={{background:'#FFF'}} className="user-footer">Copyright by Wan</Footer>
-                </Layout>
-            ):(
-                <Redirect
-                    to="/login"
-                />
-            )
-
+                            <Dropdown overlay={menu}>
+                                <a href="#">
+                                    语言 <Icon type="global"/>
+                                </a>
+                            </Dropdown>
+                        </div>
+                    </Menu>
+                </Header>
+                <Content>
+                    {!initLogin?null:loggedIn?children:<ExceptionsPage status="403"/>}
+                </Content>
+                <Footer style={{background: '#FFF'}} className="user-footer">Copyright by Wan</Footer>
+            </Layout>
+            </Spin>
         )
     }
 }
 
 function mapSateToProps(state) {
-    const {loggedIn} = state.authentication
-    return {loggedIn}
+    const {loggedIn,initLogin,loggingIn} = state.authentication
+    return {loggedIn,initLogin,loggingIn}
 
 }
 

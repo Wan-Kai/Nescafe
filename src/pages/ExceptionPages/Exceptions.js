@@ -1,15 +1,11 @@
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './index.css';
-import { Result, Radio, Button } from 'antd';
+import { Result, Button } from 'antd';
 
 const StatusMap = {
     '403': {
         title: '403',
         subTitle: 'Sorry, you are not authorized to access this page.',
-        extra: <Button type="primary">Back Home</Button>,
+        extra: <Button type="primary" href="#/login">Back Log In</Button>,
     },
     '404': {
         title: '404',
@@ -23,36 +19,17 @@ const StatusMap = {
     },
 };
 
-const StatusArray = Object.keys(StatusMap);
 
-class ResultDemo extends React.Component {
-    state = {
-        status: '403',
-    };
-
-    onChange = e => {
-        console.log('status checked', e.target.value);
-        this.setState({
-            status: e.target.value,
-        });
-    };
-
+class ExceptionsPage extends React.Component {
     render() {
-        const { status } = this.state;
+        const { status } = this.props;
         const resultProps = StatusMap[status];
         return (
             <div>
-                <p>
-                    <Radio.Group onChange={this.onChange} value={status}>
-                        {StatusArray.map(statusItem => (
-                            <Radio value={statusItem}>{statusItem}</Radio>
-                        ))}
-                    </Radio.Group>
-                </p>
                 <Result status={status} {...resultProps} />
             </div>
         );
     }
 }
 
-ReactDOM.render(<ResultDemo />, document.getElementById('container'));
+export default ExceptionsPage
