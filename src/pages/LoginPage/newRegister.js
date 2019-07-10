@@ -3,41 +3,38 @@ import 'antd/dist/antd.css';
 import './Forms.css';
 import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps, Descriptions, Upload} from 'antd';
 import {receiveInfo} from "../../actions/registerActions"
+import RegisterForm from "./RegisterForm"
+
 const { Step } = Steps;
 //todo 完成后跳转login，即销毁
-
 
 class formOfStepOne extends React.Component{
     constructor(props, context) {
         super(props, context);
         this.state={
-            receivedAndNext:false,
+            received:true,
         }
     }
 
     values = null
 
     handleSubmitStepOne = e =>{
-        const{receivedAndNext} = this.state
         const {dispatch,changeCurrent} = this.props
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err,values) => {
-            if(!err) {
-                if (receivedAndNext) {
-                    changeCurrent(1);
-                } else {
-                    dispatch(receiveInfo(values['type'], values['id'],
-                        () => {
-                            this.setState({
-                                receivedAndNext: true
-                            })//todo  isReceived can replaced?   必须要一个放values
-                            //todo response  try setsession
-                        }
-                    ))// do with DB;
-                    //todo 当
-                }
-                console.log('Received values of LoginPage: ', values);
+            if (!err) {
+                changeCurrent(1);
+                // dispatch(receiveInfo(values['type'], values['id'],
+                //     () => {
+                //         this.setState({
+                //             received: true
+                //         })//todo  isReceived can replaced?   必须要一个放values
+                //         //todo response  try setsession
+                //     }
+                // ))// do with DB;
+                //todo 当
             }
+            console.log('Received values of LoginPage: ', values);
         })
     };
 
@@ -60,7 +57,7 @@ class formOfStepOne extends React.Component{
 
     render() {
         const { getFieldDecorator } = this.props.form;
-        const { receivedAndNext } = this.state;
+        const { received } = this.state;
         const prefixSelector = getFieldDecorator('type', {
             initialValue: '统一社会信用代码',
         })(
@@ -68,10 +65,9 @@ class formOfStepOne extends React.Component{
                 <Select value="COne">统一社会信用代码</Select>
                 <Select value="CTwo">组织机构代码</Select>
                 <Select value="CThird">股票代码</Select>
-
             </Select>,
         );
-        return (
+        return (received?(
             <Form layout="vertical" className='forget-forms'>
                 <Form.Item style={{marginBottom: '1em',width:350}}>
                     {getFieldDecorator('id', {
@@ -84,110 +80,16 @@ class formOfStepOne extends React.Component{
                 </Form.Item>
                 <div className="register-page-information">
                 </div>
-                {receivedAndNext?this.handleReceiveInfo:null}
                 <Button onClick={this.handleSubmitStepOne} style={{textAlign:"center"}}>
                     Next
                 </Button>
-            </Form>);
+            </Form>):this.handleReceiveInfo
+    );
     }
 }
 
 const FormOfStepOne = Form.create({ name: 'stepOneForm' })(formOfStepOne);
 
-
-class formOfStepTwo extends React.Component{
-    constructor(props, context) {
-        super(props, context);
-        this.state={
-            canNext:false,
-        }
-    }
-
-    handleSummitStepTwo = e =>{
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err,values)=>{
-            if(!err){
-                //todo 数据库io处理
-                this.props.changeCurrent(2);
-                this.props.doneAndCancel();//异步关闭对话框
-                console.log('Received values of LoginPage: ', values)
-            }
-        })
-    };
-
-    handleConfirmBlur = e => {
-        const {value} = e.target;
-        this.setState({confirmDirty: this.state.confirmDirty || !!value});
-    };
-
-    compareToFirstPassword = (rule, value, callback) => {
-        const {form} = this.props;
-        if (value && value !== form.getFieldValue('password')) {
-            callback('Two passwords that you enter is inconsistent!');
-        } else {
-            this.setState({
-                canNext:true,
-            });
-            callback();
-        }
-    };
-
-    validateToNextPassword = (rule, value, callback) => {
-        const {form} = this.props;
-        if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], {force: true});
-        }
-        callback();
-    };
-    //todo 储存password
-
-    render() {
-        const {password} = this.props;
-        const {getFieldDecorator} = this.props.form;
-        return (
-            <Form >
-                <Form.Item hasFeedback >
-                    {getFieldDecorator('password', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                            {
-                                validator: this.validateToNextPassword,
-                            },
-                        ],
-                    })(<Input
-                        prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                        type="password"
-                        placeholder="Password"
-                    />,)}
-                </Form.Item>
-                <Form.Item hasFeedback>
-                    {getFieldDecorator('confirm', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please confirm your password!',
-                            },
-                            {
-                                validator: this.compareToFirstPassword,
-                            },
-                        ],
-                    })(<Input
-                        prefix={<Icon type="lock"/>}
-                        type="password"
-                        placeholder="Confirm"
-                        onBlur={this.handleConfirmBlur}/>)}
-                </Form.Item>
-                <Button onClick={this.handleSummitStepTwo}>
-                    Done
-                </Button>
-            </Form>);
-    }
-}
-
-const FormOfStepTwo = Form.create({name:"StepTwoForm"})(formOfStepTwo);
 
 
 function getBase64(file) {
@@ -205,7 +107,7 @@ export class FormOfStepThird extends React.Component {
         previewImage: '',
         fileList: [
             {
-                uid: '-1',
+                uid: '',
                 name: '',
                 status: '',
                 url: '',
@@ -228,6 +130,14 @@ export class FormOfStepThird extends React.Component {
 
     handleChange = ({ fileList }) => this.setState({ fileList });
 
+    beforeUpload = (file)=>{
+        const isLt2M = file.size / 1024 / 1024 < 4;
+        if (!isLt2M) {
+            message.error('Image must smaller than 4MB!');
+        }
+        return isLt2M;
+    }
+
     render() {
         const { previewVisible, previewImage, fileList } = this.state;
         const uploadButton = (
@@ -241,11 +151,11 @@ export class FormOfStepThird extends React.Component {
                 <Upload
                     action="https://scf.intellizhi.cn/user/paperUpload"
                     listType="picture-card"
-                    fileList={fileList}
                     onPreview={this.handlePreview}
                     onChange={this.handleChange}
                     name="paperFiles"
                     multiple={true}
+                    beforeUpload={this.beforeUpload}
                 >
                     {fileList.length >= 4 ? null : uploadButton}
                 </Upload>
@@ -288,7 +198,7 @@ class NewRegister extends React.Component {
         {
             id:1,
             title: 'validator',
-            content: <FormOfStepTwo  changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
+            content: <RegisterForm  changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
             icon:<Icon type="check-circle" />
         },
         {

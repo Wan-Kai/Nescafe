@@ -17,17 +17,18 @@ import QueueAnim from "rc-queue-anim";
 const {Option} = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
-class RegistrationForm extends React.Component {
+class formOfStepTwo extends React.Component {
 
     state = {
         confirmDirty: false,
-        autoCompleteResult: [],
     };
 
     handleSubmit = e => {
         e.preventDefault();
+        const {changeCurrent} = this.props
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
+                changeCurrent(2);
                 console.log('Received values of LoginPage: ', values);
             }
         });
@@ -55,20 +56,8 @@ class RegistrationForm extends React.Component {
         callback();
     };
 
-    handleWebsiteChange = value => {
-        let autoCompleteResult;
-        if (!value) {
-            autoCompleteResult = [];
-        } else {
-            autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-        }
-        this.setState({autoCompleteResult});
-    };
-
     render() {
         const {getFieldDecorator} = this.props.form;
-
-        const {autoCompleteResult} = this.state;
 
         const formItemLayout = {
             labelCol: {
@@ -101,10 +90,6 @@ class RegistrationForm extends React.Component {
             </Select>,
         );
 
-        const websiteOptions = autoCompleteResult.map(website => (
-            <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-        ));
-
         return (
             <QueueAnim delay={100} component="div" type="left" >
             <div className='register-form' key='0'>
@@ -129,6 +114,18 @@ class RegistrationForm extends React.Component {
                     })(<Input prefix={<Icon type="mail" />}
                               style={{color: 'rgba(0,0,0,.25)'}}
                               placeholder="Email"/>)}
+                </Form.Item>
+                <Form.Item style={{width:"125%"}}>
+                    {getFieldDecorator('username', {
+                        rules: [
+                            {
+                                required: true,
+                                message: 'Please input your username!',
+                            },
+                        ],
+                    })(<Input prefix={<Icon type="user" />}
+                              style={{color: 'rgba(0,0,0,.25)'}}
+                              placeholder="User"/>)}
                 </Form.Item>
                 <Form.Item hasFeedback style={{width:"125%"}}>
                     {getFieldDecorator('password', {
@@ -166,32 +163,19 @@ class RegistrationForm extends React.Component {
                 </Form.Item>
                 <Form.Item style={{width:"125%"}}>
                     {getFieldDecorator('nickname', {
-                        rules: [{required: true, message: 'Please input your nickname!', whitespace: true}],
-                    })(<Input prefix={<Icon type="user" />}
+                        rules: [{required: false, message: 'Please input your nickname!', whitespace: true}],
+                    })(<Input prefix={<Icon type="info" />}
                                 placeholder="your nickname"/>)}
                 </Form.Item>
 
                 <Form.Item style={{width:"125%"}}>
                     {getFieldDecorator('phone', {
-                        rules: [{required: true, message: 'Please input your phone number!'}],
+                        rules: [{required: false, message: 'Please input your phone number!'}],
                     })(<Input
                         prefix={<Icon type="phone"/>}
                         placeholder="Phone Number"
                         addonBefore={prefixSelector}
                         style={{width: '100%'}}/>)}
-                </Form.Item>
-
-                <Form.Item style={{width:"126%"}} >
-                    <Row gutter={8}>
-                        <Col span={12}>
-                            {getFieldDecorator('captcha', {
-                                rules: [{required: true, message: 'Please input the captcha you got!'}],
-                            })(<Input prefix={<Icon type="message" />} style={{float:"left"}}/>)}
-                        </Col>
-                        <Col span={12}>
-                            <Button style={{float:"right"}}>Get captcha</Button>
-                        </Col>
-                    </Row>
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout} style={{width:"120%", float:"right"}} >
                     {getFieldDecorator('agreement', {
@@ -203,10 +187,6 @@ class RegistrationForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout} style={{marginLeft:"-6em",marginTop:"-2em"}} >
-                    <Button type="primary" style={{marginRight:'1em'}} onClick={()=>this.props.handleLogin(false)}>
-                        <Icon type="left" />
-                        Login Now
-                    </Button>
                     <Button type="primary" htmlType="submit" >
                         Register
                     </Button>
@@ -218,6 +198,5 @@ class RegistrationForm extends React.Component {
     }
 }
 
-const RegisterForm = Form.create({name: 'Register'})(RegistrationForm);
+export const FormOfStepTwo = Form.create({name: 'Register'})(formOfStepTwo);
 
-export default RegisterForm;
