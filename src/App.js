@@ -15,6 +15,7 @@ import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
 import RegisterPage from "./pages/LoginPage/registerPage"
 import {loginActions} from "./actions/loginAction";
+import {FormOfStepThird} from "./pages/LoginPage/newRegister"
 
 class app extends Component {
 
@@ -78,6 +79,10 @@ class app extends Component {
               <Route
                   path='/register'
                   component={RegisterPage}
+              />
+              <Route
+                  path='/regTest'
+                  component={FormOfStepThird}
               />
               <Redirect to="/" />
           </Switch>

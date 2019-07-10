@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './Forms.css';
-import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps, Descriptions} from 'antd';
+import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps, Descriptions, Upload} from 'antd';
 import {receiveInfo} from "../../actions/registerActions"
 const { Step } = Steps;
 //todo 完成后跳转login，即销毁
@@ -190,6 +190,75 @@ class formOfStepTwo extends React.Component{
 const FormOfStepTwo = Form.create({name:"StepTwoForm"})(formOfStepTwo);
 
 
+function getBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+export class FormOfStepThird extends React.Component {
+    state = {
+        previewVisible: false,
+        previewImage: '',
+        fileList: [
+            {
+                uid: '-1',
+                name: '',
+                status: '',
+                url: '',
+            },
+        ],
+    };
+
+    handleCancel = () => this.setState({ previewVisible: false });
+
+    handlePreview = async file => {
+        if (!file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
+        }
+
+        this.setState({
+            previewImage: file.url || file.preview,
+            previewVisible: true,
+        });
+    };
+
+    handleChange = ({ fileList }) => this.setState({ fileList });
+
+    render() {
+        const { previewVisible, previewImage, fileList } = this.state;
+        const uploadButton = (
+            <div>
+                <Icon type="plus" />
+                <div className="ant-upload-text">Upload</div>
+            </div>
+        );
+        return (
+            <div>
+                <Upload
+                    action="https://scf.intellizhi.cn/user/paperUpload"
+                    listType="picture-card"
+                    fileList={fileList}
+                    onPreview={this.handlePreview}
+                    onChange={this.handleChange}
+                    name="paperFiles"
+                    multiple={true}
+                >
+                    {fileList.length >= 4 ? null : uploadButton}
+                </Upload>
+                <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                </Modal>
+            </div>
+        );
+    }
+}
+
+
+
 
 class NewRegister extends React.Component {
     constructor(props) {
@@ -212,24 +281,21 @@ class NewRegister extends React.Component {
     steps = [
         {
             id:0,
-            title: 'Validate',
+            title: 'input',
             content: <FormOfStepOne changeCurrent = {this.handleNext.bind(this)}/>,//todo 换成表格组件  先做telephone的
-            icon:<Icon type="question-circle" />
+            icon:<Icon type="info-circle" />
         },
         {
             id:1,
-            title: 'Reset',
+            title: 'validator',
             content: <FormOfStepTwo  changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
-            icon:<Icon type="schedule" />
+            icon:<Icon type="check-circle" />
         },
         {
             id:2,
-            title: 'Done',
-            content:    (<div className='step-form-third-content'>
-                <Icon type="edit" />
-                Please Remember Your Password!
-            </div>),
-            icon:<Icon type="smile" />
+            title: 'upload',
+            content: <FormOfStepThird/>,
+            icon:<Icon type="upload" />
         },
     ];
 

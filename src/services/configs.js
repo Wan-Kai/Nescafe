@@ -9,8 +9,8 @@ export const baseConfigs = {
 
     },
 
-    header:{
-        'X-Requested-With': 'XMLHttpRequest'
+    headers:{
+        'X-Requested-With': 'XMLHttpRequest',
     },
 
     data: {
