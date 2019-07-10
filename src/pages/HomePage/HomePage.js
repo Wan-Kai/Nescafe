@@ -8,6 +8,7 @@ import BackGround from '../../assets/img/back.jpg'
 import './HomePage.less'
 import PersonalData from "../../components/PersonalPage/personalData";
 import CompanyData from "../../components/PersonalPage/companyData";
+import FinanceCard from '../../components/Cards/FinanceCard';
 import NewsCard from '../NewsCenter/NewsCard';
 
 const backgroundStyle = {
@@ -72,11 +73,15 @@ class HomePage extends React.Component{
 
                         <div className="center" id="choice">
                             <Row gutter={24}>
-                                <Col lg={12}>
-                                    <img src={Layer}/>
+                                <Col span={12} className="home-center">
+                                    <div style={{width:300}}>
+                                        <FinanceCard/>
+                                    </div>
                                 </Col>
-                                <Col lg={12}>
-                                    <img src={Layer}/>
+                                <Col span={12} className="home-center">
+                                    <div style={{width:300}}>
+                                        <FinanceCard/>
+                                    </div>
                                 </Col>
                             </Row>
                         </div>

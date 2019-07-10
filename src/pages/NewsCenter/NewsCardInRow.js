@@ -7,11 +7,11 @@ class NewsCardInRow extends React.Component{
         return(
             <div >
                 <Card hoverable
-                      style={{ width: '100%',border:0}}
+                      style={{ width: 'auto',border:0,height:240,position:'relative'}}
                 >
                     <Row gutter={24}>
                         <Col span={7}>
-                            <img alt="img" src={Temp} style={{height:'auto',width:300}}/>
+                            <img alt="img" src={Temp} style={{height:190,width:'auto'}}/>
                         </Col>
                         <Col span={17}>
                             <h2>News Title</h2>
