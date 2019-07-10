@@ -9,7 +9,7 @@ import UserPage from './pages/UserPage/UserPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
 import Route from "react-router-dom/es/Route";
-import NewsCenter from './pages/NewsCenter/NewsCenter';
+import ExploreLayout from './layouts/HomeLayout/ExploreLayout';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
@@ -36,7 +36,7 @@ class app extends Component {
               <LayoutRoute
                   exact
                   path="/explore"
-                  layout={HomeLayout}
+                  layout={ExploreLayout}
                   component={Explore}
               />
               <Route
@@ -50,12 +50,7 @@ class app extends Component {
                   layout={User}
                   component={UserPage}
               />
-              <LayoutRoute
-                  exact
-                  path="/user/company/news"
-                  layout={User}
-                  component={NewsCenter}
-              />
+
               <LayoutRoute
                   exact
                   path="/user/finance"

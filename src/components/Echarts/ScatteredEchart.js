@@ -212,6 +212,7 @@ class ScatteredEchart extends Component{
                 }
             ]
         }
+        return option;
     }
 
     render() {
