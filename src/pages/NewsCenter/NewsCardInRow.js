@@ -6,9 +6,7 @@ class NewsCardInRow extends React.Component{
     render(){
         return(
             <div >
-                <Card hoverable
-                      style={{ width: '100%',border:0}}
-                >
+                <Card hoverable style={{ width: '100%',border:0}}>
                     <Row gutter={24}>
                         <Col span={7}>
                             <img alt="img" src={Temp} style={{height:'auto',width:300}}/>

@@ -14,8 +14,22 @@ import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
 import RegisterPage from "./pages/LoginPage/registerPage"
+import {loginActions} from "./actions/loginAction";
 
 class app extends Component {
+
+    componentWillMount(): void {
+        const{loggedIn,dispatch,initLogin} = this.props
+        if(!loggedIn&&!initLogin){
+            let token = localStorage.getItem("token")
+            console.log(token)
+            if(token){
+                console.log("in token if ",token)
+                dispatch(loginActions.checkLogin(token))
+                console.log("in after action ",token)
+            }
+        }
+    }
 
     render() {
     return (
@@ -43,14 +57,12 @@ class app extends Component {
                   path="/login"
                   component={LoginPage}
               />
-
               <LayoutRoute
                   exact
                   path="/user"
                   layout={User}
                   component={UserPage}
               />
-
               <LayoutRoute
                   exact
                   path="/user/finance"
@@ -75,8 +87,8 @@ class app extends Component {
 }
 
 function mapStateToProps(state){
-    const {loggedIn} = state.authentication
-    return {loggedIn}
+    const {loggedIn,dispatch,initLogin} = state.authentication
+    return {loggedIn,dispatch,initLogin}
 }
 
 const App = connect(mapStateToProps)(app)

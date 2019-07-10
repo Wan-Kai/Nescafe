@@ -32,7 +32,7 @@ function login(username, password, callback_success,callback_failure) {
 
 function checkLogin(token,callback_success,callback_failure) {
     console.log("in service function")
-    axios({...baseConfigs, url: '/user/check', timeout: '2000', header: {'X-Auth-Token': token}})
+    axios({...baseConfigs, url: '/user/check', timeout: '4000', header: {'X-Auth-Token': token}})
         .then((response) => {
             if (response.data.code>=200&&response.data.code<=300) {
                 token = response.data["X-Auth-Token"]

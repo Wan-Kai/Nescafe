@@ -46,7 +46,7 @@ class loginForm extends React.Component {
     };
 
     render() {
-        const {loggingIn} = this.props;
+        const {loggingIn,loggedIn} = this.props;
         const {getFieldDecorator} = this.props.form;
         return (
             <QueueAnim delay={100} component="div" type="left">
@@ -94,7 +94,7 @@ class loginForm extends React.Component {
                             </Form.Item>
                         </Form>
                     </Spin>
-                    { this.state.isLoggedIn ? (<Redirect to={'/user'}/>) : null}
+                    { this.state.isLoggedIn||loggedIn ? (<Redirect to={'/user'}/>) : null}
                 </div>
             </QueueAnim>
         );

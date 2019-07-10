@@ -59,7 +59,6 @@ class homeLayout extends React.Component{
                         </Menu>
                     </div>
                     <div className="headerInRight">
-                        {console.log(loggedIn)}
                         {loggedIn?(<Dropdown overlay= {MenuUser(this.handleLogOut)}>
                                         <span style={{marginRight: '1em'}}>
                                             <Badge count={1}>

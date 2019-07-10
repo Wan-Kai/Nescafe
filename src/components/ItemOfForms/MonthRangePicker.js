@@ -79,7 +79,7 @@ class MonthRangePicker extends React.Component {
                     onChange={this.onStartChange}
                     open={startOpen}
                     onOpenChange={this.handleStartOpenChange}
-                    style={{width:'100%'}}
+                    style={{width:'88%'}}
                 />
                 <MonthPicker
                     disabledDate={this.disabledEndDate}
@@ -90,7 +90,7 @@ class MonthRangePicker extends React.Component {
                     onChange={this.onEndChange}
                     onOpenChange={this.handleEndOpenChange}
                     open={endOpen}
-                    style={{width:'100%'}}
+                    style={{width:'88%'}}
                 />
             </div>
         );

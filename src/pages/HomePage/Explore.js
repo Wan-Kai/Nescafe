@@ -14,6 +14,7 @@ const { Meta } = Card;
 class AuthPage extends React.Component {
 
     render() {
+        //todo 动态加减card
         return (
             <div className="layout">
                 <div className="car">
@@ -34,7 +35,6 @@ class AuthPage extends React.Component {
                 </div>
 
                 <div className="row">
-
                     <div className="col">
                         <Row gutter={32}>
                             <Col span={6}>
