@@ -1,5 +1,5 @@
-import React, {Component, component} from 'react';
-import {Layout, Menu, Icon, SubMenu, Dropdown, Avatar} from 'antd';
+import React, {Component} from 'react';
+import {Layout, Menu, Icon, Dropdown, Avatar} from 'antd';
 import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
@@ -88,7 +88,7 @@ class userCenterLayout extends Component {
                         <Menu.Item key="3">资信排行</Menu.Item>
                         <Menu.Item key="4">行情中心</Menu.Item>
 
-                        <img className="user-logo" src={mlogo}/>
+                        <img alt='logo' className="user-logo" src={mlogo}/>
                         <div className='menu-float-right'>
                             <Dropdown overlay={loggedIn ? MenuUser : StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>

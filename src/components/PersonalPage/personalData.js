@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row,Col,Icon,Avatar,Layout,Card} from 'antd'
+import {Icon,Avatar,Card} from 'antd'
 import Company from '../../assets/img/mlogo.png'
 import './personalData.less'
 
@@ -26,7 +26,7 @@ class PersonCard extends React.Component{
                         </div>
                         <div className="boundary"/>
                         <div>
-                            <a>标签</a>
+                            <a href="/">标签</a>
                         </div>
                     </div>
 

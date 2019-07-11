@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './Forms.css';
-import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps} from 'antd';
+import '../Forms.css';
+import {Modal, Form, Input, Icon, Row, Col, Button, Select, Steps} from 'antd';
 
 const { Step } = Steps;
 //todo 完成后跳转login，即销毁
@@ -111,7 +111,6 @@ class formOfStepTwo extends React.Component{
     //todo 储存password
 
     render() {
-        const {password} = this.props;
         const {getFieldDecorator} = this.props.form;
         return (
             <Form >
@@ -204,8 +203,6 @@ class StepForm extends React.Component {
 
     render() {
         const {current} = this.state;
-        const { phone,password } = this.props;
-        const { onCancel } = this.props;
         return (
             <div>
                 <Steps current={current}>

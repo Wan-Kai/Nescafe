@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import LayoutRoute from './components/LayoutRoute';
 import HomeLayout from './layouts/HomeLayout/HomeLayout';
 import HomePage from './pages/HomePage/HomePage';
-import { HashRouter, Redirect, Switch} from 'react-router-dom';
+import { HashRouter, Redirect, Switch} from 'react-router-dom/esm/react-router-dom';
 import './App.css';
 import User from './layouts/UserCenterLayout/UserCenterLayout';
 import UserPage from './pages/UserPage/UserPage';
-import LoginPage from './pages/LoginPage/LoginPage';
+import LoginPage from './pages/LoginPage/LoginPage/LoginPage';
 import Explore from './pages/HomePage/Explore';
-import Route from "react-router-dom/es/Route";
 import ExploreLayout from './layouts/HomeLayout/ExploreLayout';
 import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
 import {loginActions} from "./actions/loginAction";
-import RegisterPage from "./pages/LoginPage/RegisterPage";
+import RegisterPage from "./pages/LoginPage/RegisterStepsForm/RegisterPage";
+import {Route} from "react-router";
 
 class app extends Component {
 

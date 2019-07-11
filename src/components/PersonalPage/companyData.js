@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
-import {Layout,Icon,Avatar,Menu,Card} from 'antd';
+import React from 'react';
+import {Layout,Menu,Card} from 'antd';
 
-import Echart from '../Echarts/LineMarkerEchart';
 import PageOne from './CompanyForm/PageOne';
 import PageTwo from './CompanyForm/PageTwo';
 import './companyData.less'

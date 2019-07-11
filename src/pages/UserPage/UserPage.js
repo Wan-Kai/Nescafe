@@ -1,10 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {Layout,Row,Col} from 'antd';
 import PersonalData from '../../components/PersonalPage/personalData';
 import CompanyData from '../../components/PersonalPage/companyData';
 import './UserPage.less'
-import ReactEcharts from './index';
-import BackGround from "../../assets/img/back.jpg";
 
 
 class UserPage extends React.Component{

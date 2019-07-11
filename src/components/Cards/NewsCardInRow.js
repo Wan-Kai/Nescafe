@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout,Card,Row,Col} from 'antd/lib/index';
+import {Card} from 'antd/lib/index';
 import Temp from '../../assets/img/company.jpg';
 import './NewsCardInRow.less'
 
@@ -17,7 +17,7 @@ class NewsCardInRow extends React.Component{
 
                             <h2>News Title</h2>
                             <p>News content</p>
-                            <a>more</a>
+                            <a href="/">more</a>
                         </div>
                     </div>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './Forms.css';
-import {Modal, Form, Input, message, Icon, Row, Col, Button, Select, Steps, Descriptions, Upload} from 'antd';
-import {receiveInfo} from "../../actions/registerActions"
+import '../Forms.css';
+import {Form, Input, Icon, Button, Select, Steps, Descriptions} from 'antd';
+import {receiveInfo} from "../../../actions/registerActions"
 import RegisterForm from "./RegisterForm"
 import {connect} from "react-redux";
 import Spin from "antd/es/spin";
@@ -20,9 +20,8 @@ class formOfStepZero extends React.Component {
         }
     }
 
-
     handleSubmitStepZero = e => {
-        const {dispatch,isValidating, isReceived} = this.props
+        const {dispatch} = this.props
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
@@ -31,17 +30,6 @@ class formOfStepZero extends React.Component {
                         Received:true,
                     })
                 }))
-
-                console.log(isReceived, isValidating)
-
-                // dispatch(receiveInfo(values['type'], values['id'],
-                //     () => {
-                //         this.setState({
-                //             received: true
-                //         })//todo  isReceived can replaced?   必须要一个放values
-                //         //todo response  try setsession
-                //     }
-                // ))// do with DB;
             }
             console.log('Received values of LoginPage: ', values);
         })
@@ -63,7 +51,7 @@ class formOfStepZero extends React.Component {
         return (
             <Spin spinning={isValidating}>
                 <Form layout="vertical" className='forget-forms'>
-                    <Form.Item style={{marginBottom: '1em', width: 350}}>
+                    <Form.Item style={{margin: "auto", width: 350,}}>
                         {getFieldDecorator('id', {
                             rules: [{required: true, message: 'Please input your phone number!'}],
                         })(<Input
@@ -72,8 +60,6 @@ class formOfStepZero extends React.Component {
                             addonBefore={prefixSelector}
                         />)}
                     </Form.Item>
-                    <div className="register-page-information">
-                    </div>
                     <Button onClick={this.handleSubmitStepZero} style={{textAlign: "center"}}>
                         Next
                     </Button>
@@ -110,11 +96,6 @@ class formOfStepOne extends React.Component{
         })
     };
 
-    handleOnClick = ()=>{
-        const {changeCurrent} = this.props
-        changeCurrent(2)
-    }
-
 
     handleReceiveInfo = (values)=>{
         return (
@@ -132,10 +113,10 @@ class formOfStepOne extends React.Component{
         const {response} = this.props
         return (
             <div>
-                <Spin spinning={false}>
+                <Spin spinning={false} style={{marginRight:"2em"}}>
                     {response ? this.handleReceiveInfo(response) : null}
                     <div>
-                        <Button onClick={this.handleOnClick}>
+                        <Button onClick={this.handleSubmitStepOne}>
                             确认
                         </Button>
                     </div>
@@ -201,7 +182,6 @@ class NewRegister extends React.Component {
         const {current} = this.state;
         return (
             <div style={{width:500}}>
-                {console.log("it done")}
                 <Steps current={current}>
                     {this.steps.map(item => (
                         <Step key={item.id} title={item.title} icon={ item.icon }/>

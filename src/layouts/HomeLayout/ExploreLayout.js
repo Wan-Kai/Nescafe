@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout, Icon, Button, Menu, Dropdown, Avatar} from "antd";
+import {Layout, Button, Menu, Dropdown, Avatar} from "antd";
 import Logo from '../../assets/img/mlogo.png'
 import '../UserCenterLayout/UserCenterLayout.less'
 import './HomeLayout.less'
@@ -17,17 +17,17 @@ const rightTopMenu = (  <Button type="primary" shape="round" size="middle" style
 const MenuUser=(handleLogOut)=> (
     <Menu>
         <Menu.Item>
-            <a target="/user" rel="noopener noreferrer">
+            <a  href="#/user" rel="noopener noreferrer">
                 个人中心
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="user" rel="noopener noreferrer">
+            <a  target="user" rel="noopener noreferrer">
                 未读消息
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer">
+            <a  target="_blank" rel="noopener noreferrer">
                 个人信息
             </a>
         </Menu.Item>
@@ -50,7 +50,7 @@ class exploreLayout extends React.Component{
             <Layout>
                 <Header style={{ background: '#FFF', padding: 0,height:60}}>
                     <div className="headerInLeft">
-                        <h2 style={{color:'#000000',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
+                        <h2 style={{color:'#000000',width: 180}}><img alt="logo" src={Logo} className="home-logo"/>Pixel Cube</h2>
                         <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:30,lineHeight:2.5,marginTop:6}}>
                             <Menu.Item><a href="#/" style={{color:'#000000',fontSize:20,fontWeight:700}}>HomePage</a></Menu.Item>
                             <Menu.Item><a href="#/explore" style={{color:'#000000',fontSize:20,fontWeight:700}}>Explore</a></Menu.Item>

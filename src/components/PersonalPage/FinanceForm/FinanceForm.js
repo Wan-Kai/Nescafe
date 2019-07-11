@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import {Form, Icon, Input, Button, Checkbox, Col, Row, Divider, Anchor, InputNumber, Menu, Tabs} from 'antd';
+import {Form, Icon, Button, Checkbox, Col, Row, Divider, Anchor, InputNumber, Tabs} from 'antd';
 import Spin from "antd/es/spin";
 import QueueAnim from "rc-queue-anim";
 import MonthRangePicker from "../../ItemOfForms/MonthRangePicker"

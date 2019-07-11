@@ -91,10 +91,6 @@ class LineMarkerEchart extends Component{
         return option;
     };
     render() {
-        let code = "<ReactEcharts " +
-            "    option={this.getOtion()} " +
-            "    style={{height: '350px', width: '1000px'}}  " +
-            "    className='react_for_echarts' />";
         return (
             <ReactEcharts
                 option={this.getOption()}

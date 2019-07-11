@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import Icon from "antd/es/icon";
 import './registerPage.less'
-import myLogo from '../../assets/img/mlogo.png'
-import background from '../../assets/img/backForm.png';
+import myLogo from '../../../assets/img/mlogo.png'
+import background from '../../../assets/img/backForm.png';
 import {Menu,Layout} from "antd";
 import Dropdown from "antd/es/dropdown";
-import QueueAnim from 'rc-queue-anim';
 import NewRegister from "./newRegister"
 
 const {Header,Footer} = Layout;
@@ -34,13 +33,6 @@ class RegisterPage extends Component {
         };
     }
 
-    handleChangeForm(msg){
-        this.setState({
-            isRegister:msg,
-        })
-    }
-
-
     // todo 父子通信，传text
     render() {
         return (
@@ -57,13 +49,13 @@ class RegisterPage extends Component {
                                <NewRegister/>
                            </div>
                            <div className="register-page-content-background">
-                               <img src={background} className="register-page-content-background-img"/>
+                               <img alt="background" src={background} className="register-page-content-background-img"/>
                            </div>
                        </div>
                    </div>
 
                    <Footer className="register-page-footer" style={{background: '#FFF', height: 60}}>
-                       <p><img src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
+                       <p><img alt="background"  src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
                    </Footer>
                </div>
            </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './Forms.css';
+import '../Forms.css';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import ForgetForm from './ForgetForm'
+import ForgetForm from './../ForgetPasswordForm/ForgetForm'
 import QueueAnim from 'rc-queue-anim';
 import Spin from "antd/es/spin";
-import {loginActions} from "../../actions/loginAction";
+import {loginActions} from "../../../actions/loginAction";
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from "react-router";
 

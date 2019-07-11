@@ -1,12 +1,10 @@
 import axios from 'axios'
 import {baseConfigs} from './configs'
-import {userConstants} from "../actions/constants";
 export const userService = {
     login,
     logout,
     register,
     checkLogin,
-    updateInfo
 }
 
 
@@ -85,9 +83,5 @@ function register(type,id,callback_success,callback_failure){
             console.log(e)
             callback_failure();
     })
-
-}
-
-function updateInfo(user){
 
 }

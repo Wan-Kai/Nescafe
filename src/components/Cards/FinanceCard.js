@@ -1,6 +1,5 @@
 import React from 'react';
-import {Layout,Card,Button} from 'antd';
-import Temp1 from '../../assets/img/chart1.png';
+import {Card,Button} from 'antd';
 import Temp2 from '../../assets/img/card-back.png';
 
 class FinanceCard extends React.Component{

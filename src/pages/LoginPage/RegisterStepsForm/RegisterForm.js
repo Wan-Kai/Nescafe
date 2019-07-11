@@ -1,12 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import './Forms.css';
+import '../Forms.css';
 import {
     Form,
     Input,
     Icon,
     Select,
-    Checkbox,
     Button, message, Upload, Modal,
 } from 'antd';
 import QueueAnim from "rc-queue-anim";
@@ -68,11 +67,9 @@ class formOfStepTwo extends React.Component {
         let i,fileListName = ''
         for(i = 0;i<fileList.length;i++){
             if(fileList[i]["response"]){
-                console.log(fileList[i]["response"])
                 fileListName += fileList[i]["response"].data.code
             }
         }
-        console.log(fileListName)
 
         this.props.form.setFieldsValue({fileListName:fileListName})
 
@@ -90,7 +87,6 @@ class formOfStepTwo extends React.Component {
         if(file.status !== 'uploading'){
             this.handleRegister(false)
         }
-        console.log(this.state.fileList)
 
     }
 

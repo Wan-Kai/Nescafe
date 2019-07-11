@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout, Icon, Button, Menu, Avatar, Dropdown} from "antd";
+import {Layout, Button, Menu, Avatar, Dropdown} from "antd";
 import Logo from '../../assets/img/mlogo.png'
 import '../UserCenterLayout/UserCenterLayout.less'
 import './HomeLayout.less'
@@ -10,7 +10,7 @@ import {loginActions} from "../../actions/loginAction";
 
 const {Header,Footer,Content} = Layout;
 
-const rightTopMenu = (  <Button type="primary" shape="round" size="middle" style={{backgroundColor:'#ff6c37',border:'transparent'}}>
+const rightTopMenu = (  <Button type="primary" shape="round" size="default" style={{backgroundColor:'#ff6c37',border:'transparent'}}>
                             <b><a href="#/login" style={{color:'#FFF'}}>SIGN IN</a></b>
                         </Button>);
 
@@ -52,7 +52,7 @@ class homeLayout extends React.Component{
             <Layout>
                 <Header style={{ background: '#96cfc9', padding: 0,height:60}}>
                     <div className="headerInLeft">
-                        <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
+                        <h2 style={{color:'#FFF',width: 180}}><img alt='logo' src={Logo} className="home-logo"/>Pixel Cube</h2>
                         <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:30,lineHeight:2.5,marginTop:6}}>
                             <Menu.Item><a href="#/" style={{color:'#FFF',fontSize:20,fontWeight:700}}>HomePage</a></Menu.Item>
                             <Menu.Item><a href="#/explore" style={{color:'#FFF',fontSize:20,fontWeight:700}}>Explore</a></Menu.Item>

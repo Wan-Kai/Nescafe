@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {Layout} from 'antd';
 import Icon from "antd/es/icon";
-import './registerPage.less'
-import myLogo from '../../assets/img/mlogo.png'
+import '../RegisterStepsForm/registerPage.less'
+import myLogo from '../../../assets/img/mlogo.png'
 import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
-import QueueAnim from 'rc-queue-anim';
-import NewRegister from "./newRegister";
-import background from "../../assets/img/backForm.png";
+import background from "../../../assets/img/backForm.png";
 import LoginForm from "./LoginForm";
 
 const {Header,Footer} = Layout;
@@ -36,13 +34,6 @@ class LoginPage extends Component {
         };
     }
 
-    handleChangeForm(msg){
-        this.setState({
-            isRegister:msg,
-        })
-    }
-
-
     // todo 父子通信，传text
     render() {
         return (
@@ -62,13 +53,13 @@ class LoginPage extends Component {
                                </div>
                            </div>
                            <div className="register-page-content-background">
-                               <img src={background} className="register-page-content-background-img"/>
+                               <img alt="background" src={background} className="register-page-content-background-img"/>
                            </div>
                        </div>
                    </div>
 
                    <Footer className="register-page-footer" style={{background: '#FFF', height: 60}}>
-                       <p><img src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
+                       <p><img alt="logo" src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
                    </Footer>
                </div>
            </div>

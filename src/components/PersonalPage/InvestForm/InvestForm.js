@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import {Form, Icon, Input, Button, InputNumber, Divider, Anchor, Tabs} from 'antd';
+import {Form, Icon, Button, InputNumber, Divider, Anchor, Tabs} from 'antd';
 import Spin from "antd/es/spin";
 import QueueAnim from "rc-queue-anim";
 import MonthRangePicker from "../../ItemOfForms/MonthRangePicker"
@@ -76,7 +76,7 @@ class investForm extends React.Component{
                                                 })(<InputNumber min={0}
                                                                 prefix={<Icon type="dollar" style={{color: 'rgba(0,0,0,.25)'}}/>}
                                                                 formatter={value => `￥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                                                parser={value => value.replace(/\￥\s?|(,*)/g, '')}
+                                                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
                                                                 placeholder="金额"
                                                                 style={{width:'18em'}}
                                                 />)}
