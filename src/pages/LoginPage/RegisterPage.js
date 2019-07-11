@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import Icon from "antd/es/icon";
-import './LoginPage.less'
+import './registerPage.less'
 import myLogo from '../../assets/img/mlogo.png'
-import {Menu} from "antd";
+import background from '../../assets/img/backForm.png';
+import {Menu,Layout} from "antd";
 import Dropdown from "antd/es/dropdown";
 import QueueAnim from 'rc-queue-anim';
 import NewRegister from "./newRegister"
 
+const {Header,Footer} = Layout;
 const menu = (
     <Menu>
         <Menu.Item>
@@ -38,31 +40,33 @@ class RegisterPage extends Component {
         })
     }
 
+
     // todo 父子通信，传text
     render() {
         return (
-            <div className='login-page-root'>
-                <div className="login-page-container">
-                    <div className='login-page-flexColumn'>
-                        <div className='login-page-head-menu'>
-                            <Dropdown overlay={menu}>
-                                <Icon type="global" className='login-page-icon'/>
-                            </Dropdown>
-                        </div>
-                        <div className='login-page-content'>
-                            <NewRegister/>
-                        </div>
-                        <QueueAnim delay={200} component="div" className='login-page-footer-logo' type="bottom">
-                            <p key="0" className='login-page-footer-p'>
-                                <img key="0" alt='logo' className='pic' src={myLogo}
-                                     style={{width: "20px", height: "20px"}}/>
-                                花旗杯创新项目
-                            </p>
-                        </QueueAnim>
-                    </div>
-                </div>
+           <div className="register-page-root">
+               <div>
+                   <Header style={{background: '#FFF', height: 60}}>
+                       <Dropdown overlay={menu} className="register-page-global">
+                          <Icon type="global" />
+                       </Dropdown>
+                   </Header>
+                   <div className="register-page-width">
+                       <div className="register-page-content">
+                           <div className="register-page-content-form">
+                               <NewRegister/>
+                           </div>
+                           <div className="register-page-content-background">
+                               <img src={background} className="register-page-content-background-img"/>
+                           </div>
+                       </div>
+                   </div>
 
-            </div>
+                   <Footer className="register-page-footer" style={{background: '#FFF', height: 60}}>
+                       <p><img src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
+                   </Footer>
+               </div>
+           </div>
         )
     }
 }

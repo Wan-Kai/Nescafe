@@ -1,0 +1,60 @@
+.register-page-root{
+  -webkit-box-direction: normal;
+  -webkit-box-pack: justify;
+  width: 100%;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  .register-page-global{
+    margin-top: 10px;
+    float: left;
+  }
+  .register-page-width{
+    height: auto;
+    .register-page-content{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: space-around;
+
+      margin-top: 50px;
+      .register-page-content-form{
+        width: 540px;
+        height: auto;
+        .login-page-content{
+          height: 100%;
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          max-width: 300px;
+          margin-left: 2em;
+        }
+
+      }
+      .register-page-content-background{
+        width: 540px;
+        .register-page-content-background-img{
+          margin-top: -60px;
+          margin-left: -140px;
+          width: 800px;
+        }
+      }
+    }
+  }
+
+  .register-page-footer{
+    position:relative;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    overflow-y: hidden;
+    .register-page-logo{
+      height: 40px;
+      background: rgba(255, 255, 255, 0);
+    }
+  }
+
+}

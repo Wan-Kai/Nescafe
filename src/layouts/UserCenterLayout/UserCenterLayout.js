@@ -18,6 +18,11 @@ const MenuUser = (
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer">
+                未读消息
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer">
                 个人信息
             </a>
         </Menu.Item>
@@ -101,9 +106,10 @@ class userCenterLayout extends Component {
                         </div>
                     </Menu>
                 </Header>
-                <Content>
-                    {!initLogin?null:loggedIn?children:<ExceptionsPage status="403"/>}
-                </Content>
+                    <Content>
+                        {!initLogin?null:loggedIn?children:<ExceptionsPage status="403"/>}
+                    </Content>
+
                 <Footer style={{background: '#FFF'}} className="user-footer">Copyright by Wan</Footer>
             </Layout>
             </Spin>
