@@ -1,10 +1,13 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import {Form, Icon, Input, Button, InputNumber, Divider, Anchor} from 'antd';
+import {Form, Icon, Input, Button, InputNumber, Divider, Anchor, Tabs} from 'antd';
 import Spin from "antd/es/spin";
 import QueueAnim from "rc-queue-anim";
 import MonthRangePicker from "../../ItemOfForms/MonthRangePicker"
 import './index.less'
+
+const { TabPane } = Tabs;
+
 class investForm extends React.Component{
 
     constructor(props, context) {
@@ -52,14 +55,21 @@ class investForm extends React.Component{
             <div className='invest-container'>
                 <QueueAnim delay={100} component="div" type="left">
                     <div key='0' className="invest-left-search">
-                        <div className='invest-left-search-slogan'>
-                            我要投资<Icon type="money-collect"/>
+                        <div className='invest-left-search-tag'>
+                            <Tabs defaultActiveKey="1" onChange={this.handleFinancingType}>
+                                <TabPane tab="应收账款"  key="1">
+                                </TabPane>
+                                <TabPane tab="融通仓" key="2">
+                                </TabPane>
+                                <TabPane tab="预付款" key="3">
+                                </TabPane>
+                            </Tabs>
                         </div>
                         <Spin spinning={searching === undefined ? false : searching}>
                             <div className='invest-left-search-form'>
                                 <Anchor className='invest-left-search-anchor'>
                                 <Form onSubmit={this.handleSubmit} className='invest-left-search-form'>
-                                    <Form.Item label="投资金额">
+                                    <Form.Item label="投资金额（以千为单位）">
                                         {getFieldDecorator('amountOfMoney', {
                                             rules: [{required: true, message: '请输入投资金额：'},],
                                         })(<InputNumber min={0}

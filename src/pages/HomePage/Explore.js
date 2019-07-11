@@ -14,6 +14,7 @@ const { Meta } = Card;
 class AuthPage extends React.Component {
 
     render() {
+        //todo 动态加减card
         return (
             <div className="layout">
                 <div className="car">
@@ -33,6 +34,7 @@ class AuthPage extends React.Component {
                     </Carousel>
                 </div>
 
+
                 <div className="contain">
 
                     <div className="explore-flex-news">
@@ -48,6 +50,7 @@ class AuthPage extends React.Component {
                         <div className="explore-flex-news-components">
                             <NewsCard/>
                         </div>
+
                     </div>
 
                     <div className="explore-flex-newsInLine">

@@ -63,29 +63,12 @@ const menu = (
 
 class userCenterLayout extends Component {
 
-
-    handleCheckLogin=()=>{
-    //todo  会不会很占资源？？
-        const{loggedIn,dispatch,initLogin} = this.props
-        if(!loggedIn&&!initLogin){
-            let token = localStorage.getItem("token")
-            console.log(token)
-            if(token&&token!==undefined){
-                console.log("in token if ",token)
-                dispatch(loginActions.checkLogin(token))
-                console.log("in after action ",token)
-            }
-        }
-    };
-
     render() {
         const {children,loggedIn,initLogin,loggingIn} = this.props;
-        if(!initLogin){
-            this.handleCheckLogin()
-        }
         return (
             <Spin spinning={loggingIn}>
-            <Layout>
+                {console.log(localStorage.getItem("token"))}
+                <Layout>
                 <Header style={{background: '#FFF', height: 60}} className="user-header">
                     <Menu
                         theme="light"

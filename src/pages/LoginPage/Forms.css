@@ -9,7 +9,6 @@
 }
 
 .register-form{
-    margin-top: -3em;
     margin-left: 2em;
     width: 95%;
 }
@@ -62,11 +61,11 @@
     height: 80%;
 }
 
-.steps-content {
+.register-steps-content {
     margin-top: 1em;
     border: 1px dashed #e9e9e9;
     border-radius: 6px;
-    width: 30em;
+    width: 36em;
     min-height: 25em;
     text-align: center;
 

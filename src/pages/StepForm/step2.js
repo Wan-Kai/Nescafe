@@ -50,7 +50,7 @@ class Step2 extends React.Component {
             </div>
         );
         return (
-            <div className="clearfix">
+            <div>
                 <Upload
                     action=""
                     listType="picture-card"
