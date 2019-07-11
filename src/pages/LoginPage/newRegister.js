@@ -150,98 +150,6 @@ class FormOfStepOne extends React.Component{
 }
 
 
-function getBase64(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-    });
-}
-
-
-export class FormOfStepThird extends React.Component {
-    state = {
-        previewVisible: false,
-        previewImage: '',
-        fileList: [
-            {
-                uid: '',
-                name: '',
-                status: '',
-                url: '',
-            },
-        ],
-        fileListName:[]
-    };
-
-    handleCancel = () => this.setState({ previewVisible: false });
-
-    handlePreview = async file => {
-        if (!file.url && !file.preview) {
-            file.preview = await getBase64(file.originFileObj);
-        }
-
-        this.setState({
-            previewImage: file.url || file.preview,
-            previewVisible: true,
-        });
-    };
-
-    handleChange = ({ fileList }) => {
-        if(fileList){
-            if (fileList[0]["response"]) {
-                const name = fileList[0]["response"].data.code
-                console.log(fileList[0]["response"].data)
-                console.log(fileList[0]["response"].data.code)
-                this.setState({fileListName:[...this.state.fileListName,name]})
-            }
-        }
-
-    console.log(this.state.fileListName)
-    }
-
-
-    beforeUpload = (file)=>{
-        const isLt2M = file.size / 1024 / 1024 < 4;
-        if (!isLt2M) {
-            message.error('Image must smaller than 4MB!');
-        }
-        return isLt2M;
-    }
-
-    render() {
-        const { previewVisible, previewImage, fileList } = this.state;
-        const uploadButton = (
-            <div>
-                <Icon type="plus" />
-                <div className="ant-upload-text">Upload</div>
-            </div>
-        );
-        return (
-            <div>
-                <Upload
-                    action="https://scf.intellizhi.cn/user/paperUpload"
-                    listType="picture-card"
-                    onPreview={this.handlePreview}
-                    onChange={this.handleChange}
-                    name="paperFiles"
-                    multiple={true}
-                    beforeUpload={this.beforeUpload}
-                >
-                    {fileList.length >= 4 ? null : uploadButton}
-                </Upload>
-                <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
-                </Modal>
-            </div>
-        );
-    }
-}
-
-
-
-
 class NewRegister extends React.Component {
     constructor(props) {
         super(props);
@@ -281,9 +189,9 @@ class NewRegister extends React.Component {
         },
         {
             id:3,
-            title: 'upload',
-            content: <FormOfStepThird/>,
-            icon:<Icon type="upload" />
+            title: 'Well Done',
+            content:<p>well done! please remember your id.</p>,
+            icon:<Icon type="like" />
         },
     ];
 
