@@ -5,6 +5,7 @@ import New from '../../assets/img/new.svg'
 import BackGround from '../../assets/img/back.jpg'
 import './HomePage.less'
 import FinanceCard from '../../components/Cards/FinanceCard';
+import InvestCard from '../../components/Cards/InvestCard';
 import NewsCard from '../../components/Cards/NewsCard';
 
 const backgroundStyle = {
@@ -59,7 +60,7 @@ class HomePage extends React.Component{
                                         <FinanceCard/>
                                     </div>
                                     <div className="home-flex-finance-components">
-                                        <FinanceCard/>
+                                        <InvestCard/>
                                     </div>
                                 </div>
 

@@ -27,7 +27,7 @@ const MenuUser = (
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer">
+            <a target="_blank" rel="noopener noreferrer" href="#/user/setting">
                 设置
             </a>
         </Menu.Item>
