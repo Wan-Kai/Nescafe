@@ -1,14 +1,14 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './Forms.css';
-import {Modal, Form, Input, Radio, Icon, Row, Col, Button, Select, Steps, Descriptions, Upload} from 'antd';
+import {Modal, Form, Input, message, Icon, Row, Col, Button, Select, Steps, Descriptions, Upload} from 'antd';
 import {receiveInfo} from "../../actions/registerActions"
 import RegisterForm from "./RegisterForm"
 
 const { Step } = Steps;
 //todo 完成后跳转login，即销毁
 
-class formOfStepOne extends React.Component{
+class formOfStepZero extends React.Component{
     constructor(props, context) {
         super(props, context);
         this.state={
@@ -18,7 +18,7 @@ class formOfStepOne extends React.Component{
 
     values = null
 
-    handleSubmitStepOne = e =>{
+    handleSubmitStepZero = e =>{
         const {dispatch,changeCurrent} = this.props
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err,values) => {
@@ -32,7 +32,6 @@ class formOfStepOne extends React.Component{
                 //         //todo response  try setsession
                 //     }
                 // ))// do with DB;
-                //todo 当
             }
             console.log('Received values of LoginPage: ', values);
         })
@@ -80,7 +79,7 @@ class formOfStepOne extends React.Component{
                 </Form.Item>
                 <div className="register-page-information">
                 </div>
-                <Button onClick={this.handleSubmitStepOne} style={{textAlign:"center"}}>
+                <Button onClick={this.handleSubmitStepZero} style={{textAlign:"center"}}>
                     Next
                 </Button>
             </Form>):this.handleReceiveInfo
@@ -88,8 +87,67 @@ class formOfStepOne extends React.Component{
     }
 }
 
-const FormOfStepOne = Form.create({ name: 'stepOneForm' })(formOfStepOne);
+const FormOfStepZero = Form.create({ name: 'stepOneForm' })(formOfStepZero);
 
+
+
+class FormOfStepOne extends React.Component{
+    constructor(props, context) {
+        super(props, context);
+        this.state={
+            isSuccess:true,
+        }
+    }
+
+    handleSubmitStepOne = e =>{
+        const {dispatch,changeCurrent} = this.props
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err,values) => {
+            if (!err) {
+                // dispatch(receiveInfo(values['type'], values['id'],
+                //     () => {
+                //         this.setState({
+                //             received: true
+                //         })//todo  isReceived can replaced?   必须要一个放values
+                //         //todo response  try setsession
+                //     }
+                // ))// do with DB;
+                //todo 当
+            }
+            console.log('Received values of LoginPage: ', values);
+        })
+    };
+
+    handleOnClick = ()=>{
+        const {changeCurrent} = this.props
+        changeCurrent(2)
+    }
+
+
+    handleReceiveInfo = (values)=>{
+        return (
+            <Descriptions title="Company Info" className="register-form-descriptions">
+                <Descriptions.Item label="UserName">{values[0]}</Descriptions.Item>
+                <Descriptions.Item label="Telephone">{values[1]}</Descriptions.Item>
+                <Descriptions.Item label="Live">{values[2]}</Descriptions.Item>
+                <Descriptions.Item label="Remark">{values[3]}</Descriptions.Item>
+                <Descriptions.Item label="Address">{values[4]}</Descriptions.Item>
+            </Descriptions>
+        )
+    }
+
+    render(){
+        const {isSuccess} = this.state
+        return (
+            <div>
+            {isSuccess?this.handleReceiveInfo([1,2,3,4,5]):null}
+            <Button onClick={this.handleOnClick}>
+                next
+            </Button>
+            </div>
+        )
+    }
+}
 
 
 function getBase64(file) {
@@ -100,6 +158,7 @@ function getBase64(file) {
         reader.onerror = error => reject(error);
     });
 }
+
 
 export class FormOfStepThird extends React.Component {
     state = {
@@ -113,6 +172,7 @@ export class FormOfStepThird extends React.Component {
                 url: '',
             },
         ],
+        fileListName:[]
     };
 
     handleCancel = () => this.setState({ previewVisible: false });
@@ -128,7 +188,19 @@ export class FormOfStepThird extends React.Component {
         });
     };
 
-    handleChange = ({ fileList }) => this.setState({ fileList });
+    handleChange = ({ fileList }) => {
+        if(fileList){
+            if (fileList[0]["response"]) {
+                const name = fileList[0]["response"].data.code
+                console.log(fileList[0]["response"].data)
+                console.log(fileList[0]["response"].data.code)
+                this.setState({fileListName:[...this.state.fileListName,name]})
+            }
+        }
+
+    console.log(this.state.fileListName)
+    }
+
 
     beforeUpload = (file)=>{
         const isLt2M = file.size / 1024 / 1024 < 4;
@@ -192,17 +264,23 @@ class NewRegister extends React.Component {
         {
             id:0,
             title: 'input',
-            content: <FormOfStepOne changeCurrent = {this.handleNext.bind(this)}/>,//todo 换成表格组件  先做telephone的
+            content: <FormOfStepZero changeCurrent = {this.handleNext.bind(this)}/>,//todo 换成表格组件  先做telephone的
             icon:<Icon type="info-circle" />
         },
         {
             id:1,
-            title: 'validator',
-            content: <RegisterForm  changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
+            title: 'validate',
+            content: <FormOfStepOne changeCurrent = {this.handleNext.bind(this)}/>,//todo 换成表格组件  先做telephone的
             icon:<Icon type="check-circle" />
         },
         {
             id:2,
+            title: 'Info',
+            content: <RegisterForm  changeCurrent = {this.handleDone.bind(this)}/>,//todo 重新修改密码的表格，一样的
+            icon:<Icon type="plus-circle" />
+        },
+        {
+            id:3,
             title: 'upload',
             content: <FormOfStepThird/>,
             icon:<Icon type="upload" />
@@ -212,7 +290,7 @@ class NewRegister extends React.Component {
     render() {
         const {current} = this.state;
         return (
-            <div>
+            <div style={{width:500}}>
                 {console.log("it done")}
                 <Steps current={current}>
                     {this.steps.map(item => (
@@ -220,7 +298,7 @@ class NewRegister extends React.Component {
                         //todo 只要检测到验证码正确就改图标
                     ))}
                 </Steps>
-                <div className="steps-content">{this.steps[current].content}</div>
+                <div className="register-steps-content">{this.steps[current].content}</div>
             </div>
         );
     }

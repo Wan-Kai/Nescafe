@@ -6,16 +6,12 @@ import {
     Input,
     Icon,
     Select,
-    Row,
-    Col,
     Checkbox,
     Button,
-    AutoComplete,
 } from 'antd';
 import QueueAnim from "rc-queue-anim";
 
 const {Option} = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
 class formOfStepTwo extends React.Component {
 
@@ -28,7 +24,7 @@ class formOfStepTwo extends React.Component {
         const {changeCurrent} = this.props
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                changeCurrent(2);
+                changeCurrent(3);
                 console.log('Received values of LoginPage: ', values);
             }
         });
@@ -91,112 +87,114 @@ class formOfStepTwo extends React.Component {
         );
 
         return (
-            <QueueAnim delay={100} component="div" type="left" >
-            <div className='register-form' key='0'>
-                <p className='p-font'>
-                    <Icon type="usergroup-add" style={{marginRight:"0.5em",marginLeft:"0.5em"}}/>
-                    Let's get started!
-                </p>
+            <QueueAnim delay={100} component="div" type="left">
+                <div className='register-form' key='0'>
+                    <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginBottom: "-15px"}}>
+                        <Form.Item style={{width: "125%"}}>
+                            {getFieldDecorator('email', {
+                                rules: [
+                                    {
+                                        type: 'email',
+                                        message: 'The input is not valid E-mail!',
+                                    },
+                                    {
+                                        required: true,
+                                        message: 'Please input your E-mail!',
+                                    },
+                                ],
+                            })(<Input prefix={<Icon type="mail"/>}
+                                      style={{color: 'rgba(0,0,0,.25)'}}
+                                      placeholder="Email"/>)}
+                        </Form.Item>
+                        <Form.Item style={{width: "125%"}}>
+                            {getFieldDecorator('username', {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: 'Please input your username!',
+                                    },
+                                ],
+                            })(<Input prefix={<Icon type="user"/>}
+                                      style={{color: 'rgba(0,0,0,.25)'}}
+                                      placeholder="User"/>)}
+                        </Form.Item>
+                        <Form.Item hasFeedback style={{width: "125%"}}>
+                            {getFieldDecorator('password', {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: 'Please input your password!',
+                                    },
+                                    {
+                                        validator: this.validateToNextPassword,
+                                    },
+                                ],
+                            })(<Input
+                                prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                type="password"
+                                placeholder="Password"
+                            />,)}
+                        </Form.Item>
+                        <Form.Item hasFeedback style={{width: "125%"}}>
+                            {getFieldDecorator('confirm', {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: 'Please confirm your password!',
+                                    },
+                                    {
+                                        validator: this.compareToFirstPassword,
+                                    },
+                                ],
+                            })(<Input
+                                prefix={<Icon type="lock"/>}
+                                type="password"
+                                placeholder="Confirm"
+                                onBlur={this.handleConfirmBlur}/>)}
+                        </Form.Item>
+                        <Form.Item style={{width: "125%"}}>
+                            {getFieldDecorator('nickname', {
+                                rules: [{required: false, message: 'Please input your nickname!', whitespace: true}],
+                            })(<Input prefix={<Icon type="info"/>}
+                                      placeholder="your nickname"/>)}
+                        </Form.Item>
 
-            <Form {...formItemLayout} onSubmit={this.handleSubmit} style={{marginBottom:"-15px"}}>
-                <Form.Item style={{width:"125%"}}>
-                    {getFieldDecorator('email', {
-                        rules: [
-                            {
-                                type: 'email',
-                                message: 'The input is not valid E-mail!',
-                            },
-                            {
-                                required: true,
-                                message: 'Please input your E-mail!',
-                            },
-                        ],
-                    })(<Input prefix={<Icon type="mail" />}
-                              style={{color: 'rgba(0,0,0,.25)'}}
-                              placeholder="Email"/>)}
-                </Form.Item>
-                <Form.Item style={{width:"125%"}}>
-                    {getFieldDecorator('username', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please input your username!',
-                            },
-                        ],
-                    })(<Input prefix={<Icon type="user" />}
-                              style={{color: 'rgba(0,0,0,.25)'}}
-                              placeholder="User"/>)}
-                </Form.Item>
-                <Form.Item hasFeedback style={{width:"125%"}}>
-                    {getFieldDecorator('password', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                            {
-                                validator: this.validateToNextPassword,
-                            },
-                        ],
-                    })(<Input
-                        prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
-                        type="password"
-                        placeholder="Password"
-                    />,)}
-                </Form.Item>
-                <Form.Item hasFeedback style={{width:"125%"}}>
-                    {getFieldDecorator('confirm', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please confirm your password!',
-                            },
-                            {
-                                validator: this.compareToFirstPassword,
-                            },
-                        ],
-                    })(<Input
-                        prefix={<Icon type="lock" />}
-                        type="password"
-                        placeholder="Confirm"
-                        onBlur={this.handleConfirmBlur}/>)}
-                </Form.Item>
-                <Form.Item style={{width:"125%"}}>
-                    {getFieldDecorator('nickname', {
-                        rules: [{required: false, message: 'Please input your nickname!', whitespace: true}],
-                    })(<Input prefix={<Icon type="info" />}
-                                placeholder="your nickname"/>)}
-                </Form.Item>
-
-                <Form.Item style={{width:"125%"}}>
-                    {getFieldDecorator('phone', {
-                        rules: [{required: false, message: 'Please input your phone number!'}],
-                    })(<Input
-                        prefix={<Icon type="phone"/>}
-                        placeholder="Phone Number"
-                        addonBefore={prefixSelector}
-                        style={{width: '100%'}}/>)}
-                </Form.Item>
-                <Form.Item {...tailFormItemLayout} style={{width:"120%", float:"right"}} >
-                    {getFieldDecorator('agreement', {
-                        valuePropName: 'checked',
-                    })(
-                        <Checkbox style={{float:"left", marginTop:"-1em",marginBottom:"-1em",fontSize:"16px", marginLeft:'-1em'}}>
-                            I have read the <a href="">agreement</a>
-                        </Checkbox>,
-                    )}
-                </Form.Item>
-                <Form.Item {...tailFormItemLayout} style={{marginLeft:"-6em",marginTop:"-2em"}} >
-                    <Button type="primary" htmlType="submit" >
-                        Register
-                    </Button>
-                </Form.Item>
-            </Form>
-            </div>
+                        <Form.Item style={{width: "125%"}}>
+                            {getFieldDecorator('phone', {
+                                rules: [{required: false, message: 'Please input your phone number!'}],
+                            })(<Input
+                                prefix={<Icon type="phone"/>}
+                                placeholder="Phone Number"
+                                addonBefore={prefixSelector}
+                                style={{width: '100%'}}/>)}
+                        </Form.Item>
+                        <Form.Item {...tailFormItemLayout} style={{width: "120%", float: "right"}}>
+                            {getFieldDecorator('agreement', {
+                                valuePropName: 'checked',
+                            })(
+                                <Checkbox style={{
+                                    float: "left",
+                                    marginTop: "-1em",
+                                    marginBottom: "-1em",
+                                    fontSize: "16px",
+                                    marginLeft: '-1em'
+                                }}>
+                                    I have read the <a href="">agreement</a>
+                                </Checkbox>,
+                            )}
+                        </Form.Item>
+                        <Form.Item {...tailFormItemLayout} style={{marginLeft: "-6em", marginTop: "-2em"}}>
+                            <Button type="primary" htmlType="submit">
+                                Register
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </div>
             </QueueAnim>
         );
     }
 }
 
-export const FormOfStepTwo = Form.create({name: 'Register'})(formOfStepTwo);
+const FormOfStepTwo = Form.create({name: 'Register'})(formOfStepTwo);
 
+export default FormOfStepTwo
