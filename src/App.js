@@ -13,8 +13,10 @@ import FinanceForm from './components/PersonalPage/FinanceForm/FinanceForm'
 import InvestForm from './components/PersonalPage/InvestForm/InvestForm'
 import {connect} from "react-redux";
 import {loginActions} from "./actions/loginAction";
-import RegisterPage from "./pages/LoginPage/RegisterStepsForm/RegisterPage";
 import {Route} from "react-router";
+import RegisterPage from "./pages/LoginPage/RegisterStepsForm/RegisterPage";
+import UserSetting from './pages/UserCenter/UserSetting';
+
 
 class app extends Component {
 
@@ -74,6 +76,12 @@ class app extends Component {
               path="/user/invest"
               layout={ExploreLayout}
               component={InvestForm}
+              />
+              <LayoutRoute
+                  exact
+                  path="/user/setting"
+                  layout={ExploreLayout}
+                  component={UserSetting}
               />
               <Route
                   path='/register'
