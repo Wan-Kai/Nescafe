@@ -9,7 +9,8 @@ import './HomePage.less'
 import PersonalData from "../../components/PersonalPage/personalData";
 import CompanyData from "../../components/PersonalPage/companyData";
 import FinanceCard from '../../components/Cards/FinanceCard';
-import NewsCard from '../NewsCenter/NewsCard';
+import NewsCard from '../../components/Cards/NewsCard';
+import NewsCardInRow from "../../components/Cards/NewsCardInRow";
 
 const backgroundStyle = {
     width: '100%',
@@ -46,45 +47,28 @@ class HomePage extends React.Component{
                                 </Row>
                             </div>
                             <div className="center">
-                                <Row gutter={24} >
-                                    <div className="cards">
-                                        <Col span={8}  className="ColInCenter">
-                                            <NewsCard/>
-                                        </Col>
-                                        <Col span={8} className="ColInCenter">
-                                            <Card   className="card">
-                                                <div className="card-center">
-                                                    <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">ENTER</h1>
-                                                </div>
-                                            </Card>
-                                        </Col>
-                                        <Col span={8} className="ColInCenter">
-                                            <Card   className="card">
-                                                <div className="card-center">
-                                                    <Avatar src={Logo} style={{width:100,height:100}}/>
-                                                    <h1 className="cardText">ENTER</h1>
-                                                </div>
-                                            </Card>
-                                        </Col>
-                                    </div>
-                                </Row>
-                            </div>
+                               <div className="home-flex-news">
+                                   <div className="home-flex-news-components">
+                                       <NewsCard/>
+                                   </div>
+                                   <div className="home-flex-news-components">
+                                       <NewsCard/>
+                                   </div>
+                                   <div className="home-flex-news-components">
+                                       <NewsCard/>
+                                   </div>
+                               </div>
 
-                        <div className="center" id="choice">
-                            <Row gutter={24}>
-                                <Col span={12} className="home-center">
-                                    <div style={{width:300}}>
+                                <div className="home-flex-finance" id='choice'>
+                                    <div className="home-flex-finance-components">
                                         <FinanceCard/>
                                     </div>
-                                </Col>
-                                <Col span={12} className="home-center">
-                                    <div style={{width:300}}>
+                                    <div className="home-flex-finance-components">
                                         <FinanceCard/>
                                     </div>
-                                </Col>
-                            </Row>
-                        </div>
+                                </div>
+
+                            </div>
                         </div>
                 </div>
 

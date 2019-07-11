@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Col, Row,Carousel ,Icon,Avatar} from 'antd/lib/index';
 import mlogo from '../../assets/img/mlogo.png'
-import NewsCard from '../NewsCenter/NewsCard';
-import NewsCardInRow from '../NewsCenter/NewsCardInRow';
+import NewsCard from '../../components/Cards/NewsCard';
+import NewsCardInRow from '../../components/Cards/NewsCardInRow';
 import './Explore.less'
 import background from '../../assets/img/background.png'
 import beauty from '../../assets/img/beauty.jpg'
@@ -33,26 +33,24 @@ class AuthPage extends React.Component {
                     </Carousel>
                 </div>
 
-                <div className="row">
+                <div className="contain">
 
-                    <div className="col">
-                        <Row gutter={32}>
-                            <Col span={6}>
-                                <NewsCard/>
-                            </Col>
-                            <Col span={6}>
-                                <NewsCard/>
-                            </Col>
-                            <Col span={6}>
-                                <NewsCard/>
-                            </Col>
-                            <Col span={6}>
-                                <NewsCard/>
-                            </Col>
-                        </Row>
+                    <div className="explore-flex-news">
+                        <div className="explore-flex-news-components">
+                            <NewsCard/>
+                        </div>
+                        <div className="explore-flex-news-components">
+                            <NewsCard/>
+                        </div>
+                        <div className="explore-flex-news-components">
+                            <NewsCard/>
+                        </div>
+                        <div className="explore-flex-news-components">
+                            <NewsCard/>
+                        </div>
                     </div>
 
-                    <div className="col">
+                    <div className="explore-flex-newsInLine">
                         <Row>
                             <NewsCardInRow/>
                         </Row>

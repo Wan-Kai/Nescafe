@@ -8,12 +8,12 @@ class FinanceCard extends React.Component{
         return(
             <div >
                 <Card hoverable
-                      style={{ width: '100%',borderRadius:25,border:0,height:400}}
+                      style={{ width: '100%',borderRadius:25,border:0,height:350,textAlign:"center",marginBottom:20}}
                       className="card"
                       cover={<img alt="example" src={Temp2} style={{borderTopLeftRadius:25,borderTopRightRadius:25,height:200}}/>}
                 >
                     <h2>I Want Finance</h2>
-                    <Button type="primary" shape="round" size="large" style={{backgroundColor:'#ff6c37',border:'transparent',marginTop:50}}>
+                    <Button type="primary" shape="round" size="large" style={{backgroundColor:'#ff6c37',border:'transparent',marginTop:20}}>
                         <b><a href="#/" style={{color:'#FFF'}}>Go For It</a></b>
                     </Button>
                 </Card>

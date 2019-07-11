@@ -96,8 +96,9 @@ class userCenterLayout extends Component {
                         style={{lineHeight: '60px', height: 60}}>
 
                         <Menu.Item key="1">企业本页</Menu.Item>
-                        <Menu.Item key="2">信息</Menu.Item>
-                        <Menu.Item key="3">设置</Menu.Item>
+                        <Menu.Item key="2">新闻中心</Menu.Item>
+                        <Menu.Item key="3">资信排行</Menu.Item>
+                        <Menu.Item key="4">行情中心</Menu.Item>
 
                         <img className="user-logo" src={mlogo}/>
                         <div className='menu-float-right'>

@@ -14,7 +14,7 @@ class ExploreLayout extends React.Component{
                 <Header style={{ background: '#FFF', padding: 0,height:60}}>
                     <div className="headerInLeft">
                         <h2 style={{color:'#000000',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
-                        <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:100,lineHeight:2.4,marginTop:10}}>
+                        <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:30,lineHeight:2.5,marginTop:6}}>
                             <Menu.Item><a href="#/" style={{color:'#000000',fontSize:20,fontWeight:700}}>HomePage</a></Menu.Item>
                             <Menu.Item><a href="#/explore" style={{color:'#000000',fontSize:20,fontWeight:700}}>Explore</a></Menu.Item>
                         </Menu>
