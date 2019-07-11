@@ -66,13 +66,13 @@ class app extends Component {
               <LayoutRoute
                   exact
                   path="/user/finance"
-                  layout={User}
+                  layout={ExploreLayout}
                   component={FinanceForm}
               />
               <LayoutRoute
               exact
               path="/user/invest"
-              layout={User}
+              layout={ExploreLayout}
               component={InvestForm}
               />
               <Route

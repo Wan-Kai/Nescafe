@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
+import {Layout} from 'antd';
 import Icon from "antd/es/icon";
-import './LoginPage.less'
+import './registerPage.less'
 import myLogo from '../../assets/img/mlogo.png'
 import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
 import RegisterForm from "./RegisterForm";
 import LoginForm from "./LoginForm";
 import QueueAnim from 'rc-queue-anim';
+import NewRegister from "./newRegister";
+import background from "../../assets/img/backForm.png";
 
+const {Header,Footer} = Layout;
 const menu = (
     <Menu>
         <Menu.Item>
@@ -39,33 +43,37 @@ class LoginPage extends Component {
         })
     }
 
+
     // todo 父子通信，传text
     render() {
         return (
-            <div className='login-page-root'>
-                <div className="login-page-container">
-                    <div className='login-page-flexColumn'>
-                        <div className='login-page-head-menu'>
-                            <Dropdown overlay={menu}>
-                                <Icon type="global" className='login-page-icon'/>
-                            </Dropdown>
-                        </div>
-                        <div className='login-page-content'>
-                            {this.state.isRegister ?
-                                <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
-                                <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
-                        </div>
-                        <QueueAnim delay={200} component="div" className='login-page-footer-logo' type="bottom">
-                            <p key="0" className='login-page-footer-p'>
-                                <img key="0" alt='logo' className='pic' src={myLogo}
-                                     style={{width: "20px", height: "20px"}}/>
-                                花旗杯创新项目
-                            </p>
-                        </QueueAnim>
-                    </div>
-                </div>
+           <div className="register-page-root">
+               <div>
+                   <Header style={{background: '#FFF', height: 60}}>
+                       <Dropdown overlay={menu} className="register-page-global">
+                           <Icon type="global" />
+                       </Dropdown>
+                   </Header>
+                   <div className="register-page-width" >
+                       <div className="register-page-content" >
+                           <div className="register-page-content-form"  style={{marginTop:-150}}>
+                               <div className='login-page-content'>
+                                   {this.state.isRegister ?
+                                       <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
+                                       <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
+                               </div>
+                           </div>
+                           <div className="register-page-content-background">
+                               <img src={background} className="register-page-content-background-img"/>
+                           </div>
+                       </div>
+                   </div>
 
-            </div>
+                   <Footer className="register-page-footer" style={{background: '#FFF', height: 60}}>
+                       <p><img src={myLogo} className="register-page-logo"/>花旗杯创新组</p>
+                   </Footer>
+               </div>
+           </div>
         )
     }
 }

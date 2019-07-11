@@ -22,13 +22,13 @@ class HomePage extends React.Component{
         return (
             <Layout>
                 <div  style={backgroundStyle}>
-                    <div className="container">
-                            <div className="center">
+                    <div className="home-page-container">
+                            <div className="home-page-center">
                                 <Row gutter={24}>
-                                    <Col lg={12} md={24}>
-                                        <layout className="titleFix">
+                                    <Col lg={12} md={24} style={{marginTop:80}}>
+                                        <layout className="home-page-title-fix">
                                             <img src={New} className="new"/>
-                                            <h1 className="text" >Supply Chain Finance</h1>
+                                            <h1 className="home-page-text" >Supply Chain Finance</h1>
                                             <Button type="primary" style={{
                                                 backgroundColor:'#ff6c37',
                                                 border:'transparent',
@@ -36,7 +36,7 @@ class HomePage extends React.Component{
                                                 width:180,height:60,}}>
                                                 <b><a href="#choice" style={{color:'#FFF'}}>Get Start</a></b>
                                             </Button>
-                                            <h1 className="smallText">Manage all of your organizations</h1>
+                                            <h1 className="home-page-small-text">Manage all of your organizations</h1>
                                         </layout>
                                     </Col>
                                     <Col lg={12} md={24} style={{marginTop:50}}>
@@ -46,7 +46,7 @@ class HomePage extends React.Component{
                                     </Col>
                                 </Row>
                             </div>
-                            <div className="center">
+                            <div className="home-page-center">
                                <div className="home-flex-news">
                                    <div className="home-flex-news-components">
                                        <NewsCard/>

@@ -1,13 +1,14 @@
-.layout{
+.explore-page-layout{
   margin: 0px 0px 20px;
 
-  .car{
+
+  .explore-page-car{
     text-align: center;
     line-height: 160px;
     background: #364d79;
     overflow: hidden;
 
-    .img{
+    .explore-page-img{
       display:inline-block;
       width: 100%;/*图片自适应的父容器的宽*/
       height: 100%;/*图片自适应的父容器的高*/
@@ -17,8 +18,16 @@
 
 }
 
-.contain{
-  margin: 36px 40px 20px;
+.explore-page-contain{
+  -webkit-box-direction: normal;
+  -webkit-box-pack: justify;
+  width: 100%;
+  max-width: 1080px;
+
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+
   .explore-flex-news{
     margin-top: 50px;
     display: flex;
@@ -31,7 +40,7 @@
   }
 }
 
-.explore-flex-newsInLine{
+.explore-flex-news-in-line{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
