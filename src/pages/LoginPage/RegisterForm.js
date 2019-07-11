@@ -10,6 +10,7 @@ import {
     Button, message, Upload, Modal,
 } from 'antd';
 import QueueAnim from "rc-queue-anim";
+import Spin from "antd/es/spin";
 
 const {Option} = Select;
 
@@ -28,6 +29,7 @@ class formOfStepTwo extends React.Component {
     state = {
         previewVisible: false,
         confirmDirty: false,
+        waitRegister:false,
 
         previewImage: '',
         fileList: [
@@ -38,7 +40,6 @@ class formOfStepTwo extends React.Component {
                 url: '',
             },
         ],
-        fileListName:[]
     };
 
     handleCancel = () => this.setState({ previewVisible: false });
@@ -54,9 +55,27 @@ class formOfStepTwo extends React.Component {
         });
     };
 
+    handleRegister = (msg) =>{
+        this.setState({
+            waitRegister:msg,
+        })
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         const {changeCurrent} = this.props
+        const {fileList,} = this.state
+        let i,fileListName = ''
+        for(i = 0;i<fileList.length;i++){
+            if(fileList[i]["response"]){
+                console.log(fileList[i]["response"])
+                fileListName += fileList[i]["response"].data.code
+            }
+        }
+        console.log(fileListName)
+
+        this.props.form.setFieldsValue({fileListName:fileListName})
+
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 changeCurrent(3);
@@ -65,9 +84,14 @@ class formOfStepTwo extends React.Component {
         });
     };
 
-    handleChange = ({ fileList }) => {
+    handleChange = ({ file,fileList }) => {
         this.setState({ fileList });
+        this.setState({waitRegister:true})
+        if(file.status !== 'uploading'){
+            this.handleRegister(false)
+        }
         console.log(this.state.fileList)
+
     }
 
     beforeUpload = (file)=>{
@@ -103,11 +127,11 @@ class formOfStepTwo extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
-        const { previewVisible, previewImage, fileList } = this.state;
+        const {previewVisible, previewImage, fileList,waitRegister} = this.state;
 
         const uploadButton = (
             <div>
-                <Icon type="plus" />
+                <Icon type="plus"/>
                 <div className="ant-upload-text">Upload</div>
             </div>
         );
@@ -214,7 +238,6 @@ class formOfStepTwo extends React.Component {
                                 addonBefore={prefixSelector}
                                 style={{width: '100%'}}/>)}
                         </Form.Item>
-
                         <div>
                             <Upload
                                 action="https://scf.intellizhi.cn/user/paperUpload"
@@ -228,14 +251,16 @@ class formOfStepTwo extends React.Component {
                             </Upload>
 
                             <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                                <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                                <img alt="example" style={{width: '100%'}} src={previewImage}/>
                             </Modal>
                         </div>
 
-                        <Form.Item style={{textAlign:"center", marginTop: "-2em"}}>
-                            <Button type="primary" htmlType="submit">
-                                Register
-                            </Button>
+                        <Form.Item style={{textAlign: "center", marginTop: "-2em"}}>
+                            <Spin spinning={waitRegister}>
+                                <Button type="primary" htmlType="submit">
+                                    Register
+                                </Button>
+                            </Spin>
                         </Form.Item>
                     </Form>
                 </div>

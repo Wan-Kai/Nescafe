@@ -4,9 +4,8 @@ import './LoginPage.less'
 import myLogo from '../../assets/img/mlogo.png'
 import {Menu} from "antd";
 import Dropdown from "antd/es/dropdown";
-import RegisterForm from "./RegisterForm";
-import LoginForm from "./LoginForm";
 import QueueAnim from 'rc-queue-anim';
+import LoginForm from "./LoginForm";
 
 const menu = (
     <Menu>
@@ -51,9 +50,7 @@ class LoginPage extends Component {
                             </Dropdown>
                         </div>
                         <div className='login-page-content'>
-                            {this.state.isRegister ?
-                                <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
-                                <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
+                                <LoginForm key="0" />
                         </div>
                         <QueueAnim delay={200} component="div" className='login-page-footer-logo' type="bottom">
                             <p key="0" className='login-page-footer-p'>

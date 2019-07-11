@@ -8,6 +8,10 @@ export const alertConstants = {
 
 //user login action's constants:::
 export const userConstants = {
+    // REGISTER_REQUEST_INFO:'USERS_REGISTER_REQUEST_INFO',
+    // REGISTER_SUCCESS_INFO:'USER_REGISTER_SUCCESS_INFO',
+    // REGISTER_FAILURE_INFO:'USER_REGISTER_FAILURE',
+
     REGISTER_REQUEST:'USERS_REGISTER_REQUEST',
     REGISTER_SUCCESS:'USER_REGISTER_SUCCESS',
     REGISTER_FAILURE:'USER_REGISTER_FAILURE',
@@ -21,7 +25,6 @@ export const userConstants = {
     LOGOUT:'USER_LOGOUT',
 
     ////DONT UNDERSTAND ACTION FORM EXAMPLE
-
 }
 
 export const IAFConstants = {
@@ -30,6 +33,3 @@ export const IAFConstants = {
     MATCH_FAILURE:'FINANCE_MATCH_FAILURE',
 }
 
-export const getMonthRange = {
-    GET_MONTH_RANGE:'GET_MONTH_RANGE',
-}

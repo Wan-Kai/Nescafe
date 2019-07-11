@@ -4,9 +4,7 @@ import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 import {connect} from "react-redux";
-import {Redirect, Route} from "react-router-dom";
 import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
-import {loginActions} from "../../actions/loginAction";
 import Spin from "antd/es/spin";
 
 const {Header,Footer,Content} = Layout;
@@ -17,9 +15,6 @@ const MenuUser = (
             <a target="/user" rel="noopener noreferrer">
                 个人中心
             </a>
-            <a target="_blank" rel="noopener noreferrer">
-                未读消息
-            </a>
         </Menu.Item>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer">
@@ -29,6 +24,11 @@ const MenuUser = (
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer">
                 设置
+            </a>
+        </Menu.Item>
+        <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" >
+                退出登录
             </a>
         </Menu.Item>
 
@@ -45,7 +45,7 @@ const StillNotLogin = (
     </Menu>
 )
 
-const menu = (
+const menu =(
     <Menu>
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer">

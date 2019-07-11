@@ -56,18 +56,31 @@ function logout(){//todo 需要与服务器切断联系吗?
 //type of === array/json
 function register(type,id,callback_success,callback_failure){
     console.log("in register action")
-    axios({...baseConfigs,url:'/user/register',timeout:"2000",})
+    let url=""
+    let params = {}
+    if(type==="creditCode"){
+       url = 'company/search/findByCreditCodeContains'
+        params = {"creditCode":2767}
+    }else if(type==="orgCode"){
+        url= 'company/search/findByOrgCodeContains'
+        params = {"creditCode":2767}
+    }else{
+        //todo 股票
+    }
+    axios({...baseConfigs,url:url,timeout:"2000",params: params,method:'get'})
         .then((response)=>{
-            if(response.data.code>=200&&response.data.code<=300){
+            console.log(response)
+            if(response.status>=200&&response.status<=300){
                 //todo save the data
-                console.log("save the data ")
+                console.log("validating successfully",response)
                 callback_success();
             }else {
-                console.log("connect but error")
+                console.log("connect but error",response)
                 callback_failure()
             }
 
         }).catch((e)=>{
+            console.log(e)
             callback_failure();
     })
 

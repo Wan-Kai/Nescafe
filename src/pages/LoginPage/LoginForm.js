@@ -89,7 +89,7 @@ class loginForm extends React.Component {
                                 <Button type="primary" htmlType="submit" className="login-form-button">
                                     Log in
                                 </Button>
-                                Or <a onClick={() => this.props.handleRegister(true)} style={{fontSize: '20px'}}>register
+                                Or <a href="#/register" style={{fontSize: '20px'}}>register
                                 now!</a>
                             </Form.Item>
                         </Form>
