@@ -55,30 +55,32 @@ function logout(){//todo 需要与服务器切断联系吗?
 }
 //type of === array/json
 function register(type,id,callback_success,callback_failure){
-    console.log("in register action")
-    let url=""
-    let params = {}
-    if(type==="creditCode"){
-       url = 'company/search/findByCreditCodeContains'
-        params = {"creditCode":2767}
+    console.log("in register action",type,id)
+        if(type==="统一社会信用代码"){
+        baseConfigs.url = 'company/search/findByCreditCodeContains'
+        baseConfigs.params = {"creditCode":'2767'}
+        console.log(baseConfigs)
     }else if(type==="orgCode"){
-        url= 'company/search/findByOrgCodeContains'
-        params = {"creditCode":2767}
-    }else{
+        baseConfigs.url= 'company/search/findByCreditCodeContains'
+        baseConfigs.params = {"creditCode":'2767'}
+        console.log(baseConfigs)
+
+        }else{
         //todo 股票
-    }
-    axios({...baseConfigs,url:url,timeout:"2000",params: params,method:'get'})
+
+        }
+    axios({...baseConfigs,  timeout:"2000",method:'get'})
         .then((response)=>{
             console.log(response)
             if(response.status>=200&&response.status<=300){
                 //todo save the data
-                console.log("validating successfully",response)
-                callback_success();
+                if(response.data['_embedded']['companyList']){
+                    callback_success(response.data['_embedded']['companyList'][0]);
+                }
             }else {
                 console.log("connect but error",response)
                 callback_failure()
             }
-
         }).catch((e)=>{
             console.log(e)
             callback_failure();

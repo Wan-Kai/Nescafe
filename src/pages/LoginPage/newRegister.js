@@ -12,26 +12,27 @@ const { Step } = Steps;
 
 class formOfStepZero extends React.Component {
 
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            Validating:false,
+            Received:false,
+        }
+    }
+
 
     handleSubmitStepZero = e => {
-        const {dispatch, changeCurrent,isValidating, isReceived} = this.props
-        let Received = false
+        const {dispatch,isValidating, isReceived} = this.props
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 dispatch(receiveInfo(values["type"], values["id"], () => {
-                    Received = true
+                    this.setState({
+                        Received:true,
+                    })
                 }))
 
                 console.log(isReceived, isValidating)
-
-                while (!isValidating) {
-                    if (Received) {
-                        changeCurrent(1);
-                    } else {
-                        message.error("you send a wrong id")
-                    }
-                }
 
                 // dispatch(receiveInfo(values['type'], values['id'],
                 //     () => {
@@ -46,13 +47,10 @@ class formOfStepZero extends React.Component {
         })
     };
 
-    handleGetValue = (response) => {
-        this.values = response
-    }
-
     render() {
         const {getFieldDecorator} = this.props.form;
-        const {isValidating} = this.props;
+        const {isValidating,isReceived,changeCurrent} = this.props;
+        const {Received} = this.state
         const prefixSelector = getFieldDecorator('type', {
             initialValue: '统一社会信用代码',
         })(
@@ -64,8 +62,6 @@ class formOfStepZero extends React.Component {
         );
         return (
             <Spin spinning={isValidating}>
-                {console.log(isValidating)}
-
                 <Form layout="vertical" className='forget-forms'>
                     <Form.Item style={{marginBottom: '1em', width: 350}}>
                         {getFieldDecorator('id', {
@@ -78,17 +74,17 @@ class formOfStepZero extends React.Component {
                     </Form.Item>
                     <div className="register-page-information">
                     </div>
-
                     <Button onClick={this.handleSubmitStepZero} style={{textAlign: "center"}}>
                         Next
                     </Button>
+                    {Received||isReceived?changeCurrent(1):null}
                 </Form>
             </Spin>
 
         );
     }
 }
-
+//todo  加一个状态使得可以
 const FormOfStepZeroNotConnected = Form.create({ name: 'stepOneForm' })(formOfStepZero);
 
 
@@ -100,7 +96,7 @@ function mapStateToProps(state) {
 const FormOfStepZero = connect(mapStateToProps)(FormOfStepZeroNotConnected)
 
 
-class FormOfStepOne extends React.Component{
+class formOfStepOne extends React.Component{
 
     handleSubmitStepOne = e =>{
         const {changeCurrent} = this.props
@@ -122,27 +118,38 @@ class FormOfStepOne extends React.Component{
 
     handleReceiveInfo = (values)=>{
         return (
-            <Descriptions title="Company Info" className="register-form-descriptions">
-                <Descriptions.Item label="comName">{values["comName"]}</Descriptions.Item>
-                <Descriptions.Item label="runFrom">{values["runFrom"]}</Descriptions.Item>
-                <Descriptions.Item label="ownerName">{values["ownerName"]}</Descriptions.Item>
-                <Descriptions.Item label="comType">{values["comType"]}</Descriptions.Item>
-                <Descriptions.Item label="comAddr">{values["comAddr"]}</Descriptions.Item>
+            <Descriptions title="Company Info" className="register-form-descriptions" column={1}>
+                <Descriptions.Item label="公司地址">{values["comAddr"]}</Descriptions.Item>
+                <Descriptions.Item label="公司名称">{values["comName"]}</Descriptions.Item>
+                <Descriptions.Item label="邮箱">{values["email"]}</Descriptions.Item>
+                <Descriptions.Item label="电话">{values["phone"]}</Descriptions.Item>
+                <Descriptions.Item label="拥有人">{values["ownerName"]}</Descriptions.Item>
             </Descriptions>
         )
     }
 
-    render(){
+    render() {
+        const {response} = this.props
         return (
             <div>
-            {this.handleReceiveInfo([1,2,3,4,5])}
-            <Button onClick={this.handleOnClick}>
-                next
-            </Button>
+                <Spin spinning={false}>
+                    {response ? this.handleReceiveInfo(response) : null}
+                    <div>
+                        <Button onClick={this.handleOnClick}>
+                            确认
+                        </Button>
+                    </div>
+                </Spin>
             </div>
         )
     }
 }
+
+const FormOfStepOne = connect((state)=> {
+    const {response} = state.registration
+    return {response}
+})
+(formOfStepOne)
 
 
 class NewRegister extends React.Component {

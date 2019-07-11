@@ -8,6 +8,7 @@ import Dropdown from "antd/es/dropdown";
 import QueueAnim from 'rc-queue-anim';
 import NewRegister from "./newRegister";
 import background from "../../assets/img/backForm.png";
+import LoginForm from "./LoginForm";
 
 const {Header,Footer} = Layout;
 const menu = (
@@ -57,9 +58,7 @@ class LoginPage extends Component {
                        <div className="register-page-content" >
                            <div className="register-page-content-form"  style={{marginTop:-150}}>
                                <div className='login-page-content'>
-                                   {this.state.isRegister ?
-                                       <RegisterForm key="0" handleLogin={this.handleChangeForm.bind(this)}/> :
-                                       <LoginForm isLoading = {this.state.isLoading} data = {this.state.data} key="0" handleRegister={this.handleChangeForm.bind(this)}/>}
+                                   <LoginForm key="0" />
                                </div>
                            </div>
                            <div className="register-page-content-background">
