@@ -7,16 +7,51 @@ import {
     Icon,
     Select,
     Checkbox,
-    Button,
+    Button, message, Upload, Modal,
 } from 'antd';
 import QueueAnim from "rc-queue-anim";
 
 const {Option} = Select;
 
+function getBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+
 class formOfStepTwo extends React.Component {
 
     state = {
+        previewVisible: false,
         confirmDirty: false,
+
+        previewImage: '',
+        fileList: [
+            {
+                uid: '',
+                name: '',
+                status: '',
+                url: '',
+            },
+        ],
+        fileListName:[]
+    };
+
+    handleCancel = () => this.setState({ previewVisible: false });
+
+    handlePreview = async file => {
+        if (!file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
+        }
+
+        this.setState({
+            previewImage: file.url || file.preview,
+            previewVisible: true,
+        });
     };
 
     handleSubmit = e => {
@@ -29,6 +64,20 @@ class formOfStepTwo extends React.Component {
             }
         });
     };
+
+    handleChange = ({ fileList }) => {
+        this.setState({ fileList });
+        console.log(this.state.fileList)
+    }
+
+    beforeUpload = (file)=>{
+        const isLt2M = file.size / 1024 / 1024 < 4;
+        if (!isLt2M) {
+            message.error('Image must smaller than 4MB!');
+        }
+        return isLt2M;
+    }
+
 
     handleConfirmBlur = e => {
         const {value} = e.target;
@@ -54,6 +103,14 @@ class formOfStepTwo extends React.Component {
 
     render() {
         const {getFieldDecorator} = this.props.form;
+        const { previewVisible, previewImage, fileList } = this.state;
+
+        const uploadButton = (
+            <div>
+                <Icon type="plus" />
+                <div className="ant-upload-text">Upload</div>
+            </div>
+        );
 
         const formItemLayout = {
             labelCol: {
@@ -65,18 +122,7 @@ class formOfStepTwo extends React.Component {
                 sm: {span: 16},
             },
         };
-        const tailFormItemLayout = {
-            wrapperCol: {
-                xs: {
-                    span: 24,
-                    offset: 0,
-                },
-                sm: {
-                    span: 36,
-                    offset: 6,
-                },
-            },
-        };
+
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',
         })(
@@ -168,22 +214,25 @@ class formOfStepTwo extends React.Component {
                                 addonBefore={prefixSelector}
                                 style={{width: '100%'}}/>)}
                         </Form.Item>
-                        <Form.Item {...tailFormItemLayout} style={{width: "120%", float: "right"}}>
-                            {getFieldDecorator('agreement', {
-                                valuePropName: 'checked',
-                            })(
-                                <Checkbox style={{
-                                    float: "left",
-                                    marginTop: "-1em",
-                                    marginBottom: "-1em",
-                                    fontSize: "16px",
-                                    marginLeft: '-1em'
-                                }}>
-                                    I have read the <a href="">agreement</a>
-                                </Checkbox>,
-                            )}
-                        </Form.Item>
-                        <Form.Item {...tailFormItemLayout} style={{marginLeft: "-6em", marginTop: "-2em"}}>
+
+                        <div>
+                            <Upload
+                                action="https://scf.intellizhi.cn/user/paperUpload"
+                                listType="picture-card"
+                                onPreview={this.handlePreview}
+                                onChange={this.handleChange}
+                                name="paperFiles"
+                                beforeUpload={this.beforeUpload}
+                            >
+                                {fileList.length >= 4 ? null : uploadButton}
+                            </Upload>
+
+                            <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                                <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                            </Modal>
+                        </div>
+
+                        <Form.Item style={{textAlign:"center", marginTop: "-2em"}}>
                             <Button type="primary" htmlType="submit">
                                 Register
                             </Button>
