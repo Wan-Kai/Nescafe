@@ -1,11 +1,5 @@
 import React from 'react';
-import {Avatar, Button, Col, Input, Row, Select} from "antd";
-import myLogo from "../../../assets/img/mlogo.png";
 import './SafePage.less'
-
-const InputGroup = Input.Group;
-const { Option } = Select;
-const { TextArea } = Input;
 
 class SafePage extends React.Component{
 
