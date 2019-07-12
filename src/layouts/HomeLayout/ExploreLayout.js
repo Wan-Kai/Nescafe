@@ -27,8 +27,8 @@ const MenuUser=(handleLogOut)=> (
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a  target="_blank" rel="noopener noreferrer">
-                个人信息
+            <a target="_self" rel="noopener noreferrer" href="#/user/setting" >
+                设置
             </a>
         </Menu.Item>
         <Menu.Item>

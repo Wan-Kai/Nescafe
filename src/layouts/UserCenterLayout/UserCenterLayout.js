@@ -4,7 +4,6 @@ import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 import {connect} from "react-redux";
-import {Link} from 'react-router-dom';
 import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
 import Spin from "antd/es/spin";
 
@@ -20,11 +19,6 @@ const MenuUser = (
         <Menu.Item>
             <a target="_blank" rel="noopener noreferrer">
                 未读消息
-            </a>
-        </Menu.Item>
-        <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer">
-                个人信息
             </a>
         </Menu.Item>
         <Menu.Item>
@@ -74,7 +68,7 @@ class userCenterLayout extends Component {
         return (
             <Spin spinning={loggingIn}>
                 {console.log(localStorage.getItem("token"))}
-                <Layout>
+                <Layout style={{minHeight:'-webkit-fill-available'}}>
                 <Header style={{background: '#FFF', height: 60}} className="user-header">
                     <Menu
                         theme="light"
