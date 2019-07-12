@@ -84,19 +84,6 @@ const FormOfStepZero = connect(mapStateToProps)(FormOfStepZeroNotConnected)
 
 class formOfStepOne extends React.Component{
 
-    handleSubmitStepOne = e =>{
-        const {changeCurrent} = this.props
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err,values) => {
-            if (!err) {
-                changeCurrent(2)
-                //todo 当
-            }
-            console.log('Received values of LoginPage: ', values);
-        })
-    };
-
-
     handleReceiveInfo = (values)=>{
         return (
             <Descriptions title="Company Info" className="register-form-descriptions" column={1}>
@@ -110,13 +97,14 @@ class formOfStepOne extends React.Component{
     }
 
     render() {
-        const {response} = this.props
+        const {response,changeCurrent} = this.props
+
         return (
             <div>
                 <Spin spinning={false} style={{marginRight:"2em"}}>
                     {response ? this.handleReceiveInfo(response) : null}
                     <div>
-                        <Button onClick={this.handleSubmitStepOne}>
+                        <Button onClick={()=>changeCurrent(2)}>
                             确认
                         </Button>
                     </div>

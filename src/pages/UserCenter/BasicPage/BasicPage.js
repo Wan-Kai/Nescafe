@@ -1,82 +1,159 @@
 import React from 'react';
-import {Avatar, Button, Col, Input, Row, Select} from "antd";
-import myLogo from "../../../assets/img/mlogo.png";
+import { Form,
+    Input,
+    Tooltip,
+    Icon,
+    Select,
+    Button,} from "antd";
+import {connect} from "react-redux";
+import Spin from "antd/es/spin";
+import {getGraphData} from "../../../actions/fetchDataAction";
 
-const InputGroup = Input.Group;
 const { Option } = Select;
 const { TextArea } = Input;
 
-class BasicPage extends React.Component{
 
 
-    render(){
-        return(
-            <div className="user-center-setting-main" style={{display:"flex"}}>
-                <div className="user-center-setting-table">
-                    <h2>基本设置</h2>
-                    <div className="user-center-setting-page-components">
-                        <p>邮箱</p>
-                        <Input style={{ width: '50%' }} defaultValue="email"/>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>昵称</p>
-                        <Input style={{ width: '50%' }} defaultValue="Lee Zhi"/>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>个人简介</p>
-                        <TextArea rows={4}/>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>国家/地区</p>
-                        <Select defaultValue="China">
-                            <Option value="China">中国</Option>
-                            <Option value="England">英国</Option>
-                        </Select>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>所在省市</p>
-                        <InputGroup compact>
-                            <Select defaultValue="Option1-1">
-                                <Option value="Option1-1">省份</Option>
-                                <Option value="Option1-2">省份</Option>
-                            </Select>
-                            <Select defaultValue="Option2-2">
-                                <Option value="Option2-1">市级</Option>
-                                <Option value="Option2-2">市级</Option>
-                            </Select>
-                        </InputGroup>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>街道地址</p>
-                        <Input style={{ width: '50%' }} defaultValue="街道地址"/>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <p>联系电话</p>
-                        <InputGroup size="large">
-                            <Row gutter={8}>
-                                <Col span={5}>
-                                    <Input defaultValue="0571" />
-                                </Col>
-                                <Col span={8}>
-                                    <Input defaultValue="26888888" />
-                                </Col>
-                            </Row>
-                        </InputGroup>
-                    </div>
-                    <div className="user-center-setting-page-components">
-                        <Button type="primary">更新基本信息</Button>
-                    </div>
-                </div>
+class updateInfoForm extends React.Component {
+    state = {
+        confirmDirty: false,
+    };
 
-                <div className="user-center-setting-avatar">
-                    <p>头像</p>
-                    <Avatar src={myLogo} style={{width:150,height:150}}/><br/>
-                    <Button type="primary" shape="round" icon="download">更换头像</Button>
-                </div>
-            </div>
-        )
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
+
+    handleConfirmBlur = e => {
+        const { value } = e.target;
+        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+    };
+
+    compareToFirstPassword = (rule, value, callback) => {
+        const { form } = this.props;
+        if (value && value !== form.getFieldValue('password')) {
+            callback('Two passwords that you enter is inconsistent!');
+        } else {
+            callback();
+        }
+    };
+
+    validateToNextPassword = (rule, value, callback) => {
+        const { form } = this.props;
+        if (value && this.state.confirmDirty) {
+            form.validateFields(['confirm'], { force: true });
+        }
+        callback();
+    };
+
+    componentWillMount(): void {
+        const {dispatch} = this.props
+        dispatch(getGraphData("infoData"))
     }
 
+    render() {
+        const {getFieldDecorator} = this.props.form;
+        const prefixSelector = getFieldDecorator('prefix', {
+            initialValue: '86',
+        })(
+            <Select style={{width: 70}}>
+                <Option value="86">+86</Option>
+                <Option value="10">+10</Option>
+            </Select>,
+        );
+
+        const {isGetting, isDone, responseData} = this.props
+
+        return (
+            <div>
+                <Spin spinning={isGetting}>
+                    {isDone ? (<Form onSubmit={this.handleSubmit}>
+                        <Form.Item label="邮箱">
+                            {getFieldDecorator('email', {
+                                rules: [
+                                    {
+                                        type: 'email',
+                                        message: 'The input is not valid E-mail!',
+                                    },
+                                    {
+                                        required: false,
+                                    },
+                                ],
+                            })(<Input defaultValue={responseData["email"]}/>)}
+                        </Form.Item>
+                        <Form.Item
+                            label={<span>名称&nbsp;
+                                <Tooltip title="What do you want others to call you?">
+                                <Icon type="question-circle-o"/>
+                            </Tooltip>
+                        </span>}>
+                            {getFieldDecorator('nickname', {
+                                rules: [{required: false, whitespace: true}],
+                            })(<Input defaultValue={responseData["nickName"]}/>)}
+                        </Form.Item>
+                        <Form.Item
+                            label="个人简介">
+                            {getFieldDecorator('introduce', {
+                                rules: [{required: false, whitespace: true}],
+                            })(<TextArea rows={3}/>)}
+                        </Form.Item>
+                        <Form.Item label="密码" hasFeedback>
+                            {getFieldDecorator('password', {
+                                rules: [
+                                    {
+                                        required: false,
+                                    },
+                                    {
+                                        validator: this.validateToNextPassword,
+                                    },
+                                ],
+                            })(<Input.Password/>)}
+                        </Form.Item>
+                        <Form.Item label="确认密码" hasFeedback>
+                            {getFieldDecorator('confirm', {
+                                rules: [
+                                    {
+                                        required: false,
+                                        message: 'Please confirm your password!',
+                                    },
+                                    {
+                                        validator: this.compareToFirstPassword,
+                                    },
+                                ],
+                            })(<Input.Password onBlur={this.handleConfirmBlur}/>)}
+                        </Form.Item>
+
+                        <Form.Item label="电话号码">
+                            {getFieldDecorator('phone', {
+                                rules: [{required: false}],
+                            })(<Input addonBefore={prefixSelector}
+                                      style={{width: '100%'}}
+                                      defaultValue={responseData["phone"]}/>)}
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit">
+                                Register
+                            </Button>
+                        </Form.Item>
+                    </Form>) : null}
+                </Spin>
+
+            </div>
+        );
+    }
 }
 
-export default BasicPage;
+const updateForm = Form.create({ name: 'register' })(updateInfoForm);
+
+function mapStateToProps(state){
+    const { isGetting, isDone, responseData } = state.transport
+    return { isGetting, isDone, responseData }
+}
+
+const UpdateInfoForm = connect(mapStateToProps)(updateForm)
+
+export default UpdateInfoForm;

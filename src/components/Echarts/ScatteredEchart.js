@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactEcharts from 'echarts-for-react/lib/index';
 import Spin from "antd/es/spin";
-import {getGraphData} from "../../actions/graphDataAction";
+import {getGraphData} from "../../actions/fetchDataAction";
 import {connect} from 'react-redux';
 
 const labelTop = {
