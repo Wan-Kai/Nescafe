@@ -13,14 +13,14 @@ class PersonCard extends React.Component{
                         <div>
                             <div className="Ava">
                                 <Avatar size={100} src={Company} />
-                                <p style={{fontSize:20, marginBottom:2,marginTop:5}}><b>百度</b></p>
-                                <p>宏彦获水</p>
+                                <p style={{fontSize:20, marginBottom:2,marginTop:5}}><b>Lee</b></p>
+                                <p>李智获水</p>
                             </div>
 
                             <div className="text">
                                 <p><Icon type="setting" style={{marginRight:12}}/>AI专家</p>
-                                <p><Icon type="setting" style={{marginRight:12}}/>垃圾浏览器</p>
-                                <p><Icon type="setting" style={{marginRight:12}}/>没什么卵用</p>
+                                <p><Icon type="setting" style={{marginRight:12}}/>浏览器专家</p>
+                                <p><Icon type="setting" style={{marginRight:12}}/>前端专家</p>
                             </div>
 
                         </div>

@@ -15,7 +15,7 @@ class SafePage extends React.Component{
                             <p>你的************</p>
                         </div>
                         <div className="user-center-safe-table-href">
-                            <a>修改</a>
+                            <a href="#/user/detail" target='_self'>修改</a>
                         </div>
                     </div>
                     <div className="user-center-safe-table-item">
@@ -24,7 +24,7 @@ class SafePage extends React.Component{
                             <p>你的************</p>
                         </div>
                         <div className="user-center-safe-table-href">
-                            <a>修改</a>
+                            <a href="#/user/detail" target='_self'>修改</a>
                         </div>
                     </div>
                     <div className="user-center-safe-table-item">
@@ -33,7 +33,7 @@ class SafePage extends React.Component{
                             <p>你的************</p>
                         </div>
                         <div className="user-center-safe-table-href">
-                            <a>修改</a>
+                            <a href="#/user/detail" target='_self'>修改</a>
                         </div>
                     </div>
                     <div className="user-center-safe-table-item">
@@ -42,7 +42,7 @@ class SafePage extends React.Component{
                             <p>你的************</p>
                         </div>
                         <div className="user-center-safe-table-href">
-                            <a>修改</a>
+                            <a href="#/user/detail" target='_self'>修改</a>
                         </div>
                     </div>
                     <div className="user-center-safe-table-item">
@@ -51,7 +51,7 @@ class SafePage extends React.Component{
                             <p>你的************</p>
                         </div>
                         <div className="user-center-safe-table-href">
-                            <a>修改</a>
+                            <a href="#/user/detail" target='_self'>修改</a>
                         </div>
                     </div>
                 </div>

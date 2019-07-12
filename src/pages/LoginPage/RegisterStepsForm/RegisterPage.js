@@ -36,7 +36,7 @@ class RegisterPage extends Component {
     // todo 父子通信，传text
     render() {
         return (
-           <div className="register-page-root">
+           <div className="register-page-root" style={{minHeight:'-webkit-fill-available'}}>
                <div>
                    <Header style={{background: '#FFF', height: 60}}>
                        <Dropdown overlay={menu} className="register-page-global">

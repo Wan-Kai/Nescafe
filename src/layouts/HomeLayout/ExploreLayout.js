@@ -47,7 +47,7 @@ class exploreLayout extends React.Component{
     render(){
         const { children,loggedIn } = this.props;
         return (
-            <Layout>
+            <Layout className="home-page-layout" style={{minHeight:'-webkit-fill-available'}}>
                 <Header style={{ background: '#FFF', padding: 0,height:60}}>
                     <div className="headerInLeft">
                         <h2 style={{color:'#000000',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>

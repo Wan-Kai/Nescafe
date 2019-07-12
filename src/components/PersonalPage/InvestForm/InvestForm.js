@@ -50,9 +50,8 @@ class investForm extends React.Component{
         const {getFieldDecorator} = this.props.form;
 
         return (
-
             //todo 字体大小  基本状态redux
-            <div className="invest-root">
+            <div className="invest-root" >
                 <div className='invest-container'>
                     <QueueAnim delay={100} component="div" type="left">
                         <div key='0' className="invest-left-search">

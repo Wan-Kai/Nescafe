@@ -4,6 +4,7 @@ import './UserCenterLayout.less';
 import mlogo from "../../assets/img/mlogo.png";
 import Badge from "antd/es/badge";
 import {connect} from "react-redux";
+import {Link} from 'react-router-dom';
 import ExceptionsPage from '../../pages/ExceptionPages/Exceptions'
 import Spin from "antd/es/spin";
 
@@ -27,7 +28,7 @@ const MenuUser = (
             </a>
         </Menu.Item>
         <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="#/user/setting">
+            <a target="_self" rel="noopener noreferrer" href="#/user/setting" >
                 设置
             </a>
         </Menu.Item>
@@ -87,7 +88,7 @@ class userCenterLayout extends Component {
                         <Menu.Item key="2">新闻中心</Menu.Item>
                         <Menu.Item key="3">资信排行</Menu.Item>
                         <Menu.Item key="4">行情中心</Menu.Item>
-
+                        <Menu.Item key="5"><a href="#/">返回主页</a></Menu.Item>
                         <img alt='logo' className="user-logo" src={mlogo} />
                         <div className='menu-float-right'>
                             <Dropdown overlay={loggedIn ? MenuUser : StillNotLogin}>
