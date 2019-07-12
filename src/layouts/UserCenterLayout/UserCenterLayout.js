@@ -105,7 +105,9 @@ class userCenterLayout extends Component {
                         {!initLogin?null:loggedIn?children:<ExceptionsPage status="403"/>}
                     </Content>
 
-                <Footer style={{background: '#FFF'}} className="user-footer">Copyright by Wan</Footer>
+                <Footer style={{background: '#FFF'}} className="user-footer">
+                    © 2019 PixelCube, All right reserved
+                </Footer>
             </Layout>
             </Spin>
         )

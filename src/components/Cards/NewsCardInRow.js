@@ -7,11 +7,10 @@ class NewsCardInRow extends React.Component{
     render(){
         return(
             <div >
-
                 <Card hoverable>
                     <div className="news-cardInRow-flex">
                         <div className="news-cardInRow-flex-component-img">
-                            <img alt="img" src={Temp} style={{height:200}}/>
+                            <img alt="img" src={Temp} style={{height:180}}/>
                         </div>
                         <div className="news-cardInRow-flex-component-text">
 

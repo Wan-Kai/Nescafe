@@ -4,15 +4,15 @@ import myLogo from "../../../assets/img/mlogo.png";
 import './AccountPage.less'
 import {connect} from 'react-redux'
 import Spin from "antd/es/spin";
-import {getGraphData} from "../../../actions/fetchDataAction";
+import {getGraphData} from "../../../actions/fetchDataAction"
+import './TransactionsPage.less'
 
-class accountPage extends React.Component{
+class transactionsPage extends React.Component{
     constructor(props, context) {
         super(props, context);
         this.state = {
             responseData:null
         }
-
     }
 
 
@@ -135,6 +135,6 @@ function mapStateToProps(state){
     return {isFetching,isFetched}
 }
 
-const AccountPage = connect(mapStateToProps)(accountPage)
+const TransactionsPage = connect(mapStateToProps)(transactionsPage)
 
-export default AccountPage;
+export default TransactionsPage;
