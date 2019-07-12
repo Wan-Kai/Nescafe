@@ -2,7 +2,7 @@ import axios from 'axios'
 import {baseConfigs} from "./configs";
 
 const header = {
-    "X-Auth-Token":localStorage.getItem("token"),
+    "X-Auth-Token":localStorage.getItem("token").toString(),
     "X-Requested-With":"XMLHttpRequest"
 }
 

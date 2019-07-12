@@ -49,7 +49,7 @@ class homeLayout extends React.Component{
     render(){
         const { children,loggedIn } = this.props;
         return (
-            <Layout>
+            <Layout className="home-page-layout" style={{minHeight:'-webkit-fill-available'}}>
                 <Header style={{ background: '#96cfc9', padding: 0,height:60}}>
                     <div className="headerInLeft">
                         <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
@@ -70,7 +70,7 @@ class homeLayout extends React.Component{
                                                 <Avatar icon="user"/>
                                             </Badge>
                                         </span>
-                                    </Dropdown>
+                            </Dropdown>
                         ):rightTopMenu}
                     </div>
                 </Header>
@@ -82,6 +82,7 @@ class homeLayout extends React.Component{
                         <p>Copyright by Wan</p>
                     </div>
                 </Footer>
+
             </Layout>
         );
     }
