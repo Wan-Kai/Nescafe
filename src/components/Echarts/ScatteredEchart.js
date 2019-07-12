@@ -273,7 +273,7 @@ class scatteredEchart extends Component{
     }
 
     render() {
-        const{isDone,isGetting,dispatch} = this.props
+        const{isDone,isGetting} = this.props
         return (
             <div>
                 <Spin spinning={isGetting}>
