@@ -19,18 +19,6 @@ const labelTop = {
         }
     }
 };
-const labelFromatter = {
-    normal : {
-        label : {
-            formatter : function (params){
-                return 100 - params.value + '%'
-            },
-            textStyle: {
-                baseline : 'top'
-            }
-        }
-    },
-}
 const labelBottom = {
     normal : {
         color: '#ccc',
@@ -105,7 +93,21 @@ class scatteredEchart extends Component{
                     center : ['15%', '18%'],
                     radius : radius,
                     x: '20%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                      show:false,
+                    },
                     data : [
                         {name:'other', value:46, itemStyle : labelBottom},
                         {name:'资产负债率', value:responseData[1],itemStyle : labelTop}
@@ -116,7 +118,21 @@ class scatteredEchart extends Component{
                     center : ['40%', '18%'],
                     radius : radius,
                     x:'20%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:56, itemStyle : labelBottom},
                         {name:'流动比率', value:responseData[2],itemStyle : labelTop}
@@ -127,7 +143,21 @@ class scatteredEchart extends Component{
                     center : ['65%', '18%'],
                     radius : radius,
                     x:'40%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:65, itemStyle : labelBottom},
                         {name:'应收账款周转率', value:responseData[3],itemStyle : labelTop}
@@ -138,7 +168,21 @@ class scatteredEchart extends Component{
                     center : ['90%', '18%'],
                     radius : radius,
                     x:'60%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:70, itemStyle : labelBottom},
                         {name:'销售毛利率', value:responseData[4],itemStyle : labelTop}
@@ -149,7 +193,21 @@ class scatteredEchart extends Component{
                     center : ['27%', '40%'],
                     radius : radius,
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:73, itemStyle : labelBottom},
                         {name:'现金比率', value:responseData[5],itemStyle : labelTop}
@@ -161,7 +219,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x: '0%',    // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
                         {name:'资产报酬率', value:responseData[6],itemStyle : labelTop}
@@ -173,7 +245,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'20%',    // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
                         {name:'销售收入增长率', value:responseData[7],itemStyle : labelTop}
@@ -185,7 +271,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'40%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
                         {name:'总资产增长率', value:responseData[8],itemStyle : labelTop}
@@ -197,7 +297,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'60%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:83, itemStyle : labelBottom},
                         {name:'企业规模', value:responseData[9],itemStyle : labelTop}
@@ -209,7 +323,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
                         {name:'运营能力', value:responseData[10],itemStyle : labelTop}
@@ -221,7 +349,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
                         {name:'上下游企业产品依赖程度', value:responseData[11],itemStyle : labelTop}
@@ -233,7 +375,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
                         {name:'物流企业准时交货率', value:responseData[12],itemStyle : labelTop}
@@ -245,7 +401,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
                         {name:'物流企业货物收发正确率', value:[13],itemStyle : labelTop}
@@ -257,7 +427,21 @@ class scatteredEchart extends Component{
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
-                    itemStyle : labelFromatter,
+                    label : {
+                        position: 'center',
+                        formatter : function (params){
+                            if(params.name === 'other')
+                                return 100 - params.value + '%'
+                            return params.value + '%'
+                        },
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine:{
+                        show:false,
+                    },
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
                         {name:'质押物价格变动', value:responseData[14],itemStyle : labelTop}
