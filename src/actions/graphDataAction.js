@@ -22,6 +22,7 @@ export function getGraphData(type) {
         GetGraphData(type,(values)=>{
             dispatch(success(type,values))
         },(err)=>{
+            console.log("failure")
             dispatch(failure(type,err))
         })
     }

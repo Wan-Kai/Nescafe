@@ -81,13 +81,13 @@ class app extends Component {
               <LayoutRoute
                   exact
                   path="/user/setting"
-                  layout={ExploreLayout}
+                  layout={User}
                   component={UserSetting}
               />
               <LayoutRoute
                   exact
                   path="/user/detail"
-                  layout={ExploreLayout}
+                  layout={User}
                   component={DetailPage}
               />
               <Route

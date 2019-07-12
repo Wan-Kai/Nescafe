@@ -14,7 +14,7 @@ class InvestCard extends React.Component{
                 >
                     <h2 style={{color:'#FFF'}}>I Want Invest</h2>
                     <Button type="primary" shape="round" size="large" style={{backgroundColor:'#ff6c37',border:'transparent',marginTop:20}}>
-                        <b><a href="#/user/detail" style={{color:'#FFF'}}>Go For It</a></b>
+                        <b><a href="#/user/invest" style={{color:'#FFF'}}>Go For It</a></b>
                     </Button>
                 </Card>
             </div>

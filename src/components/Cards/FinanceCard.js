@@ -13,7 +13,7 @@ class FinanceCard extends React.Component{
                 >
                     <h2 style={{color:'#FFF'}}>I Want Finance</h2>
                     <Button type="primary" shape="round" size="large" style={{backgroundColor:'#ff6c37',border:'transparent',marginTop:20}}>
-                        <b><a href="#/user/setting" style={{color:'#FFF'}}>Go For It</a></b>
+                        <b><a href="#/user/finance" style={{color:'#FFF'}}>Go For It</a></b>
                     </Button>
                 </Card>
             </div>
