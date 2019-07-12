@@ -40,8 +40,8 @@ class scatteredEchart extends Component{
     propTypes() {
     };
 
-    getOption() {
-        const {responseData} = this.props
+    getOption(responseData) {
+
         const option = {
             legend: {
                 x : 'center',
@@ -109,8 +109,8 @@ class scatteredEchart extends Component{
                       show:false,
                     },
                     data : [
-                        {name:'other', value:46, itemStyle : labelBottom},
-                        {name:'资产负债率', value:responseData[1],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["assetsDebtRatio"], itemStyle : labelBottom},
+                        {name:'资产负债率', value:responseData["assetsDebtRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -134,8 +134,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:56, itemStyle : labelBottom},
-                        {name:'流动比率', value:responseData[2],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["assetsFlowRatio"], itemStyle : labelBottom},
+                        {name:'流动比率', value:responseData["assetsFlowRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -159,8 +159,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:65, itemStyle : labelBottom},
-                        {name:'应收账款周转率', value:responseData[3],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["assetsGrowthRatio"], itemStyle : labelBottom},
+                        {name:'应收账款周转率', value:responseData["assetsGrowthRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -184,8 +184,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:70, itemStyle : labelBottom},
-                        {name:'销售毛利率', value:responseData[4],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["assetsRevenueRatio"], itemStyle : labelBottom},
+                        {name:'销售毛利率', value:responseData["assetsRevenueRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -209,8 +209,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:73, itemStyle : labelBottom},
-                        {name:'现金比率', value:responseData[5],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["assetsTurnoverRatio"], itemStyle : labelBottom},
+                        {name:'现金比率', value:responseData["assetsTurnoverRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -235,8 +235,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'资产报酬率', value:responseData[6],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["cashRatio"], itemStyle : labelBottom},
+                        {name:'资产报酬率', value:responseData["cashRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -261,8 +261,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'销售收入增长率', value:responseData[7],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["comScale"], itemStyle : labelBottom},
+                        {name:'销售收入增长率', value:responseData["comScale"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -287,8 +287,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'总资产增长率', value:responseData[8],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["goodsDependence"], itemStyle : labelBottom},
+                        {name:'总资产增长率', value:responseData["goodsDependence"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -313,8 +313,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:83, itemStyle : labelBottom},
-                        {name:'企业规模', value:responseData[9],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["marginProfitRatio"], itemStyle : labelBottom},
+                        {name:'企业规模', value:responseData["marginProfitRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -339,8 +339,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'运营能力', value:responseData[10],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["operateAbility"], itemStyle : labelBottom},
+                        {name:'运营能力', value:responseData["operateAbility"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -365,8 +365,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'上下游企业产品依赖程度', value:responseData[11],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["priceChange"], itemStyle : labelBottom},
+                        {name:'上下游企业产品依赖程度', value:responseData["priceChange"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -391,8 +391,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'物流企业准时交货率', value:responseData[12],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["profitGrowthRatio"], itemStyle : labelBottom},
+                        {name:'物流企业准时交货率', value:responseData["profitGrowthRatio"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -417,8 +417,8 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'物流企业货物收发正确率', value:[13],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["transCorrection"], itemStyle : labelBottom},
+                        {name:'物流企业货物收发正确率', value:responseData["transCorrection"],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -443,26 +443,27 @@ class scatteredEchart extends Component{
                         show:false,
                     },
                     data : [
-                        {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'质押物价格变动', value:responseData[14],itemStyle : labelTop}
+                        {name:'other', value:100-responseData["transPunctuation"], itemStyle : labelBottom},
+                        {name:'质押物价格变动', value:responseData["transPunctuation"],itemStyle : labelTop}
                     ]
                 }
             ]
         }
         return option;
     }
+
     componentWillMount(): void {
         const {dispatch} = this.props
         dispatch(getGraphData('ScatteredEchart'))
     }
 
     render() {
-        const{isDone,isGetting} = this.props
+        const{isDone,isGetting,responseData} = this.props
         return (
             <div>
                 <Spin spinning={isGetting}>
                 {isDone? (<ReactEcharts
-                    option={this.getOption()}
+                    option={this.getOption(responseData)}
                     style={{height: '700px', width: '100%',background:'#FFF'}}
                     className='react_for_echarts' />)
                         :null}

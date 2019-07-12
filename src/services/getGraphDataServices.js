@@ -13,8 +13,9 @@ export function GetGraphData(type,callback_success,callback_failure){
             console.log(baseConfigs.headers)
             console.log("service print: ",response)
             if(response.data.code>=200&&response.data.code<=300){
-                if(response.data["data"]){
-                    callback_success(response.data.data["creditInfo"])
+                const values = response.data["data"]["creditInfo"]
+                if(values){
+                    callback_success(values[values.length-1])
                 }
             }else{
                 callback_failure(response.data)
