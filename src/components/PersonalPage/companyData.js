@@ -44,7 +44,7 @@ class CompanyForm extends React.Component
                                 theme="light" mode="horizontal"
                                 defaultSelectedKeys={['articles']}
                             >
-                                <Menu.Item key='project' onClick={()=>this.handleMenuItemClick("project")}>文章</Menu.Item>
+                                <Menu.Item key='project' onClick={()=>this.handleMenuItemClick("project")}>数据</Menu.Item>
                                 <Menu.Item key='applications' onClick={()=>this.handleMenuItemClick("applications")}>应用</Menu.Item>
                             </Menu>
                         </div>

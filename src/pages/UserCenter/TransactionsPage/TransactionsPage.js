@@ -1,17 +1,17 @@
 import React from 'react';
 import {Progress} from 'antd';
 import myLogo from "../../../assets/img/mlogo.png";
-import './AccountPage.less'
+import './TransactionsPage.less'
 
 
-class AccountPage extends React.Component{
+class TransactionsPage extends React.Component{
 
 
     render(){
         return(
             <div className="user-center-account-main" style={{display:"flex"}}>
                 <div className="user-center-account-table" style={{width:'-webkit-fill-available'}}>
-                    <h2>基本列表</h2>
+                    <h2>交易列表</h2>
                     <div className="user-center-account-table-item">
                         <div className="user-center-account-table-text">
                             <div className="user-center-account-table-text-item">
@@ -144,4 +144,4 @@ class AccountPage extends React.Component{
 
 }
 
-export default AccountPage;
+export default TransactionsPage;

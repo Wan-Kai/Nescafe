@@ -52,7 +52,7 @@ class homeLayout extends React.Component{
             <Layout className="home-page-layout" style={{minHeight:'-webkit-fill-available'}}>
                 <Header style={{ background: '#96cfc9', padding: 0,height:60}}>
                     <div className="headerInLeft">
-                        <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>Pixel Cube</h2>
+                        <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>PixelCube</h2>
                         <Search
                             placeholder="input search text"
                             onSearch={value => console.log(value)}
@@ -79,7 +79,7 @@ class homeLayout extends React.Component{
                 </Content>
                 <Footer style={{background:'#000000'}}>
                     <div className="home-footer" >
-                        <p>Copyright by Wan</p>
+                        <p>© 2019 PixelCube, All right reserved</p>
                     </div>
                 </Footer>
 

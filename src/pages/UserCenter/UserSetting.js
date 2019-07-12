@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card,Menu} from 'antd';
 import BasicPage from './BasicPage/BasicPage';
-import AccountPage from './AccountPage/AccountPage';
+import TransactionsPage from './TransactionsPage/TransactionsPage';
 import MassagePage from './MassagePage/MassagePage';
 import SafePage from './SafePage/SafePage';
 
@@ -21,8 +21,8 @@ class UserSetting extends React.Component{
         if (temp === 'safePage') {
             return <SafePage />;
         }
-        if (temp === 'accountPage') {
-            return <AccountPage />;
+        if (temp === 'transactions') {
+            return <TransactionsPage />;
         }
         if (temp === 'massagePage') {
             return <MassagePage />;
@@ -37,7 +37,7 @@ class UserSetting extends React.Component{
         if(key === 'safePage'){
             this.setState({tabKey: key});
         }
-        if(key === 'accountPage'){
+        if(key === 'transactions'){
             this.setState({tabKey: key});
         }
         if(key === 'massagePage'){
@@ -60,7 +60,7 @@ class UserSetting extends React.Component{
                                 >
                                     <Menu.Item key='basicPage' onClick={()=>this.handleMenuItemClick("basicPage")}>基本设置</Menu.Item>
                                     <Menu.Item key='safePage' onClick={()=>this.handleMenuItemClick("safePage")}>安全设置</Menu.Item>
-                                    <Menu.Item key='accountPage' onClick={()=>this.handleMenuItemClick("accountPage")}>账号绑定</Menu.Item>
+                                    <Menu.Item key='transactions' onClick={()=>this.handleMenuItemClick("transactions")}>交易进度</Menu.Item>
                                     <Menu.Item key='massagePage' onClick={()=>this.handleMenuItemClick("massagePage")}>新消息通知</Menu.Item>
                                 </Menu>
                             </div>

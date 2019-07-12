@@ -49,11 +49,44 @@ class AuthPage extends React.Component {
 
                     </div>
 
-                    <div className="explore-flex-news-in-line">
-                        <Row>
-                            <NewsCardInRow/>
-                        </Row>
+                    <div style={{marginTop:20}}>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
+                        <div className="explore-flex-news-in-line">
+                            <Row>
+                                <NewsCardInRow/>
+                            </Row>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
