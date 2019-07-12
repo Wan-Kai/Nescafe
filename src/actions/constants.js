@@ -21,3 +21,9 @@ export const IAFConstants = {
     MATCH_FAILURE:'FINANCE_MATCH_FAILURE',
 }
 
+export const graphDataConstants = {
+    GET_DATA_REQUEST:'DATA_REQUEST',
+    GET_DATA_SUCCESS:'GET_DATA_SUCCESS',
+    GET_DATA_fAILURE:'GET_DATA_FAILURE'
+}
+

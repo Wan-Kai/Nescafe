@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import ReactEcharts from 'echarts-for-react/lib/index';
+import Spin from "antd/es/spin";
+import {getGraphData} from "../../actions/graphDataAction";
+import {connect} from 'react-redux';
 
 const labelTop = {
     normal : {
@@ -45,18 +48,21 @@ const labelBottom = {
 };
 const radius = [40, 55];
 
-class ScatteredEchart extends Component{
+class scatteredEchart extends Component{
     propTypes() {
     };
 
     getOption() {
+        const {responseData} = this.props
         const option = {
             legend: {
                 x : 'center',
                 y : '52%',
                 data:[
-                    '资产负债率','Facebook','Youtube','Google+','Weixin',
-                    'Twitter', 'Skype', 'Messenger', 'Whatsapp', 'Instagram'
+                    '资产负债率','流动比率','应收账款周转率','销售毛利率',
+                    '现金比率', '资产报酬率', '销售收入增长率',
+                    '总资产增长率', '企业规模', '运营能力','上下游企业产品依赖程度',
+                    '物流企业准时交货率', '物流企业货物收发正确率','质押物价格变动'
                 ]
             },
             title : {
@@ -102,7 +108,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:46, itemStyle : labelBottom},
-                        {name:'资产负债率', value:54,itemStyle : labelTop}
+                        {name:'资产负债率', value:responseData[1],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -113,7 +119,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:56, itemStyle : labelBottom},
-                        {name:'Facebook', value:44,itemStyle : labelTop}
+                        {name:'流动比率', value:responseData[2],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -124,7 +130,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:65, itemStyle : labelBottom},
-                        {name:'Youtube', value:35,itemStyle : labelTop}
+                        {name:'应收账款周转率', value:responseData[3],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -135,7 +141,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:70, itemStyle : labelBottom},
-                        {name:'Google+', value:30,itemStyle : labelTop}
+                        {name:'销售毛利率', value:responseData[4],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -146,7 +152,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:73, itemStyle : labelBottom},
-                        {name:'Weixin', value:27,itemStyle : labelTop}
+                        {name:'现金比率', value:responseData[5],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -158,7 +164,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'Twitter', value:100,itemStyle : labelTop}
+                        {name:'资产报酬率', value:responseData[6],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -170,7 +176,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'Skype', value:22,itemStyle : labelTop}
+                        {name:'销售收入增长率', value:responseData[7],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -182,7 +188,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'Messenger', value:22,itemStyle : labelTop}
+                        {name:'总资产增长率', value:responseData[8],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -194,7 +200,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:83, itemStyle : labelBottom},
-                        {name:'Whatsapp', value:17,itemStyle : labelTop}
+                        {name:'企业规模', value:responseData[9],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -206,7 +212,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'Instagram', value:11,itemStyle : labelTop}
+                        {name:'运营能力', value:responseData[10],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -218,7 +224,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'Instagram', value:11,itemStyle : labelTop}
+                        {name:'上下游企业产品依赖程度', value:responseData[11],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -230,7 +236,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'Instagram', value:11,itemStyle : labelTop}
+                        {name:'物流企业准时交货率', value:responseData[12],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -242,7 +248,7 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'Instagram', value:11,itemStyle : labelTop}
+                        {name:'物流企业货物收发正确率', value:[13],itemStyle : labelTop}
                     ]
                 },
                 {
@@ -254,23 +260,40 @@ class ScatteredEchart extends Component{
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:89, itemStyle : labelBottom},
-                        {name:'Instagram', value:11,itemStyle : labelTop}
+                        {name:'质押物价格变动', value:responseData[14],itemStyle : labelTop}
                     ]
                 }
             ]
         }
         return option;
     }
+    componentWillMount(): void {
+        const {dispatch} = this.props
+        dispatch(getGraphData('ScatteredEchart'))
+    }
 
     render() {
+        const{isDone,isGetting,dispatch} = this.props
         return (
-            <ReactEcharts
-                option={this.getOption()}
-                style={{height: '700px', width: '100%',background:'#FFF'}}
-                className='react_for_echarts' />
+            <div>
+                <Spin spinning={isGetting}>
+                {isDone? (<ReactEcharts
+                    option={this.getOption()}
+                    style={{height: '700px', width: '100%',background:'#FFF'}}
+                    className='react_for_echarts' />)
+                        :null}
+                </Spin>
+            </div>
         );
     }
 
 }
+
+function mapStateToProps(state) {
+    const {isGetting,isDone,responseData} = state.transport
+    return{isGetting,isDone,responseData}
+}
+
+const ScatteredEchart = connect(mapStateToProps)(scatteredEchart)
 
 export default ScatteredEchart;
