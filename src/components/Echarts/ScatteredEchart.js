@@ -32,7 +32,7 @@ const labelBottom = {
     normal : {
         color: '#ccc',
         label : {
-            show : true,
+            show : false,
             position : 'center'
         },
         labelLine : {
@@ -53,15 +53,14 @@ class ScatteredEchart extends Component{
         const option = {
             legend: {
                 x : 'center',
-                y : 'center',
+                y : '52%',
                 data:[
-                    'GoogleMaps','Facebook','Youtube','Google+','Weixin',
+                    '资产负债率','Facebook','Youtube','Google+','Weixin',
                     'Twitter', 'Skype', 'Messenger', 'Whatsapp', 'Instagram'
                 ]
             },
             title : {
-                text: 'The App World',
-                subtext: 'from global web index',
+                text: '信用信息',
                 x: 'center'
             },
             toolbox: {
@@ -97,18 +96,18 @@ class ScatteredEchart extends Component{
             series : [
                 {
                     type : 'pie',
-                    center : ['10%', '30%'],
+                    center : ['15%', '18%'],
                     radius : radius,
-                    x: '0%', // for funnel
+                    x: '20%', // for funnel
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:46, itemStyle : labelBottom},
-                        {name:'GoogleMaps', value:54,itemStyle : labelTop}
+                        {name:'资产负债率', value:54,itemStyle : labelTop}
                     ]
                 },
                 {
                     type : 'pie',
-                    center : ['30%', '30%'],
+                    center : ['40%', '18%'],
                     radius : radius,
                     x:'20%', // for funnel
                     itemStyle : labelFromatter,
@@ -119,7 +118,7 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['50%', '30%'],
+                    center : ['65%', '18%'],
                     radius : radius,
                     x:'40%', // for funnel
                     itemStyle : labelFromatter,
@@ -130,7 +129,7 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['70%', '30%'],
+                    center : ['90%', '18%'],
                     radius : radius,
                     x:'60%', // for funnel
                     itemStyle : labelFromatter,
@@ -141,7 +140,7 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['90%', '30%'],
+                    center : ['27%', '40%'],
                     radius : radius,
                     x:'80%', // for funnel
                     itemStyle : labelFromatter,
@@ -152,19 +151,19 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['10%', '70%'],
+                    center : ['53%', '40%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x: '0%',    // for funnel
                     itemStyle : labelFromatter,
                     data : [
                         {name:'other', value:78, itemStyle : labelBottom},
-                        {name:'Twitter', value:22,itemStyle : labelTop}
+                        {name:'Twitter', value:100,itemStyle : labelTop}
                     ]
                 },
                 {
                     type : 'pie',
-                    center : ['30%', '70%'],
+                    center : ['79%', '40%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'20%',    // for funnel
@@ -176,7 +175,7 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['50%', '70%'],
+                    center : ['15%', '70%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'40%', // for funnel
@@ -188,7 +187,7 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['70%', '70%'],
+                    center : ['40%', '70%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'60%', // for funnel
@@ -200,7 +199,55 @@ class ScatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
+                    center : ['65%', '70%'],
+                    radius : radius,
+                    y: '55%',   // for funnel
+                    x:'80%', // for funnel
+                    itemStyle : labelFromatter,
+                    data : [
+                        {name:'other', value:89, itemStyle : labelBottom},
+                        {name:'Instagram', value:11,itemStyle : labelTop}
+                    ]
+                },
+                {
+                    type : 'pie',
                     center : ['90%', '70%'],
+                    radius : radius,
+                    y: '55%',   // for funnel
+                    x:'80%', // for funnel
+                    itemStyle : labelFromatter,
+                    data : [
+                        {name:'other', value:89, itemStyle : labelBottom},
+                        {name:'Instagram', value:11,itemStyle : labelTop}
+                    ]
+                },
+                {
+                    type : 'pie',
+                    center : ['27%', '92%'],
+                    radius : radius,
+                    y: '55%',   // for funnel
+                    x:'80%', // for funnel
+                    itemStyle : labelFromatter,
+                    data : [
+                        {name:'other', value:89, itemStyle : labelBottom},
+                        {name:'Instagram', value:11,itemStyle : labelTop}
+                    ]
+                },
+                {
+                    type : 'pie',
+                    center : ['53%', '92%'],
+                    radius : radius,
+                    y: '55%',   // for funnel
+                    x:'80%', // for funnel
+                    itemStyle : labelFromatter,
+                    data : [
+                        {name:'other', value:89, itemStyle : labelBottom},
+                        {name:'Instagram', value:11,itemStyle : labelTop}
+                    ]
+                },
+                {
+                    type : 'pie',
+                    center : ['79%', '92%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
@@ -219,7 +266,7 @@ class ScatteredEchart extends Component{
         return (
             <ReactEcharts
                 option={this.getOption()}
-                style={{height: '500px', width: '100%',background:'#FFF'}}
+                style={{height: '700px', width: '100%',background:'#FFF'}}
                 className='react_for_echarts' />
         );
     }

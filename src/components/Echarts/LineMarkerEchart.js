@@ -7,14 +7,14 @@ class LineMarkerEchart extends Component{
     getOption() {
         const option = {
             title: {
-                text: '未来一周气温变化',
-                subtext: '纯属虚构'
+                text: '过去六月交易情况',
+                // subtext: '纯属虚构'
             },
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
-                data:['最高气温','最低气温']
+                data:['新增交易','完成交易']
             },
             toolbox: {
                 show: true,
@@ -31,19 +31,19 @@ class LineMarkerEchart extends Component{
             xAxis:  {
                 type: 'category',
                 boundaryGap: false,
-                data: ['周一','周二','周三','周四','周五','周六','周日']
+                data: ['一月','二月','三月','四月','五月','六月']
             },
             yAxis: {
                 type: 'value',
                 axisLabel: {
-                    formatter: '{value} °C'
+                    formatter: '{value} '
                 }
             },
             series: [
                 {
-                    name:'最高气温',
+                    name:'新增交易',
                     type:'line',
-                    data:[11, 11, 15, 13, 12, 13, 10],
+                    data:[11, 11, 15, 13, 12, 13],
                     markPoint: {
                         data: [
                             {type: 'max', name: '最大值'},
@@ -57,12 +57,12 @@ class LineMarkerEchart extends Component{
                     }
                 },
                 {
-                    name:'最低气温',
+                    name:'完成交易',
                     type:'line',
-                    data:[1, -2, 2, 5, 3, 2, 0],
+                    data:[1, 2, 2, 5, 3, 2],
                     markPoint: {
                         data: [
-                            {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                            {name: '周最低', value: 1, xAxis: 1, yAxis: 1}
                         ]
                     },
                     markLine: {

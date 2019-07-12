@@ -73,7 +73,6 @@ class BarEchart extends Component{
         return option;
     };
     render() {
-
         return (
             <ReactEcharts
                 option={this.getOption()}

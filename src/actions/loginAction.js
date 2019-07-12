@@ -30,9 +30,8 @@ function checkLogin(token){
 
         dispatch({type:userConstants.CHECK_LOGIN_REQUEST})
         console.log("before service function",token)
-        userService.checkLogin(token,(token)=>{
+        userService.checkLogin(token,()=>{
             dispatch({type: userConstants.LOGIN_SUCCESS})
-            localStorage.setItem('token', token)
         },(e)=>{
             dispatch({type: userConstants.CHECK_LOGIN_FAILURE, error: e.toString()})
         })
