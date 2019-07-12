@@ -16,6 +16,7 @@ import {loginActions} from "./actions/loginAction";
 import {Route} from "react-router";
 import RegisterPage from "./pages/LoginPage/RegisterStepsForm/RegisterPage";
 import UserSetting from './pages/UserCenter/UserSetting';
+import DetailPage from './pages/DetailPage/DetailPage';
 
 
 class app extends Component {
@@ -82,6 +83,12 @@ class app extends Component {
                   path="/user/setting"
                   layout={ExploreLayout}
                   component={UserSetting}
+              />
+              <LayoutRoute
+                  exact
+                  path="/user/detail"
+                  layout={ExploreLayout}
+                  component={DetailPage}
               />
               <Route
                   path='/register'
