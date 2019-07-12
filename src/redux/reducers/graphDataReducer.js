@@ -1,7 +1,7 @@
 import {graphDataConstants} from "../../actions/constants";
 
 const initialState = {isFetching:false,isFetched:true,
-                    filter:null,responseData:[],error:null}
+                    filter:null,error:null}
 
 export function transport(state = initialState,action){
     switch (action.type) {
@@ -17,7 +17,6 @@ export function transport(state = initialState,action){
                 ...state,
                 isFetching:false,
                 isFetched:true,
-                responseData: action.data
             }
         case graphDataConstants.GET_DATA_fAILURE:
             return {

@@ -19,6 +19,7 @@ const { TextArea } = Input;
 class updateInfoForm extends React.Component {
     state = {
         confirmDirty: false,
+        responseData:[]
     };
 
     handleSubmit = e => {
@@ -56,7 +57,10 @@ class updateInfoForm extends React.Component {
 
     componentWillMount(): void {
         const {dispatch} = this.props
-        dispatch(getGraphData("infoData"))
+        dispatch(getGraphData("infoData",
+            (msg)=>{
+            this.setState({responseData:msg})
+        }))
     }
 
     render() {
@@ -70,7 +74,8 @@ class updateInfoForm extends React.Component {
             </Select>,
         );
 
-        const {isFetching, isFetched, responseData,isSubmitting,isSubmitted} = this.props
+        const {isFetching, isFetched,isSubmitting,isSubmitted} = this.props
+        const {responseData} = this.state
 
         return (
             <div>
@@ -154,9 +159,9 @@ class updateInfoForm extends React.Component {
 const updateForm = Form.create({ name: 'register' })(updateInfoForm);
 
 function mapStateToProps(state){
-    const { isFetching, isFetched, responseData } = state.transport
+    const { isFetching, isFetched,  } = state.transport
     const {isSubmitting,isSubmitted,isFailure} = state.submitFormData
-    return { isFetching, isFetched, responseData,isSubmitting,isSubmitted,isFailure }
+    return { isFetching, isFetched,isSubmitting,isSubmitted,isFailure }
 }
 
 const UpdateInfoForm = connect(mapStateToProps)(updateForm)

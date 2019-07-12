@@ -37,6 +37,14 @@ const labelBottom = {
 const radius = [40, 55];
 
 class scatteredEchart extends Component{
+    constructor(props, context) {
+        super(props, context);
+        this.state={
+            responseData:{},
+        }
+    }
+
+
     propTypes() {
     };
 
@@ -267,7 +275,7 @@ class scatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['15%', '70%'],
+                    center : ['15%', '72%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'40%', // for funnel
@@ -293,7 +301,7 @@ class scatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['40%', '70%'],
+                    center : ['40%', '72%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'60%', // for funnel
@@ -319,7 +327,7 @@ class scatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['65%', '70%'],
+                    center : ['65%', '72%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
@@ -345,7 +353,7 @@ class scatteredEchart extends Component{
                 },
                 {
                     type : 'pie',
-                    center : ['90%', '70%'],
+                    center : ['90%', '72%'],
                     radius : radius,
                     y: '55%',   // for funnel
                     x:'80%', // for funnel
@@ -454,15 +462,19 @@ class scatteredEchart extends Component{
 
     componentWillMount(): void {
         const {dispatch} = this.props
-        dispatch(getGraphData('ScatteredEchart'))
+        dispatch(getGraphData('ScatteredEchart',
+            (msg)=>{
+                this.setState({responseData:msg})
+            }))
     }
 
     render() {
-        const{isFetched,isFetching,responseData} = this.props
+        const{isFetched,isFetching,} = this.props
+        const {responseData} = this.state
         return (
             <div>
-                <Spin spinning={isFetching}>
-                {isFetched? (<ReactEcharts
+                <Spin spinning={isFetching&&!responseData}>
+                {isFetched&&responseData? (<ReactEcharts
                     option={this.getOption(responseData)}
                     style={{height: '700px', width: '100%',background:'#FFF'}}
                     className='react_for_echarts' />)
@@ -475,8 +487,8 @@ class scatteredEchart extends Component{
 }
 
 function mapStateToProps(state) {
-    const {isFetching,isFetched,responseData} = state.transport
-    return{isFetching,isFetched,responseData}
+    const {isFetching,isFetched,} = state.transport
+    return{isFetching,isFetched,}
 }
 
 const ScatteredEchart = connect(mapStateToProps)(scatteredEchart)

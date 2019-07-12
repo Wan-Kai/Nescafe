@@ -47,7 +47,6 @@ export function GetGraphData(type,callback_success,callback_failure){
                     callback_success(values)
                 }else if(type==='historyTrade'){
                     const values = response.data['data']['historyTrade']
-                    console.log("??????????????????",values)
                     callback_success(values)
                 }
             }else{

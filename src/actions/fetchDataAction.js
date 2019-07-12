@@ -5,9 +5,9 @@ function request(type) {
     return {type:graphDataConstants.GET_DATA_REQUEST,filter:type}
 }
 
-function success(type,values) {
+function success(type) {
     return {type:graphDataConstants.GET_DATA_SUCCESS,
-        filter:type,data:values}
+        filter:type}
 }
 
 function failure(type, err) {
@@ -15,12 +15,15 @@ function failure(type, err) {
         err:err}
 }
 
-export function getGraphData(type) {
+export function getGraphData(type,callback) {
     return dispatch=>{
         dispatch(request(type))
         GetGraphData(type,(values)=>{
+            if(typeof callback ==='function'){
+                callback(values)
+                console.log("!!!!!!!!!!!!!!!!!!",values)
+            }
             dispatch(success(type,values))
-            console.log("!!!!!!!!!!!!!!!!!!",values)
         },(err)=>{
             console.log("failure")
             dispatch(failure(type,err))
