@@ -78,8 +78,39 @@ class exploreLayout extends React.Component{
                 </Content>
                 <Footer style={{background:'#000000'}}>
                     <div className="home-footer" >
-                        <p>© 2019 PixelCube, All right reserved</p>
+                        <div className="home-footer-item" style={{width:'30%'}}>
+                            <div className="home-footer-item-logo">
+                                <img src={Logo} style={{width:80,height:80}}/>
+                                <div  className="home-footer-item-logo-text">
+                                    <h1 className="home-footer-item-logo-text-h1">花旗杯创新项目</h1>
+                                    <h2 className="home-footer-item-logo-text-h2">Citicup Innovation</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="home-footer-item" style={{width:'10%'}}>
+                            <div className="home-footer-item-item">
+                                <a className="home-footer-item-text">关于我们</a>
+                                <p className="home-footer-item-text-small-text">团队</p>
+                                <p className="home-footer-item-text-small-text">产品</p>
+                            </div>
+
+                        </div>
+                        <div className="home-footer-item" style={{width:'10%'}}>
+                            <div className="home-footer-item-item">
+                                <a className="home-footer-item-text">特性</a>
+                                <p className="home-footer-item-text-small-text">服务</p>
+                                <p className="home-footer-item-text-small-text">影响</p>
+                            </div>
+                        </div>
+                        <div className="home-footer-item" style={{width:'10%'}}>
+                            <div className="home-footer-item-item">
+                                <a className="home-footer-item-text">博客</a>
+                                <p className="home-footer-item-text-small-text">条款和条件</p>
+                                <p className="home-footer-item-text-small-text">隐私</p>
+                            </div>
+                        </div>
                     </div>
+                    <p className="home-footer-foot-text">© 2019 PixelCube, All right reserved</p>
                 </Footer>
             </Layout>
         );

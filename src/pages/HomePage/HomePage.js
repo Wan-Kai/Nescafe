@@ -32,16 +32,35 @@ class HomePage extends React.Component{
                                                 width:180,height:60,}}>
                                                 <b><a href="#choice" style={{color:'#FFF'}}>Get Start</a></b>
                                             </Button>
-                                            <h1 className="home-page-small-text">Manage all of your organizations</h1>
+                                            <div className="home-page-small-text-contain">
+                                                <h1 className="home-page-small-text">High-Availability, High-Relibility,
+                                                    based on solid theoretical foundation.</h1>
+                                                <h1 className="home-page-small-text"> A Financing Credit Risk Assessment System</h1>
+                                            </div>
                                         </layout>
                                     </Col>
                                     <Col lg={12} md={24} style={{marginTop:50}}>
                                         <div style={{marginLeft:100}}>
-                                            <img alt="" src={Layer1}/>
+                                            <img  src={Layer1}/>
                                         </div>
                                     </Col>
                                 </Row>
                             </div>
+
+                        <div className="home-page-big-text-contain">
+                            <div className="home-page-big-text-contain-item">
+                                <h1 className="home-page-big-text-contain-item-text">2724 +</h1>
+                                <h1 className="home-page-big-text-contain-item-text2">Companies</h1>
+                            </div>
+                            <div className="home-page-big-text-contain-item">
+                                <h1 className="home-page-big-text-contain-item-text">12,000 +</h1>
+                                <h1 className="home-page-big-text-contain-item-text2">Data</h1>
+                            </div>
+                            <div className="home-page-big-text-contain-item">
+                                <h1 className="home-page-big-text-contain-item-text">3</h1>
+                                <h1 className="home-page-big-text-contain-item-text2">Algorithm</h1>
+                            </div>
+                        </div>
                             <div className="home-page-center">
                                <div className="home-flex-news">
                                    <div className="home-flex-news-components">
