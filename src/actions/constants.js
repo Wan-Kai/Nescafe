@@ -27,3 +27,9 @@ export const graphDataConstants = {
     GET_DATA_fAILURE:'GET_DATA_FAILURE'
 }
 
+export const submitDataConstants = {
+    SUBMIT_DATA_REQUEST:'SUBMIT_FORM_DATA_REQUEST',
+    SUBMIT_DATA_SUCCESS:'SUBMIT_FORM_DATA_SUCCESS',
+    SUBMIT_DATA_FAILURE:'SUBMIT_FORM_DATA_FAILURE',
+}
+

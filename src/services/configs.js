@@ -33,3 +33,7 @@ export const baseConfigs = {
         return status >= 200 && status < 300 // default
     },
 }
+
+export const header = {
+
+}

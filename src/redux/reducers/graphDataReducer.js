@@ -1,6 +1,6 @@
 import {graphDataConstants} from "../../actions/constants";
 
-const initialState = {isGetting:false,isDone:true,
+const initialState = {isFetching:false,isFetched:true,
                     filter:null,responseData:[],error:null}
 
 export function transport(state = initialState,action){
@@ -8,21 +8,22 @@ export function transport(state = initialState,action){
         case graphDataConstants.GET_DATA_REQUEST:
             return {
                 ...state,
-                isGetting: true,
-                isDone: false,
+                responseData:[],
+                isFetching: true,
+                isFetched: false,
             }
         case graphDataConstants.GET_DATA_SUCCESS:
             return {
                 ...state,
-                isGetting:false,
-                isDone:true,
+                isFetching:false,
+                isFetched:true,
                 responseData: action.data
             }
         case graphDataConstants.GET_DATA_fAILURE:
             return {
                 ...state,
-                isGetting:false,
-                isDone:false,
+                isFetching:false,
+                isFetched:false,
                 error: action.err
             }
         default:

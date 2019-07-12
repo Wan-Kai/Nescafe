@@ -458,11 +458,11 @@ class scatteredEchart extends Component{
     }
 
     render() {
-        const{isDone,isGetting,responseData} = this.props
+        const{isFetched,isFetching,responseData} = this.props
         return (
             <div>
-                <Spin spinning={isGetting}>
-                {isDone? (<ReactEcharts
+                <Spin spinning={isFetching}>
+                {isFetched? (<ReactEcharts
                     option={this.getOption(responseData)}
                     style={{height: '700px', width: '100%',background:'#FFF'}}
                     className='react_for_echarts' />)
@@ -475,8 +475,8 @@ class scatteredEchart extends Component{
 }
 
 function mapStateToProps(state) {
-    const {isGetting,isDone,responseData} = state.transport
-    return{isGetting,isDone,responseData}
+    const {isFetching,isFetched,responseData} = state.transport
+    return{isFetching,isFetched,responseData}
 }
 
 const ScatteredEchart = connect(mapStateToProps)(scatteredEchart)

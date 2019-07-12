@@ -8,6 +8,8 @@ import { Form,
 import {connect} from "react-redux";
 import Spin from "antd/es/spin";
 import {getGraphData} from "../../../actions/fetchDataAction";
+import {Redirect} from "react-router";
+import {submitData} from "../../../actions/submitDataAction";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -24,6 +26,8 @@ class updateInfoForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                const {dispatch} = this.props
+                dispatch(submitData("updateInfo",values['email'],values['phone'],values['nickname'],values['password']))
             }
         });
     };
@@ -66,12 +70,13 @@ class updateInfoForm extends React.Component {
             </Select>,
         );
 
-        const {isGetting, isDone, responseData} = this.props
+        const {isFetching, isFetched, responseData,isSubmitting,isSubmitted} = this.props
 
         return (
             <div>
-                <Spin spinning={isGetting}>
-                    {isDone ? (<Form onSubmit={this.handleSubmit}>
+                {isSubmitted?<Redirect to='/user'/>:null}
+                <Spin spinning={isFetching||isSubmitting}>
+                    {isFetched ? (<Form onSubmit={this.handleSubmit}>
                         <Form.Item label="邮箱">
                             {getFieldDecorator('email', {
                                 rules: [
@@ -82,8 +87,15 @@ class updateInfoForm extends React.Component {
                                     {
                                         required: false,
                                     },
-                                ],
-                            })(<Input defaultValue={responseData["email"]}/>)}
+                                ],initialValue: responseData["email"]})(<Input/>)}
+                        </Form.Item>
+                        <Form.Item label="电话号码">
+                            {getFieldDecorator('phone', {
+                                rules: [{required: false}],
+                                initialValue:responseData["phone"],
+                            })(<Input addonBefore={prefixSelector}
+                                      style={{width: '100%'}}
+                            />)}
                         </Form.Item>
                         <Form.Item
                             label={<span>名称&nbsp;
@@ -93,7 +105,8 @@ class updateInfoForm extends React.Component {
                         </span>}>
                             {getFieldDecorator('nickname', {
                                 rules: [{required: false, whitespace: true}],
-                            })(<Input defaultValue={responseData["nickName"]}/>)}
+                                initialValue:responseData["nickName"]
+                            })(<Input/>)}
                         </Form.Item>
                         <Form.Item
                             label="个人简介">
@@ -126,14 +139,6 @@ class updateInfoForm extends React.Component {
                                 ],
                             })(<Input.Password onBlur={this.handleConfirmBlur}/>)}
                         </Form.Item>
-
-                        <Form.Item label="电话号码">
-                            {getFieldDecorator('phone', {
-                                rules: [{required: false}],
-                            })(<Input addonBefore={prefixSelector}
-                                      style={{width: '100%'}}
-                                      defaultValue={responseData["phone"]}/>)}
-                        </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit">
                                 Register
@@ -141,7 +146,6 @@ class updateInfoForm extends React.Component {
                         </Form.Item>
                     </Form>) : null}
                 </Spin>
-
             </div>
         );
     }
@@ -150,8 +154,9 @@ class updateInfoForm extends React.Component {
 const updateForm = Form.create({ name: 'register' })(updateInfoForm);
 
 function mapStateToProps(state){
-    const { isGetting, isDone, responseData } = state.transport
-    return { isGetting, isDone, responseData }
+    const { isFetching, isFetched, responseData } = state.transport
+    const {isSubmitting,isSubmitted,isFailure} = state.submitFormData
+    return { isFetching, isFetched, responseData,isSubmitting,isSubmitted,isFailure }
 }
 
 const UpdateInfoForm = connect(mapStateToProps)(updateForm)
