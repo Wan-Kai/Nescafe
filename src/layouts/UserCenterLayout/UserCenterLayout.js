@@ -88,7 +88,7 @@ class userCenterLayout extends Component {
                         <Menu.Item key="3">资信排行</Menu.Item>
                         <Menu.Item key="4">行情中心</Menu.Item>
 
-                        <img alt='logo' className="user-logo" src={mlogo}/>
+                        <img alt='logo' className="user-logo" src={mlogo} />
                         <div className='menu-float-right'>
                             <Dropdown overlay={loggedIn ? MenuUser : StillNotLogin}>
                                 <span style={{marginRight: '1em'}}>
