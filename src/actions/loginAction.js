@@ -32,10 +32,8 @@ function checkLogin(token){
         console.log("before service function",token)
         userService.checkLogin(token,(token)=>{
             dispatch({type: userConstants.LOGIN_SUCCESS})
-            console.log("in check login in the token", token)
             localStorage.setItem('token', token)
         },(e)=>{
-            console.log("in check login in failure", e)
             dispatch({type: userConstants.CHECK_LOGIN_FAILURE, error: e.toString()})
         })
     }

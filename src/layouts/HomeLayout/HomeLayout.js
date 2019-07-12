@@ -17,7 +17,7 @@ const rightTopMenu = (  <Button type="primary" shape="round" size="default" styl
 const MenuUser=(handleLogOut)=> (
     <Menu>
         <Menu.Item>
-            <a href="/user" target="/user" rel="noopener noreferrer">
+            <a href="#/user" rel="noopener noreferrer">
                 个人中心
             </a>
         </Menu.Item>
