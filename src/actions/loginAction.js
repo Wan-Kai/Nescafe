@@ -26,9 +26,7 @@ function login(username,password,callback){
 
 function checkLogin(token){
     return dispatch=>{
-        console.log("before service function",token)
         dispatch({type:userConstants.CHECK_LOGIN_REQUEST})
-        console.log("before service function",token)
         userService.checkLogin(token,()=>{
             dispatch({type: userConstants.LOGIN_SUCCESS})
         },(e)=>{

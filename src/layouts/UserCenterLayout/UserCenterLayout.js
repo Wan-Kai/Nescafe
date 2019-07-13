@@ -67,7 +67,6 @@ class userCenterLayout extends Component {
         const {children,loggedIn,initLogin,loggingIn} = this.props;
         return (
             <Spin spinning={loggingIn}>
-                {console.log(localStorage.getItem("token"))}
                 <Layout style={{minHeight:'-webkit-fill-available'}}>
                 <Header style={{background: '#FFF', height: 60}} className="user-header">
                     <Menu

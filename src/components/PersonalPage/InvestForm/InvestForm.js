@@ -28,7 +28,6 @@ class investForm extends React.Component{
 
         this.props.form.validateFields((err,values)=>{
             if(!err){
-                console.log('Receive values of form: ',values)
                 //todo:when finished the function of AXIOS,back here to do sth
 
             }
@@ -36,11 +35,9 @@ class investForm extends React.Component{
     }
 
     handleMonthRange = (value) =>{
-        console.log(value)
         if(!value[0]||!value[1]){
 
         }else if(value[0]&&value[1]){
-            console.log([value[0].format('YYYYMM'),value[1].format('YYYYMM')])
             this.setState({monthRange:[value[0].format('YYYYMM'),value[1].format('YYYYMM')]})
         }
     }

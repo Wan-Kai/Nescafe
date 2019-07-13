@@ -76,7 +76,6 @@ class formOfStepTwo extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 changeCurrent(3);
-                console.log('Received values of LoginPage: ', values);
             }
         });
     };

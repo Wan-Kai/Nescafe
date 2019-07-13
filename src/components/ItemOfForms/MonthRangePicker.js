@@ -44,7 +44,6 @@ class MonthRangePicker extends React.Component {
 
     onEndChange = value => {
         this.onChange('endValue', value);
-        console.log(value)
         this.handleEndOpenChange(false,value)
     };
 

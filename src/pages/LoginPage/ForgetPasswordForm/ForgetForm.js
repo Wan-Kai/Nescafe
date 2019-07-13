@@ -14,7 +14,6 @@ class formOfStepOne extends React.Component{
             if(!err){
                 //todo dowith DB;
                 this.props.changeCurrent(1);
-                console.log('Received values of LoginPage: ', values);
             }
         })
     };
@@ -79,7 +78,6 @@ class formOfStepTwo extends React.Component{
                 //todo 数据库io处理
                 this.props.changeCurrent(2);
                 this.props.doneAndCancel();//异步关闭对话框
-                console.log('Received values of LoginPage: ', values)
             }
         })
     };

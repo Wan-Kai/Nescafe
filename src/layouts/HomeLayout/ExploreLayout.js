@@ -53,7 +53,6 @@ class exploreLayout extends React.Component{
                         <h2 style={{color:'#000000',width: 180}}><img src={Logo} className="home-logo"/>PixelCube</h2>
                         <Search
                             placeholder="input search text"
-                            onSearch={value => console.log(value)}
                             style={{ width: 150 ,height:30,marginTop:16}}
                         />
                         <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:30,lineHeight:2.5,marginTop:6}}>
@@ -62,7 +61,6 @@ class exploreLayout extends React.Component{
                         </Menu>
                     </div>
                     <div className="headerInRight">
-                        {console.log(loggedIn)}
                         {loggedIn?(<Dropdown overlay= {MenuUser(this.handleLogOut)}>
                                         <span style={{marginRight: '1em'}}>
                                             <Badge count={1}>

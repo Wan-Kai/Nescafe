@@ -55,7 +55,6 @@ class homeLayout extends React.Component{
                         <h2 style={{color:'#FFF',width: 180}}><img src={Logo} className="home-logo"/>PixelCube</h2>
                         <Search
                             placeholder="input search text"
-                            onSearch={value => console.log(value)}
                             style={{ width: 150 ,height:30,marginTop:16}}
                         />
                         <Menu mode="horizontal" style={{float:'left',background:'transparent',marginLeft:30,lineHeight:2.5,marginTop:6}}>

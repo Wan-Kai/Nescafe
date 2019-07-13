@@ -31,7 +31,6 @@ class formOfStepZero extends React.Component {
                     })
                 }))
             }
-            console.log('Received values of LoginPage: ', values);
         })
     };
 

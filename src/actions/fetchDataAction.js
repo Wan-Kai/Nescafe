@@ -21,11 +21,9 @@ export function getGraphData(type,callback) {
         GetGraphData(type,(values)=>{
             if(typeof callback ==='function'){
                 callback(values)
-                console.log("!!!!!!!!!!!!!!!!!!",values)
             }
             dispatch(success(type,values))
         },(err)=>{
-            console.log("failure")
             dispatch(failure(type,err))
         })
     }

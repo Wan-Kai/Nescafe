@@ -1,7 +1,6 @@
 import React from 'react';
 import {Progress} from 'antd';
 import myLogo from "../../../assets/img/mlogo.png";
-import './AccountPage.less'
 import {connect} from 'react-redux'
 import Spin from "antd/es/spin";
 import {getGraphData} from "../../../actions/fetchDataAction"
@@ -29,7 +28,6 @@ class transactionsPage extends React.Component{
     render() {
         const {isFetching, isFetched} = this.props
         const {responseData} = this.state
-        console.log(responseData)
         return (
             <div>
                 <Spin spinning={isFetching&&!responseData}>

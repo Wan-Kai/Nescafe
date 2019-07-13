@@ -22,16 +22,13 @@ export function SubmitData(params,type,callback_success,callback_failure){
     axios({...baseConfigs,params:configsPara,url:URL,headers:header,timeout:4000})
         .then((response)=>{
             if(response.data.code>=200&&response.data.code<=300){
-                console.log(response)
                 callback_success()
             }else{
-                console.log(response)
                 callback_failure("get code:",response.data.code)
             }
         })
         .catch((e)=>{
             callback_failure(e)
-            console.log(e)
     })
 
 }

@@ -26,7 +26,6 @@ class updateInfoForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
                 const {dispatch} = this.props
                 dispatch(submitData("updateInfo",values['email'],values['phone'],values['nickname'],values['password']))
             }

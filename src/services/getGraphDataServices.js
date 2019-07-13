@@ -36,8 +36,6 @@ export function GetGraphData(type,callback_success,callback_failure){
     }
         axios(configs)
         .then((response)=>{
-            console.log(baseConfigs.headers)
-            console.log("service print: ",response)
             if(response.data.code>=200&&response.data.code<=300){
                 if(type==='ScatteredEchart'){
                     const values = response.data["data"]["creditInfo"]
