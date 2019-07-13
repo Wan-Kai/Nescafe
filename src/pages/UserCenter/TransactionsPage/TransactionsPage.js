@@ -40,11 +40,11 @@ class transactionsPage extends React.Component{
                                         <div className="user-center-account-table-text-item">
                                             <img src={myLogo} style={{height: 50, width: 50, marginBottom: 5}}/>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 200}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>{responseData[0]['projectName']}</p>
                                             <p>{responseData[0]['projectDescription']}</p>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 100}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>开始时间</p>
                                             <p>{responseData[0]['startTime']}</p>
                                         </div>
@@ -61,11 +61,11 @@ class transactionsPage extends React.Component{
                                         <div className="user-center-account-table-text-item">
                                             <img src={myLogo} style={{height: 50, width: 50, marginBottom: 5}}/>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 200}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>{responseData[1]['projectName']}</p>
                                             <p>{responseData[1]['projectDescription']}</p>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 100}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>开始时间</p>
                                             <p>{responseData[1]['startTime']}</p>
                                         </div>
@@ -82,11 +82,11 @@ class transactionsPage extends React.Component{
                                         <div className="user-center-account-table-text-item">
                                             <img src={myLogo} style={{height: 50, width: 50, marginBottom: 5}}/>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 200}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>{responseData[2]['projectName']}</p>
                                             <p>{responseData[2]['projectDescription']}</p>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 100}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>开始时间</p>
                                             <p>{responseData[2]['startTime']}</p>
                                         </div>
@@ -103,17 +103,18 @@ class transactionsPage extends React.Component{
                                         <div className="user-center-account-table-text-item">
                                             <img src={myLogo} style={{height: 50, width: 50, marginBottom: 5}}/>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 200}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>{responseData[3]['projectName']}</p>
                                             <p>{responseData[3]['projectDescription']}</p>
                                         </div>
-                                        <div className="user-center-account-table-text-item" style={{width: 100}}>
+                                        <div className="user-center-account-table-text-item" style={{width: 150}}>
                                             <p>开始时间</p>
                                             <p>{responseData[3]['startTime']}</p>
                                         </div>
                                         <div className="user-center-account-table-text-item" style={{width: 100}}>
                                             <Progress percent={responseData[3]['procedure'] / 5 * 100} size="small"/>
                                         </div>
+
                                     </div>
                                     <div className="user-center-account-table-href">
                                         <a href="#/user/detail" target='_self'>查看</a>
