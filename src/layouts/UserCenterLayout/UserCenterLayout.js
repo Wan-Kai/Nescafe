@@ -105,7 +105,7 @@ class userCenterLayout extends Component {
                     </Content>
 
                 <Footer style={{background: '#FFF'}} className="user-footer">
-                    © 2019 PixelCube, All right reserved
+                    © 2019 PixelCube, All right reserved.
                 </Footer>
             </Layout>
             </Spin>
