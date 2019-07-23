@@ -15,12 +15,14 @@ function login(username,password,callback){
 
     return dispatch=>{
         dispatch(request());
-        userService.login(username,password,()=>{
+        userService.login(username,password,
+            ()=>{
             if (typeof callback==='function') {
                 callback();
             }
             dispatch(success())
-        },(e)=>dispatch(failure(e)))
+        },
+            (e)=>dispatch(failure(e)))
     };
 }
 

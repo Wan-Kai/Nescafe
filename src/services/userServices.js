@@ -1,11 +1,13 @@
 import axios from 'axios'
 import {baseConfigs} from './configs'
+import { message } from 'antd';
 export const userService = {
     login,
     logout,
     register,
     checkLogin,
 }
+
 
 
 function login(username, password, callback_success,callback_failure) {
@@ -15,12 +17,16 @@ function login(username, password, callback_success,callback_failure) {
             if(response.data.code>=200&&response.data.code<=300){
                 localStorage.setItem('token',response.data.data['X-Auth-Token'])
                 callback_success();
+                message.success("loading success",1.0)
             }else {
                 callback_failure("wrong password")
+                message.error("validation fails",1.0)
             }
         })//todo .then add more action
         .catch((e)=>{
             callback_failure(e)
+            message.error("network problem",1.0)
+
             // return false
         })
 }
